@@ -1,0 +1,26 @@
+<div class="d-flex justify-content-center">
+    <div *ngIf="dataLoaded==false" class="spinner-grow text-primary" role="status">
+        <span class="visually-hidden">Loading...</span>
+    </div>
+</div>
+<table *ngIf="dataLoaded!=false" class="table">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>companyName</th>
+            <th>firstName</th>
+            <th>nickName</th>
+            <th>email</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let customerDetailDto of customerDetailDtos">
+            <td>{{customerDetailDto.id}}</td>
+            <td>{{customerDetailDto.companyName}}</td>
+            <td>{{customerDetailDto.firstName}}</td>
+            <td>{{customerDetailDto.lastName}}</td>
+            <td>{{customerDetailDto.nickName}}</td>
+            <td>{{customerDetailDto.email}}</td>
+        </tr>
+    </tbody>
+</table>
