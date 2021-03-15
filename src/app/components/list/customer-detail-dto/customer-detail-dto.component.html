@@ -6,21 +6,42 @@
 <table *ngIf="dataLoaded!=false" class="table">
     <thead>
         <tr>
-            <th>ID</th>
-            <th>companyName</th>
-            <th>firstName</th>
-            <th>nickName</th>
-            <th>email</th>
+
         </tr>
     </thead>
     <tbody>
         <tr *ngFor="let customerDetailDto of customerDetailDtos">
-            <td>{{customerDetailDto.id}}</td>
-            <td>{{customerDetailDto.companyName}}</td>
-            <td>{{customerDetailDto.firstName}}</td>
-            <td>{{customerDetailDto.lastName}}</td>
-            <td>{{customerDetailDto.nickName}}</td>
-            <td>{{customerDetailDto.email}}</td>
+
         </tr>
     </tbody>
 </table>
+<div class="card" *ngIf="dataLoaded==true">
+    <h5>Programmatic Control</h5>
+    <div class="p-mb-3">
+        <p-button type="button" icon="pi pi-chevron-left" (click)="prev()" [disabled]="isFirstPage()" styleClass="p-button-text"></p-button>
+        <p-button type="button" icon="pi pi-refresh" (click)="reset()" styleClass="p-button-text"></p-button>
+        <p-button type="button" icon="pi pi-chevron-right" (click)="next()" [disabled]="isLastPage()" styleClass="p-button-text"></p-button>
+    </div>
+    <p-table [value]="customerDetailDtos" [paginator]="true" [rows]="rows" [showCurrentPageReport]="true" [(first)]="first" currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries" [rowsPerPageOptions]="[10,25,50]">
+        <ng-template pTemplate="header">
+            <tr>
+                <th>ID</th>
+                <th>companyName</th>
+                <th>firstName</th>
+                <th>lastName</th>
+                <th>nickName</th>
+                <th>email</th>
+            </tr>
+        </ng-template>
+        <ng-template pTemplate="body" let-customerDetailDto>
+            <tr>
+                <td>{{customerDetailDto.id}}</td>
+                <td>{{customerDetailDto.companyName}}</td>
+                <td>{{customerDetailDto.firstName}}</td>
+                <td>{{customerDetailDto.lastName}}</td>
+                <td>{{customerDetailDto.nickName}}</td>
+                <td>{{customerDetailDto.email}}</td>
+            </tr>
+        </ng-template>
+    </p-table>
+</div>

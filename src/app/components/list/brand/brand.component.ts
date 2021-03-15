@@ -10,7 +10,8 @@ import { Brand } from 'src/app/models/entities/brand';
 export class BrandComponent implements OnInit {
   brands: Brand[] = []
   dataLoaded: boolean = false
-
+  first = 0;
+  rows = 10;
   constructor(private brandService: BrandService) { }
   ngOnInit(): void {
     this.getBrands()
@@ -21,4 +22,24 @@ export class BrandComponent implements OnInit {
       this.dataLoaded = true
     })
   }
+  next() {
+    this.first = this.first + this.rows;
+  }
+
+  prev() {
+    this.first = this.first - this.rows;
+  }
+
+  reset() {
+    this.first = 0;
+  }
+
+  isLastPage(): boolean {
+    return this.brands ? this.first === (this.brands.length - this.rows) : true;
+  }
+
+  isFirstPage(): boolean {
+    return this.brands ? this.first === 0 : true;
+  }
+
 }

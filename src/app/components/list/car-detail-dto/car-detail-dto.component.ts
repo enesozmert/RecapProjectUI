@@ -9,7 +9,9 @@ import { CarDetailDto } from 'src/app/models/dtos/carDetailDto';
 })
 export class CarDetailDtoComponent implements OnInit {
   carDetailDtos: CarDetailDto[] = []
-  dataLoaded:boolean = false
+  dataLoaded: boolean = false
+  first = 0;
+  rows = 10;
   constructor(private carDetailDtoService: CarDetailDtoService) { }
 
   ngOnInit(): void {
@@ -20,5 +22,24 @@ export class CarDetailDtoComponent implements OnInit {
       this.carDetailDtos = response.data
       this.dataLoaded = true
     })
+  }
+  next() {
+    this.first = this.first + this.rows;
+  }
+
+  prev() {
+    this.first = this.first - this.rows;
+  }
+
+  reset() {
+    this.first = 0;
+  }
+
+  isLastPage(): boolean {
+    return this.carDetailDtos ? this.first === (this.carDetailDtos.length - this.rows) : true;
+  }
+
+  isFirstPage(): boolean {
+    return this.carDetailDtos ? this.first === 0 : true;
   }
 }

@@ -1,0 +1,30 @@
+:host>>>.p-slidemenu {
+    height: 100% !important;
+}
+
+:host>>>.p-slidemenu .p-slidemenu-rootlist {
+    width: 100% !important;
+}
+
+:host>>>.p-slidemenu .p-menuitem-active>.p-submenu>.p-submenu-list {
+    width: 100% !important;
+}
+
+:host>>>.p-slidemenu .p-slidemenu-wrapper {
+    display: block !important;
+    height: 100% !important;
+}
+
+:host>>>.p-slidemenu .p-slidemenu-content {
+    overflow-x: hidden !important;
+    overflow-y: auto !important;
+    position: relative !important;
+    height: 100% !important;
+    margin-bottom: 40px !important;
+}
+
+:host>>>.p-slidemenu .p-menuitem-link:focus {
+    outline: 0 none !important;
+    outline-offset: 0 !important;
+    box-shadow: none !important;
+}

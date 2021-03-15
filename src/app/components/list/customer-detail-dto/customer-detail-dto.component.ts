@@ -9,7 +9,9 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CustomerDetailDtoComponent implements OnInit {
   customerDetailDtos: CustomerDetailDto[] = []
-  dataLoaded:boolean = false
+  dataLoaded: boolean = false
+  first = 0
+  rows = 10
   constructor(private customerDetailDtoService: CustomerDetailDtoService) { }
 
   ngOnInit(): void {
@@ -20,6 +22,25 @@ export class CustomerDetailDtoComponent implements OnInit {
       this.customerDetailDtos = response.data
       this.dataLoaded = true
     })
+  }
+  next() {
+    this.first = this.first + this.rows;
+  }
+
+  prev() {
+    this.first = this.first - this.rows;
+  }
+
+  reset() {
+    this.first = 0;
+  }
+
+  isLastPage(): boolean {
+    return this.customerDetailDtos ? this.first === (this.customerDetailDtos.length - this.rows) : true;
+  }
+
+  isFirstPage(): boolean {
+    return this.customerDetailDtos ? this.first === 0 : true;
   }
 }
 

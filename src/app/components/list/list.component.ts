@@ -6,10 +6,13 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./list.component.css']
 })
 export class ListComponent implements OnInit {
-
+  activeState: boolean[] = [];
   constructor() { }
 
   ngOnInit(): void {
+    this.activeState = [false, false, false, false, false]
   }
-
+  toggle(index: number) {
+    this.activeState[index] = !this.activeState[index];
+  }
 }

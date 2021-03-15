@@ -1,10 +1,11 @@
 <div class="container">
     <app-navi></app-navi>
     <div class="row">
-        <div class="col-md-3">
-            <app-sidebar></app-sidebar>
+        <span style="font-size:30px;cursor:pointer;" (click)="openNav()">&#9776; Menu</span>
+        <div class="{{colMdClassSide}}">
+            <app-sidebar [style.width.%]="widthSide" [style.height.%]="heightSide"></app-sidebar>
         </div>
-        <div class="col-md-9">
+        <div class="{{colMdClassMain}}">
             <app-list></app-list>
         </div>
     </div>

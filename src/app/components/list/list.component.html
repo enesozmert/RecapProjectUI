@@ -1,22 +1,47 @@
 <div>
-    <div>
-        <h3>Color Table</h3>
-        <app-color></app-color>
+    <div class="form-group">
+        <label for="exampleInputEmail1">SearchBar:</label>
+        <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
+        <small id="emailHelp" class="form-text text-muted">List of search bar : </small>
     </div>
-    <div>
-        <h3>Brand Table</h3>
-        <app-brand></app-brand>
+    <div class="p-py-3">
+        <p-button [icon]="activeState[0] ? 'pi pi-minus' : 'pi pi-plus'" (click)="toggle(0)" styleClass="p-button-text" label="Color Table"></p-button>
+        <p-button [icon]="activeState[1] ? 'pi pi-minus' : 'pi pi-plus'" (click)="toggle(1)" styleClass="p-button-text p-ml-2" label="Brand Table"></p-button>
+        <p-button [icon]="activeState[2] ? 'pi pi-minus' : 'pi pi-plus'" (click)="toggle(2)" styleClass="p-button-text p-ml-2" label="Car Detail Dto Table"></p-button>
+        <p-button [icon]="activeState[3] ? 'pi pi-minus' : 'pi pi-plus'" (click)="toggle(3)" styleClass="p-button-text p-ml-2" label="Customer Detail Dto Table"></p-button>
+        <p-button [icon]="activeState[4] ? 'pi pi-minus' : 'pi pi-plus'" (click)="toggle(4)" styleClass="p-button-text p-ml-2" label="Rental Detail Dto Table"></p-button>
     </div>
-    <div>
-        <h3>Car Detail Dto Table</h3>
-        <app-car-detail-dto></app-car-detail-dto>
-    </div>
-    <div>
-        <h3>Customer Detail Dto Table</h3>
-        <app-customer-detail-dto></app-customer-detail-dto>
-    </div>
-    <div>
-        <h3>Rental Detail Dto Table</h3>
-        <app-rental-detail-dto></app-rental-detail-dto>
-    </div>
+
+    <p-accordion>
+        <p-accordionTab header="Color Table" [(selected)]="activeState[0]">
+            <div>
+                <h3>Color Table</h3>
+                <app-color></app-color>
+            </div>
+        </p-accordionTab>
+        <p-accordionTab header="Brand Table" [(selected)]="activeState[1]">
+            <div>
+                <h3></h3>
+                <app-brand></app-brand>
+            </div>
+        </p-accordionTab>
+        <p-accordionTab header="Car Detail Dto Table" [(selected)]="activeState[2]">
+            <div>
+                <h3>Car Detail Dto Table</h3>
+                <app-car-detail-dto></app-car-detail-dto>
+            </div>
+        </p-accordionTab>
+        <p-accordionTab header="Customer Detail Dto Table" [(selected)]="activeState[3]">
+            <div>
+                <h3>Customer Detail Dto Table</h3>
+                <app-customer-detail-dto></app-customer-detail-dto>
+            </div>
+        </p-accordionTab>
+        <p-accordionTab header="Rental Detail Dto Table" [(selected)]="activeState[4]">
+            <div>
+                <h3>Rental Detail Dto Table</h3>
+                <app-rental-detail-dto></app-rental-detail-dto>
+            </div>
+        </p-accordionTab>
+    </p-accordion>
 </div>

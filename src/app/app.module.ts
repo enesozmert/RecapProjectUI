@@ -1,11 +1,15 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-
+import { TieredMenuModule } from 'primeng/tieredmenu';
+import { ButtonModule } from 'primeng/button';
 import { TableModule } from 'primeng/table';
 import { AccordionModule } from 'primeng/accordion';
 import { HttpClientModule } from '@angular/common/http';
 import { MenubarModule } from 'primeng/menubar';
 import { AppRoutingModule } from './app-routing.module';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import {SlideMenuModule} from 'primeng/slidemenu';
+
 import { AppComponent } from './app.component';
 import { CarDetailDtoComponent } from './components/list/car-detail-dto/car-detail-dto.component';
 import { NaviComponent } from './components/navi/navi.component';
@@ -39,6 +43,10 @@ import { SidebarComponent } from './components/sidebar/sidebar.component';
     MenubarModule,
     AccordionModule,
     TableModule,
+    ButtonModule,
+    TieredMenuModule,
+    BrowserAnimationsModule,
+    SlideMenuModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
