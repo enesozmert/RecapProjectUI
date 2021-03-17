@@ -9,6 +9,8 @@ import { MenubarModule } from 'primeng/menubar';
 import { AppRoutingModule } from './app-routing.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {SlideMenuModule} from 'primeng/slidemenu';
+import {GalleriaModule} from 'primeng/galleria';
+
 
 import { AppComponent } from './app.component';
 import { CarDetailDtoComponent } from './components/list/car-detail-dto/car-detail-dto.component';
@@ -49,6 +51,7 @@ import { CarimageComponent } from './components/carimage/carimage.component';
     TieredMenuModule,
     BrowserAnimationsModule,
     SlideMenuModule,
+    GalleriaModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

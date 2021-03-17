@@ -1,3 +1,4 @@
+import { element } from 'protractor';
 import { CarImageDetailDtoService } from './../../services/car-image-detail-dto.service';
 import { CarImageDetailDto } from './../../models/dtos/carImageDetailDto';
 import { Component, OnInit } from '@angular/core';
@@ -12,6 +13,7 @@ import { DomSanitizer } from '@angular/platform-browser';
 export class CarimageComponent implements OnInit {
   carImageDetailDto: CarImageDetailDto[] = []
   activeState: boolean[] = [];
+  images:any[]
   dataLoaded: boolean = false
   carImageId: number;
   carImagePath: string;
@@ -22,13 +24,14 @@ export class CarimageComponent implements OnInit {
     private domSanitizer: DomSanitizer) { }
 
   ngOnInit(): void {
-    this.activeState = [false]
     this.activatedRoute.params.subscribe(params => {
       if (params["carId"]) {
         this.getCarImageDetail(params["carId"])
         console.log(params["carId"])
       }
     })
+    this.activeState = [false, false]
+   
   }
   getCarImageDetail(carId: number) {
     this.carImageDetailDtoService.getCarImageDetailDto(carId).subscribe(response => {
@@ -41,13 +44,27 @@ export class CarimageComponent implements OnInit {
     })
   }
   getCarImageView(carImageId: number) {
-    this.carImagePath= this.carImageDetailDtoService.getCarImageView(carImageId)
+    
+    this.carImagePath= this.carImageDetailDtoService.getCarImageView(carImageId);
   }
-  photoURL() {
-    console.log(this.domSanitizer.bypassSecurityTrustResourceUrl(this.carImagePath))
+  getUrl(){
     return this.domSanitizer.bypassSecurityTrustResourceUrl(this.carImagePath);
   }
   toggle(index: number) {
     this.activeState[index] = !this.activeState[index];
   }
+  responsiveOptions:any[] = [
+    {
+        breakpoint: '1024px',
+        numVisible: 5
+    },
+    {
+        breakpoint: '768px',
+        numVisible: 3
+    },
+    {
+        breakpoint: '560px',
+        numVisible: 1
+    }
+];
 }

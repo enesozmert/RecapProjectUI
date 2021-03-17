@@ -1,15 +1,13 @@
-<div class="card text-center h-100 w-100">
+<!doctype html>
+<div class="card text-center">
     <div class="card-header">
         <ul class="nav nav-pills card-header-pills">
             <li class="nav-item">
-                <a class="nav-link active" href="#">Active</a>
-                <div class="p-py-3">
-                    <p-button [icon]="activeState[0] ? 'pi pi-minus' : 'pi pi-plus'" (click)="toggle(0)" styleClass="p-button-text" label="Color Table"></p-button>
-                </div>
+                <a class="nav-link active" href="#">Go to Home</a>
                 <p-accordion>
-                    <p-accordionTab header="Color Table" [(selected)]="activeState[0]">
+                    <p-accordionTab header="Car Detail Table" [(selected)]="activeState[0]">
                         <div>
-                            <p-table [value]="carImageDetailDto" [paginator]="true" [rows]="rows" [showCurrentPageReport]="true" [(first)]="first" currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries" [rowsPerPageOptions]="[10,25,50]">
+                            <p-table [value]="carImageDetailDto" [paginator]="true" [rows]="rows" [showCurrentPageReport]="true" [(first)]="first" currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries" [rowsPerPageOptions]="[10,25,50]" selectionMode="single">
                                 <ng-template pTemplate="header">
                                     <tr>
                                         <th>ID</th>
@@ -24,7 +22,7 @@
                                     </tr>
                                 </ng-template>
                                 <ng-template pTemplate="body" let-carImageDetailDto>
-                                    <tr>
+                                    <tr (click)="getCarImageView(carImageDetailDto.id)" (click)="toggle(0)" (click)="toggle(1)">
                                         <td>{{carImageDetailDto.id}}</td>
                                         <td>{{carImageDetailDto.carID}}</td>
                                         <td>{{carImageDetailDto.brandName}}</td>
@@ -32,7 +30,7 @@
                                         <td>{{carImageDetailDto.modelYear}}</td>
                                         <td>{{carImageDetailDto.dailyPrice}}</td>
                                         <td>{{carImageDetailDto.description}}</td>
-                                        <td>{{carImageDetailDto.imagePath}}</td>
+                                        <td>Hidden</td>
                                         <td>{{carImageDetailDto.date}}</td>
                                     </tr>
                                 </ng-template>
@@ -41,22 +39,36 @@
                     </p-accordionTab>
                 </p-accordion>
             </li>
-            <li class="nav-item container h-100 w-100">
-                <a class="nav-link" [href]='photoURL()'>NonActive</a>
-                <iframe [src]='photoURL()' class="container w-100 h100" width="100%" height="100%"></iframe>
+            <li class="vh-80 w-100">
+                <br>
+                <p-accordion>
+                    <p-accordionTab header="Color Table" [(selected)]="activeState[1]">
+                        <iframe [src]='getUrl()' class=" w-100 vh-100 d-block border-0"></iframe>
+                    </p-accordionTab>
+                </p-accordion>
             </li>
-            <li class="nav-item container h-100 w-100">
-                <a class="nav-link" [href]='photoURL()'>Link</a>
+            <li class="nav-item container">
+                <a class=" nav-link " [href]='getUrl()'>Link</a>
             </li>
-            <li class="nav-item">
-                <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
+            <li class="nav-item ">
+                <a class="nav-link disabled " href="# " tabindex="-1 " aria-disabled="true ">Coming Soon</a>
 
             </li>
         </ul>
     </div>
-    <div class="card-body">
-        <h5 class="card-title">Special title treatment</h5>
-        <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-        <a href="#" class="btn btn-primary">Go somewhere</a>
+    <div class="card-body ">
+        <h5 class="card-title ">All Images</h5>
+        <div class="row row-cols-1 row-cols-md-3 g-4">
+            <div class="col">
+                <div class="card h-100">
+                    <img src="..." class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <h5 class="card-title">Card title</h5>
+                        <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <a href="# " class="btn btn-primary ">Go somewhere</a>
     </div>
 </div>
