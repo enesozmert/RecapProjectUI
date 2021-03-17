@@ -7,7 +7,7 @@
                 <p-accordion>
                     <p-accordionTab header="Car Detail Table" [(selected)]="activeState[0]">
                         <div>
-                            <p-table [value]="carImageDetailDto" [paginator]="true" [rows]="rows" [showCurrentPageReport]="true" [(first)]="first" currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries" [rowsPerPageOptions]="[10,25,50]" selectionMode="single">
+                            <p-table [value]="carImageDetailDtos" [paginator]="true" [rows]="rows" [showCurrentPageReport]="true" [(first)]="first" currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries" [rowsPerPageOptions]="[10,25,50]" selectionMode="single">
                                 <ng-template pTemplate="header">
                                     <tr>
                                         <th>ID</th>
@@ -48,7 +48,7 @@
                 </p-accordion>
             </li>
             <li class="nav-item container">
-                <a class=" nav-link " [href]='getUrl()'>Link</a>
+                <a class=" nav-link " [href]='getUrl()'>Go to select Image</a>
             </li>
             <li class="nav-item ">
                 <a class="nav-link disabled " href="# " tabindex="-1 " aria-disabled="true ">Coming Soon</a>
@@ -56,19 +56,22 @@
             </li>
         </ul>
     </div>
-    <div class="card-body ">
+    <div class="d-inline">
         <h5 class="card-title ">All Images</h5>
-        <div class="row row-cols-1 row-cols-md-3 g-4">
-            <div class="col">
-                <div class="card h-100">
-                    <img src="..." class="card-img-top" alt="...">
+        <div class="card-body " *ngFor="let carImageDetailDto of carImageDetailDtos">
+            <div class="row row-cols-1 row-cols-md-1 g-4 ">
+                <div class="col">
+                    <div class="card">
+                        <img class="card-img-top" [src]="getCarImages(carImageDetailDto) |safe:'url'" alt="...">
+                    </div>
                     <div class="card-body">
-                        <h5 class="card-title">Card title</h5>
-                        <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+                        <h5 class="card-title">{{carImageDetailDto.modelYear}}</h5>
+                        <p class="card-text">{{carImageDetailDto.description}}</p>
                     </div>
                 </div>
             </div>
         </div>
-        <a href="# " class="btn btn-primary ">Go somewhere</a>
     </div>
+    <a href="# " class="btn btn-primary ">Go somewhere</a>
+    <br>
 </div>

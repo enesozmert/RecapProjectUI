@@ -24,6 +24,7 @@ import { ColorComponent } from './components/list/color/color.component';
 import { CustomerDetailDtoComponent } from './components/list/customer-detail-dto/customer-detail-dto.component';
 import { SidebarComponent } from './components/sidebar/sidebar.component';
 import { CarimageComponent } from './components/carimage/carimage.component';
+import { SafePipe } from './pipes/safe.pipe';
 
 @NgModule({
   declarations: [
@@ -39,6 +40,7 @@ import { CarimageComponent } from './components/carimage/carimage.component';
     RentalDetailDtoComponent,
     SidebarComponent,
     CarimageComponent,
+    SafePipe,
   ],
   imports: [
     BrowserModule,

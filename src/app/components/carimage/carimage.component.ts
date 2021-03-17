@@ -11,9 +11,9 @@ import { DomSanitizer } from '@angular/platform-browser';
   styleUrls: ['./carimage.component.css']
 })
 export class CarimageComponent implements OnInit {
-  carImageDetailDto: CarImageDetailDto[] = []
+  carImageDetailDtos: CarImageDetailDto[] = []
   activeState: boolean[] = [];
-  images:any[]
+  carImages: any[]
   dataLoaded: boolean = false
   carImageId: number;
   carImagePath: string;
@@ -31,11 +31,11 @@ export class CarimageComponent implements OnInit {
       }
     })
     this.activeState = [false, false]
-   
+
   }
   getCarImageDetail(carId: number) {
     this.carImageDetailDtoService.getCarImageDetailDto(carId).subscribe(response => {
-      this.carImageDetailDto = response.data
+      this.carImageDetailDtos = response.data
       response.data.forEach(element => {
         this.carImageId = element.id
         this.getCarImageView(this.carImageId);
@@ -44,27 +44,29 @@ export class CarimageComponent implements OnInit {
     })
   }
   getCarImageView(carImageId: number) {
-    
-    this.carImagePath= this.carImageDetailDtoService.getCarImageView(carImageId);
+    this.carImagePath = this.carImageDetailDtoService.getCarImageView(carImageId);
   }
-  getUrl(){
+  getUrl() {
     return this.domSanitizer.bypassSecurityTrustResourceUrl(this.carImagePath);
+  }
+  getCarImages(carImageDetailDto: CarImageDetailDto) {
+    return this.carImageDetailDtoService.getCarImageView(carImageDetailDto.id);
   }
   toggle(index: number) {
     this.activeState[index] = !this.activeState[index];
   }
-  responsiveOptions:any[] = [
+  responsiveOptions: any[] = [
     {
-        breakpoint: '1024px',
-        numVisible: 5
+      breakpoint: '1024px',
+      numVisible: 5
     },
     {
-        breakpoint: '768px',
-        numVisible: 3
+      breakpoint: '768px',
+      numVisible: 3
     },
     {
-        breakpoint: '560px',
-        numVisible: 1
+      breakpoint: '560px',
+      numVisible: 1
     }
-];
+  ];
 }
