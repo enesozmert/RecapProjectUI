@@ -1,0 +1,62 @@
+<div class="card text-center h-100 w-100">
+    <div class="card-header">
+        <ul class="nav nav-pills card-header-pills">
+            <li class="nav-item">
+                <a class="nav-link active" href="#">Active</a>
+                <div class="p-py-3">
+                    <p-button [icon]="activeState[0] ? 'pi pi-minus' : 'pi pi-plus'" (click)="toggle(0)" styleClass="p-button-text" label="Color Table"></p-button>
+                </div>
+                <p-accordion>
+                    <p-accordionTab header="Color Table" [(selected)]="activeState[0]">
+                        <div>
+                            <p-table [value]="carImageDetailDto" [paginator]="true" [rows]="rows" [showCurrentPageReport]="true" [(first)]="first" currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries" [rowsPerPageOptions]="[10,25,50]">
+                                <ng-template pTemplate="header">
+                                    <tr>
+                                        <th>ID</th>
+                                        <th>carID</th>
+                                        <th>brandName</th>
+                                        <th>colorName</th>
+                                        <th>modelYear</th>
+                                        <th>dailyPrice</th>
+                                        <th>description</th>
+                                        <th>imagePath</th>
+                                        <th>date</th>
+                                    </tr>
+                                </ng-template>
+                                <ng-template pTemplate="body" let-carImageDetailDto>
+                                    <tr>
+                                        <td>{{carImageDetailDto.id}}</td>
+                                        <td>{{carImageDetailDto.carID}}</td>
+                                        <td>{{carImageDetailDto.brandName}}</td>
+                                        <td>{{carImageDetailDto.colorName}}</td>
+                                        <td>{{carImageDetailDto.modelYear}}</td>
+                                        <td>{{carImageDetailDto.dailyPrice}}</td>
+                                        <td>{{carImageDetailDto.description}}</td>
+                                        <td>{{carImageDetailDto.imagePath}}</td>
+                                        <td>{{carImageDetailDto.date}}</td>
+                                    </tr>
+                                </ng-template>
+                            </p-table>
+                        </div>
+                    </p-accordionTab>
+                </p-accordion>
+            </li>
+            <li class="nav-item container h-100 w-100">
+                <a class="nav-link" [href]='photoURL()'>NonActive</a>
+                <iframe [src]='photoURL()' class="container w-100 h100" width="100%" height="100%"></iframe>
+            </li>
+            <li class="nav-item container h-100 w-100">
+                <a class="nav-link" [href]='photoURL()'>Link</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
+
+            </li>
+        </ul>
+    </div>
+    <div class="card-body">
+        <h5 class="card-title">Special title treatment</h5>
+        <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+        <a href="#" class="btn btn-primary">Go somewhere</a>
+    </div>
+</div>

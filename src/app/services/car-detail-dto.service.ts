@@ -1,27 +1,26 @@
-import { CarDetailDto } from './../models/dtos/carDetailDto';
-import { CarDetailDto } from 'src/app/models/dtos/carDetailDto';
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { ListResponseModel } from '../models/listResponseModel';
-
+import { environment } from '../../environments/environment';
+import { CarDetailDto } from '../models/dtos/carDetailDto';
 @Injectable({
   providedIn: 'root'
 })
 export class CarDetailDtoService {
 
-  apiUrl = 'https://localhost:44356/api/';
   constructor(private httpClient: HttpClient) { }
 
   getCarDetailDto(): Observable<ListResponseModel<CarDetailDto>> {
-    let newPath = this.apiUrl + "cars/getcardetails"
+    let newPath = environment.appUrl + "cars/getcardetails"
     return this.httpClient.get<ListResponseModel<CarDetailDto>>(newPath);
   }
-  getCarDetailDtoByBrandId(): Observable<ListResponseModel<CarDetailDto>> {
-    let newPath = this.apiUrl + "cars/getcardetaildtobybrandId"
+  getCarDetailsByBrandId(brandId: number): Observable<ListResponseModel<CarDetailDto>> {
+    let newPath = environment.appUrl + "cars/getcardetailsbybrandId?brandId=" + brandId
     return this.httpClient.get<ListResponseModel<CarDetailDto>>(newPath);
   }
-  getColorDetailDtoByBrandId(): Observable<ListResponseModel<CarDetailDto>> {
-    let newPath = this.apiUrl + "cars/getcardetaildtobycolorId"
+  getCarDetailsByColorId(colorId: number): Observable<ListResponseModel<CarDetailDto>> {
+    let newPath = environment.appUrl + "cars/getcardetailsbycolorId?colorId=" + colorId
     return this.httpClient.get<ListResponseModel<CarDetailDto>>(newPath);
   }
+}

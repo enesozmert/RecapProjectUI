@@ -1,6 +1,8 @@
 import { CarDetailDtoService } from './../../../services/car-detail-dto.service';
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 import { CarDetailDto } from 'src/app/models/dtos/carDetailDto';
+import { MessageService } from 'primeng/api';
 
 @Component({
   selector: 'app-car-detail-dto',
@@ -10,17 +12,40 @@ import { CarDetailDto } from 'src/app/models/dtos/carDetailDto';
 export class CarDetailDtoComponent implements OnInit {
   carDetailDtos: CarDetailDto[] = []
   dataLoaded: boolean = false
+  selectedCarDetailDto: CarDetailDto;
   first = 0;
   rows = 10;
-  constructor(private carDetailDtoService: CarDetailDtoService) { }
+  constructor(private carDetailDtoService: CarDetailDtoService, private activatedRoute: ActivatedRoute) { }
 
   ngOnInit(): void {
-    this.getCarDetailDtos()
+    this.activatedRoute.params.subscribe(params => {
+      if (params["colorId"]) {
+        this.getCarDetailsByColor(params["colorId"])
+        console.log(params["colorId"])
+      } else if (params["brandId"]) {
+        this.getCarDetailsByBrand(params["brandId"])
+        console.log(params["brandId"])
+      } else {
+        this.getCarDetailDtos()
+      }
+    })
   }
   getCarDetailDtos() {
     this.carDetailDtoService.getCarDetailDto().subscribe(response => {
       this.carDetailDtos = response.data
       this.dataLoaded = true
+    })
+  }
+  getCarDetailsByColor(colorId: number) {
+    this.carDetailDtoService.getCarDetailsByColorId(colorId).subscribe(response => {
+      this.carDetailDtos = response.data
+      this.dataLoaded = true;
+    })
+  }
+  getCarDetailsByBrand(brandId: number) {
+    this.carDetailDtoService.getCarDetailsByBrandId(brandId).subscribe(response => {
+      this.carDetailDtos = response.data
+      this.dataLoaded = true;
     })
   }
   next() {
@@ -41,5 +66,8 @@ export class CarDetailDtoComponent implements OnInit {
 
   isFirstPage(): boolean {
     return this.carDetailDtos ? this.first === 0 : true;
+  }
+  selectCarDetailDto(carDetailDto:CarDetailDto){
+    console.log(carDetailDto.brandName)
   }
 }

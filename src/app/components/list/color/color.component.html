@@ -33,7 +33,7 @@
         <ng-template pTemplate="body" let-color>
             <tr>
                 <td>{{color.id}}</td>
-                <td>{{color.colorName}}</td>
+                <td (click)="tdOnClikEvent(color)" routerLink="/cars/getcardetailsbycolorId/{{color.id}}" [class]="getCurrentColorClass(color)">{{color.colorName}}</td>
             </tr>
         </ng-template>
     </p-table>

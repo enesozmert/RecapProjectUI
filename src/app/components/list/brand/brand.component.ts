@@ -9,6 +9,8 @@ import { Brand } from 'src/app/models/entities/brand';
 })
 export class BrandComponent implements OnInit {
   brands: Brand[] = []
+  currentBrand: Brand;
+  currentBrandClass:string;
   dataLoaded: boolean = false
   first = 0;
   rows = 10;
@@ -40,6 +42,17 @@ export class BrandComponent implements OnInit {
 
   isFirstPage(): boolean {
     return this.brands ? this.first === 0 : true;
+  }
+  tdOnClikEvent(brand: Brand): void {
+    this.currentBrand = brand
+    console.log("tıkladın bre gafil" + " " + brand.brandName)
+  }
+  getCurrentBrandClass(brand: Brand) {
+    if (brand == this.currentBrand) {
+      return "list-group-item active"
+    } else {
+      return "list-group-item"
+    }
   }
 
 }

@@ -10,6 +10,8 @@ import { Color } from 'src/app/models/entities/color';
 export class ColorComponent implements OnInit {
   colors: Color[] = []
   dataLoaded: boolean = false
+  currentColor: Color;
+  currentColorClass: string;
   first = 0
   rows = 10
   constructor(private colorService: ColorService) { }
@@ -42,5 +44,15 @@ export class ColorComponent implements OnInit {
   isFirstPage(): boolean {
     return this.colors ? this.first === 0 : true;
   }
-
+  tdOnClikEvent(color: Color): void {
+    this.currentColor = color
+    console.log("tıkladın bre gafil" + " " + color.colorName)
+  }
+  getCurrentColorClass(color: Color) {
+    if (color == this.currentColor) {
+      return "list-group-item active"
+    } else {
+      return "list-group-item"
+    }
+  }
 }
