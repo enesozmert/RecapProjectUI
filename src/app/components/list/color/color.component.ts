@@ -9,9 +9,10 @@ import { Color } from 'src/app/models/entities/color';
 })
 export class ColorComponent implements OnInit {
   colors: Color[] = []
-  dataLoaded: boolean = false
+  searchFilter:string="";
   currentColor: Color;
   currentColorClass: string;
+  dataLoaded: boolean = false
   first = 0
   rows = 10
   constructor(private colorService: ColorService) { }

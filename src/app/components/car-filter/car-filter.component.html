@@ -1,0 +1,21 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <div class="container-fluid">
+        <a class="navbar-brand">Filter</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDarkDropdown" aria-controls="navbarNavDarkDropdown" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNavDarkDropdown">
+            <ul class="navbar-nav">
+                <li class="nav-item dropdown">
+                    <select name="colors" id="colors" class="colorcss">
+                        <option *ngFor="let color of colors">{{color.colorName}}</option>
+                    </select>
+                    <select name="brands" id="brands" class="brandcss">
+                        <option *ngFor="let brand of brands">{{brand.brandName}}</option>
+                    </select>
+                    <button class="btn bg-secondary" (click)="getFilterBtn()"></button>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>

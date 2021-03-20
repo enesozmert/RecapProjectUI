@@ -3,7 +3,11 @@
         <span class="visually-hidden">Loading...</span>
     </div>
 </div>
-
+<div>
+    <label for="exampleInputBrand1">SearchBar:</label>
+    <input type="text" [(ngModel)]="searchFilter" class="form-control" id="exampleInputBrand1" aria-describedby="brandHelp" placeholder="Enter Serach">
+    <small id="brandHelp" class="form-text text-muted">List of search bar : </small>
+</div>
 <div class="card" *ngIf="dataLoaded==true">
     <h5>Programmatic Control</h5>
     <div class="p-mb-3">
@@ -11,7 +15,7 @@
         <p-button type="button" icon="pi pi-refresh" (click)="reset()" styleClass="p-button-text"></p-button>
         <p-button type="button" icon="pi pi-chevron-right" (click)="next()" [disabled]="isLastPage()" styleClass="p-button-text"></p-button>
     </div>
-    <p-table [value]="brands" [paginator]="true" [rows]="rows" [showCurrentPageReport]="true" [(first)]="first" currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries" [rowsPerPageOptions]="[10,25,50]">
+    <p-table [value]="brands|search:searchFilter" [paginator]="true" [rows]="rows" [showCurrentPageReport]="true" [(first)]="first" currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries" [rowsPerPageOptions]="[10,25,50]">
         <ng-template pTemplate="header">
             <tr>
                 <th>Id</th>

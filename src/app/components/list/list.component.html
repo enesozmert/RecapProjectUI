@@ -1,8 +1,14 @@
 <div>
     <div class="form-group">
-        <label for="exampleInputEmail1">SearchBar:</label>
-        <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter Serach">
-        <small id="emailHelp" class="form-text text-muted">List of search bar : </small>
+        <div>
+            <label for="exampleInputEmail1">SearchBar:</label>
+            <input type="text" [(ngModel)]="searchFilter" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter Serach">
+            <small id="emailHelp" class="form-text text-muted">List of search bar : </small>
+        </div>
+        <div>
+            <p-dropdown [options]="selectElements" [(ngModel)]="selectElement" optionLabel="searchName"></p-dropdown>
+            <button class="button btn-warning" (click)="filterSend()">Search</button>
+        </div>
     </div>
     <div class="p-py-3">
         <p-button [icon]="activeState[0] ? 'pi pi-minus' : 'pi pi-plus'" (click)="toggle(0)" styleClass="p-button-text" label="Color Table"></p-button>
@@ -21,7 +27,7 @@
         </p-accordionTab>
         <p-accordionTab header="Brand Table" [(selected)]="activeState[1]">
             <div>
-                <h3></h3>
+                <h3>Brand Table</h3>
                 <app-brand></app-brand>
             </div>
         </p-accordionTab>

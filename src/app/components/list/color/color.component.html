@@ -3,6 +3,11 @@
         <span class="visually-hidden">Loading...</span>
     </div>
 </div>
+<div>
+    <label for="exampleInputColor1">SearchBar:</label>
+    <input type="text" [(ngModel)]="searchFilter" class="form-control" id="exampleInputColor1" aria-describedby="colorHelp" placeholder="Enter Serach">
+    <small id="colorHelp" class="form-text text-muted">List of search bar : </small>
+</div>
 <table *ngIf="dataLoaded!=false" class="table">
     <thead>
         <tr>
@@ -11,7 +16,7 @@
         </tr>
     </thead>
     <tbody>
-        <tr *ngFor="let color of colors">
+        <tr *ngFor="let color of colors |search:searchFilter">
 
         </tr>
     </tbody>
@@ -23,7 +28,7 @@
         <p-button type="button" icon="pi pi-refresh" (click)="reset()" styleClass="p-button-text"></p-button>
         <p-button type="button" icon="pi pi-chevron-right" (click)="next()" [disabled]="isLastPage()" styleClass="p-button-text"></p-button>
     </div>
-    <p-table [value]="colors" [paginator]="true" [rows]="rows" [showCurrentPageReport]="true" [(first)]="first" currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries" [rowsPerPageOptions]="[10,25,50]">
+    <p-table [value]="colors |search:searchFilter" [paginator]="true" [rows]="rows" [showCurrentPageReport]="true" [(first)]="first" currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries" [rowsPerPageOptions]="[10,25,50]">
         <ng-template pTemplate="header">
             <tr>
                 <th>ID</th>

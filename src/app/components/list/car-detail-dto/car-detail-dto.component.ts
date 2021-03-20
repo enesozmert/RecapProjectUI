@@ -11,8 +11,10 @@ import { MessageService } from 'primeng/api';
 })
 export class CarDetailDtoComponent implements OnInit {
   carDetailDtos: CarDetailDto[] = []
-  dataLoaded: boolean = false
+  searchFilter:string="";
   selectedCarDetailDto: CarDetailDto;
+  selectedcolorName:string="";
+  dataLoaded: boolean = false
   first = 0;
   rows = 10;
   constructor(private carDetailDtoService: CarDetailDtoService, private activatedRoute: ActivatedRoute) { }

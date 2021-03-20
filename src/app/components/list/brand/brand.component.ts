@@ -1,6 +1,8 @@
+import { SearchEntity } from './../../../models/entities/searchEntity';
 import { BrandService } from './../../../services/brand.service';
 import { Component, OnInit } from '@angular/core';
 import { Brand } from 'src/app/models/entities/brand';
+import { environment } from 'src/environments/environment';
 
 @Component({
   selector: 'app-brand',
@@ -11,6 +13,7 @@ export class BrandComponent implements OnInit {
   brands: Brand[] = []
   currentBrand: Brand;
   currentBrandClass:string;
+  searchFilter:string="";
   dataLoaded: boolean = false
   first = 0;
   rows = 10;
