@@ -12,7 +12,7 @@ export class AppComponent {
   colMdClassSide:string="d-none ml-0"
   colMdClassMain:string="col-md-12"
   keyColMdClass:boolean=false
-  openNav():void{
+  public openNav():void{
     if (this.keyColMdClass==true) {
       this.keyColMdClass=false
       this.colMdClassSide="invisible d-none ml-0"

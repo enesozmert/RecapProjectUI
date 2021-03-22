@@ -1,3 +1,4 @@
+import { CartComponent } from './components/cart/cart.component';
 import { RentACarComponent } from './components/rent-acar/rent-acar.component';
 import { CarimageComponent } from './components/carimage/carimage.component';
 import { CarImageDetailDto } from './models/dtos/carImageDetailDto';
@@ -15,6 +16,7 @@ const routes: Routes = [
   {path:"cars/getcarimagedetails/:carId", component:CarimageComponent},
   {path:"cars/getcardetailsbycolorIdandbrandId/:colorId/:brandId", component:CarDetailDtoComponent},
   {path:"cars/rentacar", component:RentACarComponent},
+  {path:"cart", component:CartComponent},
 ];
 
 @NgModule({

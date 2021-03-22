@@ -34,6 +34,7 @@ import { SearchPipe } from './pipes/search.pipe';
 import { CarFilterComponent } from './components/car-filter/car-filter.component';
 import { RentACarComponent } from './components/rent-acar/rent-acar.component';
 import { CartSummaryComponent } from './components/cart-summary/cart-summary.component';
+import { CartComponent } from './components/cart/cart.component';
 
 @NgModule({
   declarations: [
@@ -54,6 +55,7 @@ import { CartSummaryComponent } from './components/cart-summary/cart-summary.com
     CarFilterComponent,
     RentACarComponent,
     CartSummaryComponent,
+    CartComponent,
   ],
   imports: [
     BrowserModule,

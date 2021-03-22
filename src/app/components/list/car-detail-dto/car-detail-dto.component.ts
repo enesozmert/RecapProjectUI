@@ -1,7 +1,9 @@
+import { CartService } from './../../../services/cart.service';
+import { ToastrService } from 'ngx-toastr';
+import { CarDetailDto } from './../../../models/dtos/carDetailDto';
 import { CarDetailDtoService } from './../../../services/car-detail-dto.service';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { CarDetailDto } from 'src/app/models/dtos/carDetailDto';
 import { MessageService } from 'primeng/api';
 
 @Component({
@@ -10,14 +12,18 @@ import { MessageService } from 'primeng/api';
   styleUrls: ['./car-detail-dto.component.css']
 })
 export class CarDetailDtoComponent implements OnInit {
-  carDetailDtos: CarDetailDto[] = []
+  carDetailDtos: CarDetailDto[] = [];
+  carDetailDto:CarDetailDto;
   searchFilter:string="";
   selectedCarDetailDto: CarDetailDto;
   selectedcolorName:string="";
-  dataLoaded: boolean = false
+  dataLoaded: boolean = false;
   first = 0;
   rows = 10;
-  constructor(private carDetailDtoService: CarDetailDtoService, private activatedRoute: ActivatedRoute) { }
+  constructor(private carDetailDtoService: CarDetailDtoService,
+     private activatedRoute: ActivatedRoute,
+     private toastrService:ToastrService,
+     private cartService:CartService) { }
 
   ngOnInit(): void {
     this.activatedRoute.params.subscribe(params => {
@@ -70,5 +76,9 @@ export class CarDetailDtoComponent implements OnInit {
   }
   selectCarDetailDto(carDetailDto:CarDetailDto){
     console.log(carDetailDto.brandName)
+  }
+  addToCart(carDetailDto: CarDetailDto) {
+    this.toastrService.success("Sepete eklendi", carDetailDto.brandName + " " + carDetailDto.modelYear)
+    this.cartService.addToCart(carDetailDto);
   }
 }

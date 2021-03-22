@@ -22,6 +22,7 @@ export class CarimageComponent implements OnInit {
   carDetailDto: CarDetailDto
   dataLoaded: boolean = false
   carImageId: number;
+  carId: number;
   carImagePath: string;
   first = 0;
   rows = 10;
@@ -49,6 +50,7 @@ export class CarimageComponent implements OnInit {
       this.carImageDetailDtos = response.data
       response.data.forEach(element => {
         this.carImageId = element.id
+        this.carId = element.carID
         this.getCarImageView(this.carImageId);
       });
       this.dataLoaded = true

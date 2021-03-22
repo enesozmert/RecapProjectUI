@@ -7,11 +7,11 @@ import { MenuItem } from 'primeng/api';
     styleUrls: ['./sidebar.component.css']
 })
 export class SidebarComponent implements OnInit {
-
-    constructor() { }
     public mySidenavWidth: string = ""
     public mainWidth: string = ""
     items: MenuItem[] = [];
+    constructor() { }
+
 
     ngOnInit() {
         this.items = [
@@ -25,7 +25,7 @@ export class SidebarComponent implements OnInit {
                         { label: 'Other' },
                     ]
                 },
-                { label: 'Openrrrr   rrrrrrrrrr       rrrrksssssssssss sssss   sssssssssssss         '   },
+                { label: 'Openrrrr   rrrrrrrrrr       rrrrksssssssssss sssss   sssssssssssss         ' },
                 { label: 'Quit' }
                 ]
             },

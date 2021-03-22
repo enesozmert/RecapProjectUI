@@ -26,16 +26,18 @@
                 <th>dailyPrice</th>
                 <th>description</th>
                 <th>modelYear</th>
+                <th>rent</th>
             </tr>
         </ng-template>
         <ng-template pTemplate="body" let-carDetailDto>
-            <tr (click)="selectCarDetailDto(carDetailDto)" routerLink="/cars/getcarimagedetails/{{carDetailDto.id}}">
-                <td>{{carDetailDto.id}}</td>
+            <tr>
+                <td (click)="selectCarDetailDto(carDetailDto)" routerLink="/cars/getcarimagedetails/{{carDetailDto.id}}">{{carDetailDto.id}}</td>
                 <td>{{carDetailDto.brandName}}</td>
                 <td>{{carDetailDto.colorName}}</td>
                 <td>{{carDetailDto.dailyPrice}}</td>
                 <td>{{carDetailDto.description}}</td>
                 <td>{{carDetailDto.modelYear}}</td>
+                <td><button class="btn btn-primary" (click)="addToCart(carDetailDto)">Rent</button></td>
             </tr>
         </ng-template>
     </p-table>

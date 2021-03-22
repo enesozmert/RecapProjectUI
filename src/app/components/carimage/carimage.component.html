@@ -4,6 +4,8 @@
         <ul class="nav nav-pills card-header-pills">
             <li class="nav-item">
                 <a class="nav-link active" href="#">Go to Home</a>
+                <button class="btn btn-dark bg-gradient w-100 active" (click)="getCarDetailDtoById(carId)">Rent</button>
+
                 <p-accordion>
                     <p-accordionTab header="Car Detail Table" [(selected)]="activeState[0]">
                         <div>
@@ -19,7 +21,6 @@
                                         <th>description</th>
                                         <th>imagePath</th>
                                         <th>date</th>
-                                        <th>Add To Card</th>
                                     </tr>
                                 </ng-template>
                                 <ng-template pTemplate="body" let-carImageDetailDto>
@@ -33,7 +34,6 @@
                                         <td>{{carImageDetailDto.description}}</td>
                                         <td>Hidden</td>
                                         <td>{{carImageDetailDto.date}}</td>
-                                        <td><button class="btn btn-success" (click)="getCarDetailDtoById(carImageDetailDto.carID)">Rent</button></td>
                                     </tr>
                                 </ng-template>
                             </p-table>
@@ -53,13 +53,17 @@
                 <a class=" nav-link " [href]='getUrl()'>Go to select Image</a>
             </li>
             <li class="nav-item ">
-                <a class="nav-link disabled " href="# " tabindex="-1 " aria-disabled="true ">Coming Soon</a>
+                <a class="nav-link disabled " href="# " tabindex="-1 " aria-disabled="true ">
+                    <h6>Coming Soon</h6>
+                </a>
 
             </li>
         </ul>
     </div>
     <div class="d-inline">
-        <h5 class="card-title ">All Images</h5>
+        <h5 class="card-title ">
+            <h3>Images</h3>
+        </h5>
         <div class="card-body " *ngFor="let carImageDetailDto of carImageDetailDtos">
             <div class="row row-cols-1 row-cols-md-1 g-4 ">
                 <div class="col">
