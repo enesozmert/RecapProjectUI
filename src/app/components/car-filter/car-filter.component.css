@@ -2,10 +2,13 @@
     color: white;
     background-color: black;
     border: none;
+    width: 128px;
 }
 
 :host>>>.brandcss {
     color: white;
     background-color: black;
     border: none;
+    width: 128px;
+    margin: 1vw 2vw;
 }

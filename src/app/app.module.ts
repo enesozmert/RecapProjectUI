@@ -8,11 +8,15 @@ import { HttpClientModule } from '@angular/common/http';
 import { MenubarModule } from 'primeng/menubar';
 import { AppRoutingModule } from './app-routing.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import {SlideMenuModule} from 'primeng/slidemenu';
-import {GalleriaModule} from 'primeng/galleria';
-import {DropdownModule} from 'primeng/dropdown';
+import { SlideMenuModule } from 'primeng/slidemenu';
+import { GalleriaModule } from 'primeng/galleria';
+import { DropdownModule } from 'primeng/dropdown';
 import { FormsModule } from '@angular/forms';
 import { AppComponent } from './app.component';
+import { ToastrModule } from "ngx-toastr";
+import { ReactiveFormsModule } from "@angular/forms"
+import { MatIconModule } from '@angular/material/icon';
+import {CarouselModule} from 'primeng/carousel';
 
 import { CarDetailDtoComponent } from './components/list/car-detail-dto/car-detail-dto.component';
 import { NaviComponent } from './components/navi/navi.component';
@@ -28,6 +32,8 @@ import { CarimageComponent } from './components/carimage/carimage.component';
 import { SafePipe } from './pipes/safe.pipe';
 import { SearchPipe } from './pipes/search.pipe';
 import { CarFilterComponent } from './components/car-filter/car-filter.component';
+import { RentACarComponent } from './components/rent-acar/rent-acar.component';
+import { CartSummaryComponent } from './components/cart-summary/cart-summary.component';
 
 @NgModule({
   declarations: [
@@ -46,6 +52,8 @@ import { CarFilterComponent } from './components/car-filter/car-filter.component
     SafePipe,
     SearchPipe,
     CarFilterComponent,
+    RentACarComponent,
+    CartSummaryComponent,
   ],
   imports: [
     BrowserModule,
@@ -61,6 +69,12 @@ import { CarFilterComponent } from './components/car-filter/car-filter.component
     GalleriaModule,
     DropdownModule,
     FormsModule,
+    ReactiveFormsModule,
+    MatIconModule,
+    CarouselModule,
+    ToastrModule.forRoot({
+      positionClass: "toast-bottom-center"
+    })
   ],
   providers: [],
   bootstrap: [AppComponent]

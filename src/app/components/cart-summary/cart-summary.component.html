@@ -1,0 +1,22 @@
+<li *ngIf="cartItems.length>0" class="nav-item dropdown">
+    <a class="nav-link dropdown-toggle" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+        <mat-icon>shopping_cart</mat-icon>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+        <li *ngFor="let cartItem of cartItems">
+            <a class="dropdown-item">
+                <div>
+                    <span class="badge bg-secondary align-middle">{{cartItem.quantity}}</span> {{cartItem.carDetailDto.brandName+" "+cartItem.carDetailDto.modelYear}}
+                    <span (click)="removeFromCart(cartItem.carDetailDto)" class="badge bg-secondary">
+                        <mat-icon>delete</mat-icon>
+                    </span>
+                </div>
+
+            </a>
+        </li>
+        <li>
+            <hr class="dropdown-divider">
+        </li>
+        <li><a routerLink="/cars/rentacar" class="dropdown-item">Sepete git</a></li>
+    </ul>
+</li>

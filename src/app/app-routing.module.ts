@@ -1,3 +1,4 @@
+import { RentACarComponent } from './components/rent-acar/rent-acar.component';
 import { CarimageComponent } from './components/carimage/carimage.component';
 import { CarImageDetailDto } from './models/dtos/carImageDetailDto';
 import { CarDetailDtoComponent } from './components/list/car-detail-dto/car-detail-dto.component';
@@ -12,7 +13,8 @@ const routes: Routes = [
   {path:"cars/getcardetailsbycolorId/:colorId", component:CarDetailDtoComponent},
   {path:"cars/getcardetailsbybrandId/:brandId", component:CarDetailDtoComponent},
   {path:"cars/getcarimagedetails/:carId", component:CarimageComponent},
-  {path:"cars/getcardetailsbycolorandbrandId/:colorId:brandId", component:CarDetailDtoComponent},
+  {path:"cars/getcardetailsbycolorIdandbrandId/:colorId/:brandId", component:CarDetailDtoComponent},
+  {path:"cars/rentacar", component:RentACarComponent},
 ];
 
 @NgModule({

@@ -1,3 +1,4 @@
+import { ActivatedRoute } from '@angular/router';
 import { CarDetailDtoService } from './../../services/car-detail-dto.service';
 import { BrandService } from './../../services/brand.service';
 import { ColorService } from './../../services/color.service';
@@ -14,11 +15,18 @@ import { CarDetailDto } from 'src/app/models/dtos/carDetailDto';
 export class CarFilterComponent implements OnInit {
   colors: Color[] = []
   brands: Brand[] = []
-  carDetailDto:CarDetailDto[]=[]
+  colorId: number
+  brandId: number
+  carDetailDto: CarDetailDto[] = []
   dataLoaded: boolean = false
-  constructor(private colorService: ColorService, private brandService: BrandService, private carDetailDtoService: CarDetailDtoService) { }
+  constructor(private colorService: ColorService,
+    private brandService: BrandService,
+    private carDetailDtoService: CarDetailDtoService,
+    private activatedRoute:ActivatedRoute) { }
 
   ngOnInit(): void {
+    this.getAllColor();
+    this.getAllBrand();
   }
   getAllColor() {
     this.colorService.getColors().subscribe(response => {

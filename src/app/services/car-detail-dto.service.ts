@@ -15,6 +15,10 @@ export class CarDetailDtoService {
     let newPath = environment.appUrl + "cars/getcardetails"
     return this.httpClient.get<ListResponseModel<CarDetailDto>>(newPath);
   }
+  getCarDetailDtoById(carId: number): Observable<ListResponseModel<CarDetailDto>> {
+    let newPath = environment.appUrl + "cars/getcardetailsbyId?carId=" + carId
+    return this.httpClient.get<ListResponseModel<CarDetailDto>>(newPath);
+  }
   getCarDetailsByBrandId(brandId: number): Observable<ListResponseModel<CarDetailDto>> {
     let newPath = environment.appUrl + "cars/getcardetailsbybrandId?brandId=" + brandId
     return this.httpClient.get<ListResponseModel<CarDetailDto>>(newPath);
@@ -23,8 +27,8 @@ export class CarDetailDtoService {
     let newPath = environment.appUrl + "cars/getcardetailsbycolorId?colorId=" + colorId
     return this.httpClient.get<ListResponseModel<CarDetailDto>>(newPath);
   }
-  getCarDetailsByColorAndBrandId(brandId: number, colorId: number) {
-    let newPath = environment.appUrl + "cars/getcardetailsbycolorandbrandId?colorId=" + colorId + "brandId=" + brandId
+  getCarDetailsByColorAndBrandId(colorId: number, brandId: number) {
+    let newPath = environment.appUrl + "cars/getcardetailsbycolorIdandbrandId?colorId=" + colorId + "&brandId=" + brandId
     return this.httpClient.get<ListResponseModel<CarDetailDto>>(newPath);
   }
 }

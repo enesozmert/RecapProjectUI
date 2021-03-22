@@ -7,13 +7,17 @@
         <div class="collapse navbar-collapse" id="navbarNavDarkDropdown">
             <ul class="navbar-nav">
                 <li class="nav-item dropdown">
-                    <select name="colors" id="colors" class="colorcss">
-                        <option *ngFor="let color of colors">{{color.colorName}}</option>
-                    </select>
-                    <select name="brands" id="brands" class="brandcss">
-                        <option *ngFor="let brand of brands">{{brand.brandName}}</option>
-                    </select>
-                    <button class="btn bg-secondary" (click)="getFilterBtn()"></button>
+                    <form class="form">
+                        <select name="colors" id="colors" class="colorcss form-item" [(ngModel)]="colorId">
+                            <option *ngFor="let color of colors" [value]="color.id">
+                                {{color.colorName}}</option>
+                        </select>
+                        <select name="brands" id="brands" class="brandcss form-item" [(ngModel)]="brandId">
+                            <option *ngFor="let brand of brands" [value]="brand.id">
+                                {{brand.brandName}}</option>
+                        </select>
+                    </form>
+                    <button routerLink="/cars/getcardetailsbycolorIdandbrandId/{{colorId}}/{{brandId}}" class="btn bg-primary" (click)="getFilterBtn(colorId,brandId)">Filter</button>
                 </li>
             </ul>
         </div>

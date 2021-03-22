@@ -1,0 +1,27 @@
+<p-carousel [value]="cartItems" styleClass="custom-carousel" [numVisible]="3" [numScroll]="1" [circular]="true" [autoplayInterval]="3000" [responsiveOptions]="responsiveOptions">
+    <ng-template pTemplate="header">
+        <h5>Circular, AutoPlay, 3 Items per Page and Scroll by 1</h5>
+    </ng-template>
+    <ng-template let-cartItem pTemplate="item">
+        <div class="cartitem-item">
+            <div class="cartitem-item-content">
+                <div class="p-mb-3">
+                    <img src="{{carImagePath}}" [alt]="getCarImageDetail(cartItem.carDetailDto.id)" class="product-image" /> {{cartItem.carDetailDto.id}}
+                    <img src="{{carImagePath}}" [alt]="getCarImageDetail(cartItem.carDetailDto.id)" class="product-image" /> {{cartItem.carDetailDto.id}}
+                </div>
+                <div>
+                    <h4 class="p-mb-1">{{cartItem.carDetailDto.brandName}}</h4>
+                    <h6 class="p-mt-0 p-mb-3">${{cartItem.carDetailDto.dailyPrice}}</h6>
+                    <span [class]="'product-badge status-'+cartItem.carDetailDto.brandName.toLowerCase()">{{cartItem.carDetailDto.dailyPrice}}</span>
+                    <div class="car-buttons p-mt-5">
+                        <p-button type="button" styleClass="p-button p-button-rounded p-mr-2" icon="pi pi-search">
+                        </p-button>
+                        <p-button type="button" styleClass="p-button-success p-button-rounded p-mr-2" icon="pi pi-star">
+                        </p-button>
+                        <p-button type="button" styleClass="p-button-help p-button-rounded" icon="pi pi-cog"></p-button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </ng-template>
+</p-carousel>

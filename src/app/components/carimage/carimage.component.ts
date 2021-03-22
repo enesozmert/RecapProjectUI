@@ -1,9 +1,13 @@
+import { CarDetailDtoService } from './../../services/car-detail-dto.service';
+import { CarDetailDto } from './../../models/dtos/carDetailDto';
 import { element } from 'protractor';
 import { CarImageDetailDtoService } from './../../services/car-image-detail-dto.service';
 import { CarImageDetailDto } from './../../models/dtos/carImageDetailDto';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { DomSanitizer } from '@angular/platform-browser';
+import { ToastrService } from 'ngx-toastr';
+import { CartService } from 'src/app/services/cart.service';
 
 @Component({
   selector: 'app-carimage',
@@ -14,6 +18,8 @@ export class CarimageComponent implements OnInit {
   carImageDetailDtos: CarImageDetailDto[] = []
   activeState: boolean[] = [];
   carImages: any[]
+  carDetailDtos: CarDetailDto[] = []
+  carDetailDto: CarDetailDto
   dataLoaded: boolean = false
   carImageId: number;
   carImagePath: string;
@@ -21,7 +27,12 @@ export class CarimageComponent implements OnInit {
   rows = 10;
   constructor(private carImageDetailDtoService: CarImageDetailDtoService,
     private activatedRoute: ActivatedRoute,
-    private domSanitizer: DomSanitizer) { }
+    private domSanitizer: DomSanitizer,
+    private toastrService: ToastrService,
+    private cartService: CartService,
+    private carDetailDtoService: CarDetailDtoService) {
+
+  }
 
   ngOnInit(): void {
     this.activatedRoute.params.subscribe(params => {
@@ -69,4 +80,18 @@ export class CarimageComponent implements OnInit {
       numVisible: 1
     }
   ];
+  getCarDetailDtoById(carId: number) {
+    this.carDetailDtoService.getCarDetailDtoById(carId).subscribe(response => {
+      this.carDetailDtos = response.data
+      this.dataLoaded = true;
+      //console.log(this.carDetailDtos)
+      this.carDetailDto = Object.assign(this.carDetailDtos);
+      console.log(Object.assign(this.carDetailDtos))
+      this.addToCart(this.carDetailDto)
+    })
+  }
+  addToCart(CarDetailDto: CarDetailDto) {
+    this.toastrService.success("Sepete eklendi", CarDetailDto.brandName + " " + CarDetailDto.modelYear)
+    this.cartService.addToCart(CarDetailDto);
+  }
 }

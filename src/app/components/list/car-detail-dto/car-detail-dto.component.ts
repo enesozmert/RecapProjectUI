@@ -23,7 +23,6 @@ export class CarDetailDtoComponent implements OnInit {
     this.activatedRoute.params.subscribe(params => {
       if (params["colorId"]) {
         this.getCarDetailsByColor(params["colorId"])
-        console.log(params["colorId"])
       } else if (params["brandId"]) {
         this.getCarDetailsByBrand(params["brandId"])
         console.log(params["brandId"])
