@@ -17,6 +17,10 @@ import { ToastrModule } from "ngx-toastr";
 import { ReactiveFormsModule } from "@angular/forms"
 import { MatIconModule } from '@angular/material/icon';
 import {CarouselModule} from 'primeng/carousel';
+import {CommonModule} from '@angular/common';
+import {OrderListModule} from 'primeng/orderlist';
+import {ConfirmPopupModule} from 'primeng/confirmpopup';
+import {ConfirmDialogModule} from 'primeng/confirmdialog';
 
 import { CarDetailDtoComponent } from './components/list/car-detail-dto/car-detail-dto.component';
 import { NaviComponent } from './components/navi/navi.component';
@@ -36,6 +40,11 @@ import { RentACarComponent } from './components/rent-acar/rent-acar.component';
 import { CartSummaryComponent } from './components/cart-summary/cart-summary.component';
 import { CartComponent } from './components/cart/cart.component';
 import { CarImageGalleryComponent } from './components/car-image-gallery/car-image-gallery.component';
+import { CartDetailComponent } from './components/cart-detail/cart-detail.component';
+import { PaymentComponent } from './components/payment/payment.component';
+import { IsrentedbycarIdPipe } from './pipes/isrentedbycar-id.pipe';
+import { CardComponent } from './components/card/card.component';
+import { CarsComponent } from './components/cars/cars.component';
 
 @NgModule({
   declarations: [
@@ -58,6 +67,11 @@ import { CarImageGalleryComponent } from './components/car-image-gallery/car-ima
     CartSummaryComponent,
     CartComponent,
     CarImageGalleryComponent,
+    CartDetailComponent,
+    PaymentComponent,
+    IsrentedbycarIdPipe,
+    CardComponent,
+    CarsComponent,
   ],
   imports: [
     BrowserModule,
@@ -76,6 +90,10 @@ import { CarImageGalleryComponent } from './components/car-image-gallery/car-ima
     ReactiveFormsModule,
     MatIconModule,
     CarouselModule,
+    CommonModule,
+    OrderListModule,
+    ConfirmPopupModule,
+    ConfirmDialogModule,
     ToastrModule.forRoot({
       positionClass: "toast-bottom-center"
     })
