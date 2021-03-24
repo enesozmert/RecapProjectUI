@@ -1,8 +1,16 @@
-<div class="card" style="width: 18rem;">
-    <img src="..." class="card-img-top" alt="...">
+<div class="card" style="width: 256px;position: relative;display:inline-block;">
+    <div style="height: 256px;width: 256px;">
+        <app-car-image-gallery [carId]="carId"></app-car-image-gallery>
+    </div>
+
     <div class="card-body">
-        <h5 class="card-title">Card title</h5>
-        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-        <a href="#" class="btn btn-primary">Go somewhere</a>
+        <h5 class="card-title">{{carDetailDto.brandName}}</h5>
+        <div class="card-text">
+            <div>Model Year: {{carDetailDto.modelYear}}</div>
+            <div>Color: {{carDetailDto.colorName}}</div>
+            <div>Daily Price: {{carDetailDto.dailyPrice}}</div>
+            <div>Description: {{carDetailDto.description}}</div>
+        </div>
+        <a href="#" class="btn btn-primary">Rent</a>
     </div>
 </div>

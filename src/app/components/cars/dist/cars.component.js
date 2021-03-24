@@ -6,37 +6,32 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
 exports.__esModule = true;
-exports.CardComponent = void 0;
+exports.CarsComponent = void 0;
 var core_1 = require("@angular/core");
-var CardComponent = /** @class */ (function () {
-    function CardComponent(carDetailDtoService) {
+var CarsComponent = /** @class */ (function () {
+    function CarsComponent(carDetailDtoService) {
         this.carDetailDtoService = carDetailDtoService;
         this.carDetailDtos = [];
         this.dataLoaded = false;
     }
-    CardComponent.prototype.ngOnInit = function () {
-        this.getCarDetailDtoById(this.carId);
+    CarsComponent.prototype.ngOnInit = function () {
+        this.getCarDetailDto();
     };
-    CardComponent.prototype.getCarDetailDtoById = function (carId) {
+    CarsComponent.prototype.getCarDetailDto = function () {
         var _this = this;
-        this.carDetailDtoService.getCarDetailDtoById(carId).subscribe(function (response) {
+        this.carDetailDtoService.getCarDetailDto().subscribe(function (response) {
             _this.carDetailDtos = response.data;
             _this.dataLoaded = true;
             //console.log(this.carDetailDtos)
-            _this.carDetailDto = Object.assign(_this.carDetailDtos);
-            console.log(Object.assign(_this.carDetailDtos));
         });
     };
-    __decorate([
-        core_1.Input()
-    ], CardComponent.prototype, "carId");
-    CardComponent = __decorate([
+    CarsComponent = __decorate([
         core_1.Component({
-            selector: 'app-card',
-            templateUrl: './card.component.html',
-            styleUrls: ['./card.component.css']
+            selector: 'app-cars',
+            templateUrl: './cars.component.html',
+            styleUrls: ['./cars.component.css']
         })
-    ], CardComponent);
-    return CardComponent;
+    ], CarsComponent);
+    return CarsComponent;
 }());
-exports.CardComponent = CardComponent;
+exports.CarsComponent = CarsComponent;
