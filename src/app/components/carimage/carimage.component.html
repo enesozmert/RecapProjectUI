@@ -4,8 +4,7 @@
         <ul class="nav nav-pills card-header-pills">
             <li class="nav-item">
                 <a class="nav-link active" href="#">Go to Home</a>
-                <button class="btn btn-dark bg-gradient w-100 active" (click)="getCarDetailDtoById(carId)">Rent</button>
-
+                <button [class]="isRentedByCarIdClass()" (click)="getCarDetailDtoById(carId)">Rent</button>
                 <p-accordion>
                     <p-accordionTab header="Car Detail Table" [(selected)]="activeState[0]">
                         <div>
@@ -60,8 +59,11 @@
             </li>
         </ul>
     </div>
+
     <div class="d-inline">
         <h5 class="card-title ">
+            <br>
+            <br>
             <h3>Images</h3>
         </h5>
         <div class="card-body " *ngFor="let carImageDetailDto of carImageDetailDtos">
@@ -81,3 +83,6 @@
     <a href="# " class="btn btn-primary ">Go somewhere</a>
     <br>
 </div>
+<!-- <div style="text-align:center;position: relative;margin: auto;width: 100%;">
+    <app-car-image-gallery [carId]="getCarIdByRouter()"></app-car-image-gallery>
+</div> -->

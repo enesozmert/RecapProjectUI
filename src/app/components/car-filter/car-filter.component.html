@@ -9,16 +9,18 @@
                 <li class="nav-item dropdown">
                     <form class="form">
                         <select name="colors" id="colors" class="colorcss form-item" [(ngModel)]="colorId">
+                            <!-- <option [value]="null">All</option> -->
                             <option *ngFor="let color of colors" [value]="color.id">
                                 {{color.colorName}}</option>
                         </select>
                         <select name="brands" id="brands" class="brandcss form-item" [(ngModel)]="brandId">
+                            <!-- <option [value]="null">All</option> -->
                             <option *ngFor="let brand of brands" [value]="brand.id">
                                 {{brand.brandName}}</option>
                         </select>
                     </form>
                 </li>
-                <button routerLink="/cars/getcardetailsbycolorIdandbrandId/{{colorId}}/{{brandId}}" class="btn bg-primary" (click)="getFilterBtn(colorId,brandId)">Filter</button>
+                <button routerLink="/cars/getcardetailsbycolorIdorbrandId/{{colorId}}/{{brandId}}" class="btn bg-primary" (click)="getFilterBtn(colorId,brandId)">Filter</button>
             </ul>
         </div>
     </div>

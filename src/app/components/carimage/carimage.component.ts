@@ -1,3 +1,4 @@
+import { RentalService } from './../../services/rental.service';
 import { CarDetailDtoService } from './../../services/car-detail-dto.service';
 import { CarDetailDto } from './../../models/dtos/carDetailDto';
 import { element } from 'protractor';
@@ -20,9 +21,11 @@ export class CarimageComponent implements OnInit {
   carImages: any[]
   carDetailDtos: CarDetailDto[] = []
   carDetailDto: CarDetailDto
+  isRented: boolean = false
   dataLoaded: boolean = false
   carImageId: number;
   carId: number;
+  carIdByGallery:number;
   carImagePath: string;
   first = 0;
   rows = 10;
@@ -31,7 +34,8 @@ export class CarimageComponent implements OnInit {
     private domSanitizer: DomSanitizer,
     private toastrService: ToastrService,
     private cartService: CartService,
-    private carDetailDtoService: CarDetailDtoService) {
+    private carDetailDtoService: CarDetailDtoService,
+    private rentalService: RentalService) {
 
   }
 
@@ -39,11 +43,11 @@ export class CarimageComponent implements OnInit {
     this.activatedRoute.params.subscribe(params => {
       if (params["carId"]) {
         this.getCarImageDetail(params["carId"])
-        console.log(params["carId"])
+        this.isRentedByCarId(params["carId"])
+        this.carIdByGallery=params["carId"]
       }
     })
     this.activeState = [false, false]
-
   }
   getCarImageDetail(carId: number) {
     this.carImageDetailDtoService.getCarImageDetailDto(carId).subscribe(response => {
@@ -65,8 +69,40 @@ export class CarimageComponent implements OnInit {
   getCarImages(carImageDetailDto: CarImageDetailDto) {
     return this.carImageDetailDtoService.getCarImageView(carImageDetailDto.id);
   }
+  getCarDetailDtoById(carId: number) {
+    this.carDetailDtoService.getCarDetailDtoById(carId).subscribe(response => {
+      this.carDetailDtos = response.data
+      this.dataLoaded = true;
+      //console.log(this.carDetailDtos)
+      this.carDetailDto = Object.assign(this.carDetailDtos);
+      //console.log(Object.assign(this.carDetailDtos))
+      this.addToCart(this.carDetailDto)
+    })
+  }
+  getCarIdByRouter() {
+    return this.carIdByGallery
+  }
   toggle(index: number) {
     this.activeState[index] = !this.activeState[index];
+  }
+  addToCart(CarDetailDto: CarDetailDto) {
+    this.toastrService.success("Sepete eklendi", CarDetailDto.brandName + " " + CarDetailDto.modelYear)
+    this.cartService.addToCart(CarDetailDto);
+  }
+  isRentedByCarId(carId: number) {
+    this.rentalService.isRentedByCarId(carId).subscribe(response => {
+      this.isRented = true
+      this.toastrService.success(response.message, "Başarılı")
+    }, responseError => {
+      this.isRented = false
+      this.toastrService.error(Object.assign(responseError)[1], "Başarısız")
+    })
+  }
+  isRentedByCarIdClass() {
+    if (this.isRented == true) {
+      return "btn btn-dark bg-gradient w-100 active"
+    }
+    return "btn btn-dark bg-gradient w-100 disabled"
   }
   responsiveOptions: any[] = [
     {
@@ -82,18 +118,4 @@ export class CarimageComponent implements OnInit {
       numVisible: 1
     }
   ];
-  getCarDetailDtoById(carId: number) {
-    this.carDetailDtoService.getCarDetailDtoById(carId).subscribe(response => {
-      this.carDetailDtos = response.data
-      this.dataLoaded = true;
-      //console.log(this.carDetailDtos)
-      this.carDetailDto = Object.assign(this.carDetailDtos);
-      console.log(Object.assign(this.carDetailDtos))
-      this.addToCart(this.carDetailDto)
-    })
-  }
-  addToCart(CarDetailDto: CarDetailDto) {
-    this.toastrService.success("Sepete eklendi", CarDetailDto.brandName + " " + CarDetailDto.modelYear)
-    this.cartService.addToCart(CarDetailDto);
-  }
 }

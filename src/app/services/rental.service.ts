@@ -12,7 +12,15 @@ import { ResponseModel } from '../models/responseModel/responseModel';
 export class RentalService {
 
   constructor(private httpClient: HttpClient) { }
-  rent(rental:Rental):Observable<ResponseModel>{
+  rent(rental: Rental): Observable<ResponseModel> {
     return this.httpClient.post<ResponseModel>(environment.appUrl + "products/add", rental)
+  }
+  isForRent(carId: number) {
+    let newPath = environment.appUrl + "rentals/isforrent?carId=" + carId
+    return this.httpClient.get<ListResponseModel<Rental>>(newPath);
+  }
+  isRentedByCarId(carId: number) {
+    let newPath = environment.appUrl + "rentals/isrentedbycarId?carId=" + carId
+    return this.httpClient.get<ListResponseModel<Rental>>(newPath);
   }
 }

@@ -1,0 +1,23 @@
+:host /deep/ .user {
+    background-color: black !important;
+    color: white !important;
+    font-weight: bold !important;
+}
+
+:host /deep/ .user.p-menuitem-link .p-menuitem-text {
+    color: white !important;
+    font-weight: bold !important;
+}
+
+:host /deep/ .user.p-menubar .p-menuitem-link:not(.p-disabled):hover {
+    background-color: black !important;
+    color: white !important;
+    background: transparent !important;
+    border: 0 !important;
+}
+
+:host>>>.user.p-menuitem-link:focus {
+    outline: 0 !important;
+    border: none !important;
+    box-shadow: none !important;
+}

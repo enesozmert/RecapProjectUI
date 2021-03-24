@@ -42,27 +42,17 @@ export class RentACarComponent implements OnInit {
 
   ngOnInit(): void {
     this.getCart()
+    
   }
   getCart() {
     this.cartItems = this.cartService.list();
   }
-  rentACar(){
-    //this.rentalService.rent().subscribe()
-  }
-  getCarImages(carDetailDto:CarDetailDto) {
-    return this.carImageDetailDtoService.getCarImageView(carDetailDto.id);
-  }
-  getCarImageView(carImageId: number) {
-    this.carImagePath = this.carImageDetailDtoService.getCarImageView(carImageId);
+  getCarImages(carId:number) {
+    return this.carImageDetailDtoService.getCarImageView(carId);
   }
   getCarImageDetail(carId: number) {
     this.carImageDetailDtoService.getCarImageDetailDto(carId).subscribe(response => {
       this.carImageDetailDtos = response.data
-      response.data.forEach(element => {
-        this.carImageId = element.id
-        this.getCarImageView(this.carImageId);
-      });
-      this.dataLoaded = true
     })
   }
 }

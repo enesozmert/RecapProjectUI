@@ -1,9 +1,9 @@
+import { Color } from './../../models/entities/color';
 import { ActivatedRoute } from '@angular/router';
 import { CarDetailDtoService } from './../../services/car-detail-dto.service';
 import { BrandService } from './../../services/brand.service';
 import { ColorService } from './../../services/color.service';
 import { Component, OnInit } from '@angular/core';
-import { Color } from 'src/app/models/entities/color';
 import { Brand } from 'src/app/models/entities/brand';
 import { CarDetailDto } from 'src/app/models/dtos/carDetailDto';
 
@@ -15,14 +15,14 @@ import { CarDetailDto } from 'src/app/models/dtos/carDetailDto';
 export class CarFilterComponent implements OnInit {
   colors: Color[] = []
   brands: Brand[] = []
-  colorId: number
+  colorId: number 
   brandId: number
   carDetailDto: CarDetailDto[] = []
   dataLoaded: boolean = false
   constructor(private colorService: ColorService,
     private brandService: BrandService,
     private carDetailDtoService: CarDetailDtoService,
-    private activatedRoute:ActivatedRoute) { }
+    private activatedRoute: ActivatedRoute) { }
 
   ngOnInit(): void {
     this.getAllColor();

@@ -35,6 +35,7 @@ import { CarFilterComponent } from './components/car-filter/car-filter.component
 import { RentACarComponent } from './components/rent-acar/rent-acar.component';
 import { CartSummaryComponent } from './components/cart-summary/cart-summary.component';
 import { CartComponent } from './components/cart/cart.component';
+import { CarImageGalleryComponent } from './components/car-image-gallery/car-image-gallery.component';
 
 @NgModule({
   declarations: [
@@ -56,6 +57,7 @@ import { CartComponent } from './components/cart/cart.component';
     RentACarComponent,
     CartSummaryComponent,
     CartComponent,
+    CarImageGalleryComponent,
   ],
   imports: [
     BrowserModule,

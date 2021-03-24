@@ -13,7 +13,7 @@ export class RentalDetailDtoService {
   constructor(private httpClient: HttpClient) { }
 
  getCarDetailDto():Observable<ListResponseModel<RentalDetailDto>> {
-   let newPath = environment.appUrl + "rentals/getrentaldetails"
+   let newPath = environment.appUrl + "rentals/getallrentaldetails"
    return this.httpClient.get<ListResponseModel<RentalDetailDto>>(newPath);
  }
 }

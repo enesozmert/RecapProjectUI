@@ -1,13 +1,12 @@
-<p-carousel [value]="cartItems" styleClass="custom-carousel" [numVisible]="3" [numScroll]="1" [circular]="true" [autoplayInterval]="3000" [responsiveOptions]="responsiveOptions">
+<p-carousel [value]="cartItems" styleClass="custom-carousel" [numVisible]="2" [numScroll]="1" [circular]="true" [responsiveOptions]="responsiveOptions">
     <ng-template pTemplate="header">
-        <h5>Circular, AutoPlay, 3 Items per Page and Scroll by 1</h5>
+        <h5>List of rented cars</h5>
     </ng-template>
     <ng-template let-cartItem pTemplate="item">
         <div class="cartitem-item">
             <div class="cartitem-item-content">
                 <div class="p-mb-3">
-                    <img src="{{carImagePath}}" [alt]="getCarImageDetail(cartItem.carDetailDto.id)" class="product-image" /> {{cartItem.carDetailDto.id}}
-                    <img src="{{carImagePath}}" [alt]="getCarImageDetail(cartItem.carDetailDto.id)" class="product-image" /> {{cartItem.carDetailDto.id}}
+                    <app-car-image-gallery [carId]="cartItem.carDetailDto.id"></app-car-image-gallery>
                 </div>
                 <div>
                     <h4 class="p-mb-1">{{cartItem.carDetailDto.brandName}}</h4>

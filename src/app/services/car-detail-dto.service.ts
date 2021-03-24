@@ -28,7 +28,7 @@ export class CarDetailDtoService {
     return this.httpClient.get<ListResponseModel<CarDetailDto>>(newPath);
   }
   getCarDetailsByColorAndBrandId(colorId: number, brandId: number) {
-    let newPath = environment.appUrl + "cars/getcardetailsbycolorIdandbrandId?colorId=" + colorId + "&brandId=" + brandId
+    let newPath = environment.appUrl + "cars/getcardetailsbycolorIdorbrorId?colorId=" + colorId + "&brandId=" + brandId
     return this.httpClient.get<ListResponseModel<CarDetailDto>>(newPath);
   }
 }

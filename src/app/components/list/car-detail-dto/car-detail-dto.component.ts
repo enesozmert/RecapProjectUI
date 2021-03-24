@@ -31,7 +31,7 @@ export class CarDetailDtoComponent implements OnInit {
         this.getCarDetailsByColor(params["colorId"])
       } else if (params["brandId"]) {
         this.getCarDetailsByBrand(params["brandId"])
-        console.log(params["brandId"])
+        //console.log(params["brandId"])
       } else {
         this.getCarDetailDtos()
       }
