@@ -22,7 +22,7 @@ var CarsComponent = /** @class */ (function () {
         this.carDetailDtoService.getCarDetailDto().subscribe(function (response) {
             _this.carDetailDtos = response.data;
             _this.dataLoaded = true;
-            //console.log(this.carDetailDtos)
+            console.log(_this.carDetailDtos);
         });
     };
     CarsComponent = __decorate([

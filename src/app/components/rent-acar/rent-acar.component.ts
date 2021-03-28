@@ -12,42 +12,48 @@ import { CarImageDetailDto } from 'src/app/models/dtos/carImageDetailDto';
   styleUrls: ['./rent-acar.component.css']
 })
 export class RentACarComponent implements OnInit {
-  cartItems: CartItem[]=[];
+  cartItems: CartItem[] = [];
   carImageDetailDtos: CarImageDetailDto[] = []
-  responsiveOptions:any;
+  responsiveOptions: any;
   carImageId: number;
   carImagePath: string;
   dataLoaded: boolean = false
-  constructor(private rentalService:RentalService,
+  dateTouch: Date;
+  dates: Date[];
+  rangeDates: Date[];
+  minDate: Date;
+  maxDate: Date;
+  es: any;
+  invalidDates: Array<Date>
+  constructor(private rentalService: RentalService,
     private cartService: CartService,
-    private carImageDetailDtoService:CarImageDetailDtoService) {
-      this.responsiveOptions = [
-        {
-            breakpoint: '1024px',
-            numVisible: 3,
-            numScroll: 3
-        },
-        {
-            breakpoint: '768px',
-            numVisible: 2,
-            numScroll: 2
-        },
-        {
-            breakpoint: '560px',
-            numVisible: 1,
-            numScroll: 1
-        }
+    private carImageDetailDtoService: CarImageDetailDtoService) {
+    this.responsiveOptions = [
+      {
+        breakpoint: '1024px',
+        numVisible: 3,
+        numScroll: 3
+      },
+      {
+        breakpoint: '768px',
+        numVisible: 2,
+        numScroll: 2
+      },
+      {
+        breakpoint: '560px',
+        numVisible: 1,
+        numScroll: 1
+      }
     ];
-     }
+  }
 
   ngOnInit(): void {
     this.getCart()
-    
   }
   getCart() {
     this.cartItems = this.cartService.list();
   }
-  getCarImages(carId:number) {
+  getCarImages(carId: number) {
     return this.carImageDetailDtoService.getCarImageView(carId);
   }
   getCarImageDetail(carId: number) {

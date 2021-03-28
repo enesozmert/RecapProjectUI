@@ -1,3 +1,5 @@
+import { CartService } from 'src/app/services/cart.service';
+import { ToastrService } from 'ngx-toastr';
 import { CarDetailDtoService } from './../../services/car-detail-dto.service';
 import { Component, OnInit, Input } from '@angular/core';
 import { CarDetailDto } from 'src/app/models/dtos/carDetailDto';
@@ -13,7 +15,9 @@ export class CardComponent implements OnInit {
   dataLoaded: boolean = false
   @Input() carId:number
 
-  constructor(private carDetailDtoService:CarDetailDtoService) { }
+  constructor(private carDetailDtoService:CarDetailDtoService,
+    private toastrService:ToastrService,
+    private cartService:CartService) { }
 
   ngOnInit(): void {
     this.getCarDetailDtoById(this.carId)
@@ -26,5 +30,9 @@ export class CardComponent implements OnInit {
       this.carDetailDto = Object.assign(this.carDetailDtos);
       console.log(Object.assign(this.carDetailDtos))
     })
+  }
+  addToCart(carDetailDto: CarDetailDto) {
+    this.toastrService.success("Sepete eklendi", carDetailDto.brandName + " " + carDetailDto.modelYear)
+    this.cartService.addToCart(carDetailDto);
   }
 }

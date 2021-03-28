@@ -1,3 +1,7 @@
+import { CarDetailDtoAddComponent } from './components/add/car-detail-dto-add/car-detail-dto-add.component';
+import { ColorAddComponent } from './components/add/color-add/color-add.component';
+import { BrandAddComponent } from './components/add/brand-add/brand-add.component';
+import { CarsComponent } from './components/cars/cars.component';
 import { PaymentComponent } from './components/payment/payment.component';
 import { CartDetailComponent } from './components/cart-detail/cart-detail.component';
 import { CartComponent } from './components/cart/cart.component';
@@ -21,6 +25,10 @@ const routes: Routes = [
   {path:"cart", component:CartComponent},
   {path:"cartdetail", component:CartDetailComponent},
   {path:"payment", component:PaymentComponent},
+  {path:"cars", component:CarsComponent},
+  {path:"add/brand", component:BrandAddComponent},
+  {path:"add/color", component:ColorAddComponent},
+  {path:"add/car", component:CarDetailDtoAddComponent},
 ];
 
 @NgModule({

@@ -1,7 +1,10 @@
 <p-galleria [value]="carImageDetailDtos" [responsiveOptions]="responsiveOptions" [containerStyle]="{'max-width': '640px', 'margin-top':'2em'}" [numVisible]="5" [circular]="true" [showItemNavigators]="true" [showThumbnails]="false" [showIndicators]="true"
     [showItemNavigatorsOnHover]="false" [showIndicatorsOnItem]="true">
     <ng-template pTemplate="item" let-item>
-        <img [src]="getCarImages(item)" style="width: 256px; height: 256px; display: block;" />
+        <div style="width: 256px;height: 256px;">
+            <img [src]="getCarImages(item)" style="width: 100%; height: auto; display: block;margin: auto;" />
+        </div>
+
     </ng-template>
     <ng-template pTemplate="thumbnail" let-item>
         <div class="p-grid p-nogutter p-justify-center">

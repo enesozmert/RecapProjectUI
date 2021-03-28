@@ -13,12 +13,17 @@
                     <h6 class="p-mt-0 p-mb-3">${{cartItem.carDetailDto.dailyPrice}}</h6>
                     <span [class]="'product-badge status-'+cartItem.carDetailDto.brandName.toLowerCase()">{{cartItem.carDetailDto.dailyPrice}}</span>
                     <div class="car-buttons p-mt-5">
-                        <p-button type="button" styleClass="p-button p-button-rounded p-mr-2" icon="pi pi-search">
+                        <p-button type="button" styleClass="p-button p-button-rounded p-mr-2">
+                            <mat-icon>date_range</mat-icon>
+                            <label>12-19-1999</label>
                         </p-button>
-                        <p-button type="button" styleClass="p-button-success p-button-rounded p-mr-2" icon="pi pi-star">
-                        </p-button>
-                        <p-button type="button" styleClass="p-button-help p-button-rounded" icon="pi pi-cog"></p-button>
                     </div>
+                    <div class="p-fluid p-grid p-formgrid fixed">
+                        <div class="p-field p-col-12 p-md-4">
+                            <p-calendar [inputId]="cartItem.carDetailDto.id" class="ng-invalid ng-dirty" [showIcon]="true" placeholder="Calendar"></p-calendar>
+                        </div>
+                    </div>
+
                 </div>
             </div>
         </div>

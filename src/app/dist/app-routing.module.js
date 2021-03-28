@@ -7,6 +7,10 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 };
 exports.__esModule = true;
 exports.AppRoutingModule = void 0;
+var car_detail_dto_add_component_1 = require("./components/add/car-detail-dto-add/car-detail-dto-add.component");
+var color_add_component_1 = require("./components/add/color-add/color-add.component");
+var brand_add_component_1 = require("./components/add/brand-add/brand-add.component");
+var cars_component_1 = require("./components/cars/cars.component");
 var payment_component_1 = require("./components/payment/payment.component");
 var cart_detail_component_1 = require("./components/cart-detail/cart-detail.component");
 var cart_component_1 = require("./components/cart/cart.component");
@@ -26,6 +30,10 @@ var routes = [
     { path: "cart", component: cart_component_1.CartComponent },
     { path: "cartdetail", component: cart_detail_component_1.CartDetailComponent },
     { path: "payment", component: payment_component_1.PaymentComponent },
+    { path: "cars", component: cars_component_1.CarsComponent },
+    { path: "add/brand", component: brand_add_component_1.BrandAddComponent },
+    { path: "add/color", component: color_add_component_1.ColorAddComponent },
+    { path: "add/car", component: car_detail_dto_add_component_1.CarDetailDtoAddComponent },
 ];
 var AppRoutingModule = /** @class */ (function () {
     function AppRoutingModule() {

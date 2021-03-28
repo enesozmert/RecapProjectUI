@@ -21,6 +21,10 @@ import {CommonModule} from '@angular/common';
 import {OrderListModule} from 'primeng/orderlist';
 import {ConfirmPopupModule} from 'primeng/confirmpopup';
 import {ConfirmDialogModule} from 'primeng/confirmdialog';
+import {CalendarModule} from 'primeng/calendar';
+import {InputTextModule} from 'primeng/inputtext';
+import {CaptchaModule} from 'primeng/captcha';
+
 
 import { CarDetailDtoComponent } from './components/list/car-detail-dto/car-detail-dto.component';
 import { NaviComponent } from './components/navi/navi.component';
@@ -45,6 +49,11 @@ import { PaymentComponent } from './components/payment/payment.component';
 import { IsrentedbycarIdPipe } from './pipes/isrentedbycar-id.pipe';
 import { CardComponent } from './components/card/card.component';
 import { CarsComponent } from './components/cars/cars.component';
+import { AddComponent } from './components/add/add.component';
+import { ColorAddComponent } from './components/add/color-add/color-add.component';
+import { BrandAddComponent } from './components/add/brand-add/brand-add.component';
+import { CarDetailDtoAddComponent } from './components/add/car-detail-dto-add/car-detail-dto-add.component';
+
 
 @NgModule({
   declarations: [
@@ -72,6 +81,10 @@ import { CarsComponent } from './components/cars/cars.component';
     IsrentedbycarIdPipe,
     CardComponent,
     CarsComponent,
+    AddComponent,
+    ColorAddComponent,
+    BrandAddComponent,
+    CarDetailDtoAddComponent,
   ],
   imports: [
     BrowserModule,
@@ -94,6 +107,9 @@ import { CarsComponent } from './components/cars/cars.component';
     OrderListModule,
     ConfirmPopupModule,
     ConfirmDialogModule,
+    CalendarModule,
+    InputTextModule,
+    CaptchaModule,
     ToastrModule.forRoot({
       positionClass: "toast-bottom-center"
     })

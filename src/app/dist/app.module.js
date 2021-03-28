@@ -30,6 +30,9 @@ var common_1 = require("@angular/common");
 var orderlist_1 = require("primeng/orderlist");
 var confirmpopup_1 = require("primeng/confirmpopup");
 var confirmdialog_1 = require("primeng/confirmdialog");
+var calendar_1 = require("primeng/calendar");
+var inputtext_1 = require("primeng/inputtext");
+var captcha_1 = require("primeng/captcha");
 var car_detail_dto_component_1 = require("./components/list/car-detail-dto/car-detail-dto.component");
 var navi_component_1 = require("./components/navi/navi.component");
 var rental_detail_dto_component_1 = require("./components/list/rental-detail-dto/rental-detail-dto.component");
@@ -50,6 +53,13 @@ var cart_component_1 = require("./components/cart/cart.component");
 var car_image_gallery_component_1 = require("./components/car-image-gallery/car-image-gallery.component");
 var cart_detail_component_1 = require("./components/cart-detail/cart-detail.component");
 var payment_component_1 = require("./components/payment/payment.component");
+var isrentedbycar_id_pipe_1 = require("./pipes/isrentedbycar-id.pipe");
+var card_component_1 = require("./components/card/card.component");
+var cars_component_1 = require("./components/cars/cars.component");
+var add_component_1 = require("./components/add/add.component");
+var color_add_component_1 = require("./components/add/color-add/color-add.component");
+var brand_add_component_1 = require("./components/add/brand-add/brand-add.component");
+var car_detail_dto_add_component_1 = require("./components/add/car-detail-dto-add/car-detail-dto-add.component");
 var AppModule = /** @class */ (function () {
     function AppModule() {
     }
@@ -77,6 +87,13 @@ var AppModule = /** @class */ (function () {
                 car_image_gallery_component_1.CarImageGalleryComponent,
                 cart_detail_component_1.CartDetailComponent,
                 payment_component_1.PaymentComponent,
+                isrentedbycar_id_pipe_1.IsrentedbycarIdPipe,
+                card_component_1.CardComponent,
+                cars_component_1.CarsComponent,
+                add_component_1.AddComponent,
+                color_add_component_1.ColorAddComponent,
+                brand_add_component_1.BrandAddComponent,
+                car_detail_dto_add_component_1.CarDetailDtoAddComponent,
             ],
             imports: [
                 platform_browser_1.BrowserModule,
@@ -99,6 +116,9 @@ var AppModule = /** @class */ (function () {
                 orderlist_1.OrderListModule,
                 confirmpopup_1.ConfirmPopupModule,
                 confirmdialog_1.ConfirmDialogModule,
+                calendar_1.CalendarModule,
+                inputtext_1.InputTextModule,
+                captcha_1.CaptchaModule,
                 ngx_toastr_1.ToastrModule.forRoot({
                     positionClass: "toast-bottom-center"
                 })

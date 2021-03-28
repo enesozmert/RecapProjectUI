@@ -9,8 +9,10 @@ exports.__esModule = true;
 exports.CardComponent = void 0;
 var core_1 = require("@angular/core");
 var CardComponent = /** @class */ (function () {
-    function CardComponent(carDetailDtoService) {
+    function CardComponent(carDetailDtoService, toastrService, cartService) {
         this.carDetailDtoService = carDetailDtoService;
+        this.toastrService = toastrService;
+        this.cartService = cartService;
         this.carDetailDtos = [];
         this.dataLoaded = false;
     }
@@ -26,6 +28,10 @@ var CardComponent = /** @class */ (function () {
             _this.carDetailDto = Object.assign(_this.carDetailDtos);
             console.log(Object.assign(_this.carDetailDtos));
         });
+    };
+    CardComponent.prototype.addToCart = function (carDetailDto) {
+        this.toastrService.success("Sepete eklendi", carDetailDto.brandName + " " + carDetailDto.modelYear);
+        this.cartService.addToCart(carDetailDto);
     };
     __decorate([
         core_1.Input()

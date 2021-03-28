@@ -1,16 +1,16 @@
 <div class="card" style="width: 256px;position: relative;display:inline-block;">
-    <div style="height: 256px;width: 256px;">
+    <div style="height: auto;width: 100%;">
         <app-car-image-gallery [carId]="carId"></app-car-image-gallery>
     </div>
 
     <div class="card-body">
-        <h5 class="card-title">{{carDetailDto.brandName}}</h5>
+        <h5 class="card-title ">{{carDetailDto?.brandName}}</h5>
         <div class="card-text">
-            <div>Model Year: {{carDetailDto.modelYear}}</div>
-            <div>Color: {{carDetailDto.colorName}}</div>
-            <div>Daily Price: {{carDetailDto.dailyPrice}}</div>
-            <div>Description: {{carDetailDto.description}}</div>
+            <div>Model Year: {{carDetailDto?.modelYear}}</div>
+            <div>Color: {{carDetailDto?.colorName}}</div>
+            <div>Daily Price: {{carDetailDto?.dailyPrice}}</div>
+            <div>Description: {{carDetailDto?.description}}</div>
         </div>
-        <a href="#" class="btn btn-primary">Rent</a>
+        <a (click)="addToCart(carDetailDto)" class="btn btn-primary">Rent</a>
     </div>
 </div>

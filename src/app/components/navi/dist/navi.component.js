@@ -1,17 +1,19 @@
-import { AppComponent } from './../../app.component';
-import { MenuItem } from 'primeng/api';
-import { Component, OnInit } from '@angular/core';
-
-@Component({
-    selector: 'app-navi',
-    templateUrl: './navi.component.html',
-    styleUrls: ['./navi.component.css']
-})
-export class NaviComponent implements OnInit {
-    items: MenuItem[] = [];
-    constructor(private appComponent:AppComponent) { }
-
-    ngOnInit(): void {
+"use strict";
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+exports.__esModule = true;
+exports.NaviComponent = void 0;
+var core_1 = require("@angular/core");
+var NaviComponent = /** @class */ (function () {
+    function NaviComponent(appComponent) {
+        this.appComponent = appComponent;
+        this.items = [];
+    }
+    NaviComponent.prototype.ngOnInit = function () {
         this.items = [
             {
                 label: 'Home',
@@ -20,24 +22,22 @@ export class NaviComponent implements OnInit {
             },
             {
                 label: 'Car List',
-                icon:  'pi pi-fw pi-table',
+                icon: 'pi pi-fw pi-table',
                 routerLink: ['/cars']
             },
             {
                 label: 'Users',
                 icon: 'pi pi-fw pi-user',
                 escape: false,
-                styleClass:"user",
+                styleClass: "user",
                 items: [
                     {
                         label: 'New',
-                        icon: 'pi pi-fw pi-user-plus',
-
+                        icon: 'pi pi-fw pi-user-plus'
                     },
                     {
                         label: 'Delete',
-                        icon: 'pi pi-fw pi-user-minus',
-
+                        icon: 'pi pi-fw pi-user-minus'
                     },
                     {
                         label: 'Search',
@@ -105,8 +105,17 @@ export class NaviComponent implements OnInit {
                 icon: 'pi pi-fw pi-power-off'
             }
         ];
-    }
-    openNavi() {
+    };
+    NaviComponent.prototype.openNavi = function () {
         this.appComponent.openNav();
-    }
-}
+    };
+    NaviComponent = __decorate([
+        core_1.Component({
+            selector: 'app-navi',
+            templateUrl: './navi.component.html',
+            styleUrls: ['./navi.component.css']
+        })
+    ], NaviComponent);
+    return NaviComponent;
+}());
+exports.NaviComponent = NaviComponent;
