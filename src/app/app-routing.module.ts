@@ -1,3 +1,4 @@
+import { LoginComponent } from './components/login/login.component';
 import { CarDetailDtoAddComponent } from './components/add/car-detail-dto-add/car-detail-dto-add.component';
 import { ColorAddComponent } from './components/add/color-add/color-add.component';
 import { BrandAddComponent } from './components/add/brand-add/brand-add.component';
@@ -14,6 +15,7 @@ import { RentalDetailDtoComponent } from './components/list/rental-detail-dto/re
 import { RentalDetailDto } from './models/dtos/rentalDetailDto';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { RegisterComponent } from './components/register/register.component';
 
 const routes: Routes = [
   {path:"",pathMatch:"full", component:ListComponent},
@@ -29,6 +31,8 @@ const routes: Routes = [
   {path:"add/brand", component:BrandAddComponent},
   {path:"add/color", component:ColorAddComponent},
   {path:"add/car", component:CarDetailDtoAddComponent},
+  {path:"login", component:LoginComponent},
+  {path:"register", component:RegisterComponent},
 ];
 
 @NgModule({

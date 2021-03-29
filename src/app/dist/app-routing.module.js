@@ -7,6 +7,7 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 };
 exports.__esModule = true;
 exports.AppRoutingModule = void 0;
+var login_component_1 = require("./components/login/login.component");
 var car_detail_dto_add_component_1 = require("./components/add/car-detail-dto-add/car-detail-dto-add.component");
 var color_add_component_1 = require("./components/add/color-add/color-add.component");
 var brand_add_component_1 = require("./components/add/brand-add/brand-add.component");
@@ -20,6 +21,7 @@ var car_detail_dto_component_1 = require("./components/list/car-detail-dto/car-d
 var list_component_1 = require("./components/list/list.component");
 var core_1 = require("@angular/core");
 var router_1 = require("@angular/router");
+var register_component_1 = require("./components/register/register.component");
 var routes = [
     { path: "", pathMatch: "full", component: list_component_1.ListComponent },
     { path: "cars/getcardetailsbycolorId/:colorId", component: car_detail_dto_component_1.CarDetailDtoComponent },
@@ -34,6 +36,8 @@ var routes = [
     { path: "add/brand", component: brand_add_component_1.BrandAddComponent },
     { path: "add/color", component: color_add_component_1.ColorAddComponent },
     { path: "add/car", component: car_detail_dto_add_component_1.CarDetailDtoAddComponent },
+    { path: "login", component: login_component_1.LoginComponent },
+    { path: "register", component: register_component_1.RegisterComponent },
 ];
 var AppRoutingModule = /** @class */ (function () {
     function AppRoutingModule() {

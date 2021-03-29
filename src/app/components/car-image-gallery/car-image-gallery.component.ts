@@ -19,11 +19,12 @@ export class CarImageGalleryComponent implements OnInit {
   }
   getCarImageDetail(carId: number) {
     this.carImageDetailDtoService.getCarImageDetailDto(carId).subscribe(response => {
-      this.carImageDetailDtos = response.data
+      this.carImageDetailDtos = response.data  
       this.dataLoaded = true
     })
   }
   getCarImages(carImageDetailDto: CarImageDetailDto) {
+    
     return this.carImageDetailDtoService.getCarImageView(carImageDetailDto.id);
   }
   responsiveOptions:any[] = [

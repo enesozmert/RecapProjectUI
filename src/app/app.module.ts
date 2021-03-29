@@ -53,6 +53,8 @@ import { AddComponent } from './components/add/add.component';
 import { ColorAddComponent } from './components/add/color-add/color-add.component';
 import { BrandAddComponent } from './components/add/brand-add/brand-add.component';
 import { CarDetailDtoAddComponent } from './components/add/car-detail-dto-add/car-detail-dto-add.component';
+import { LoginComponent } from './components/login/login.component';
+import { RegisterComponent } from './components/register/register.component';
 
 
 @NgModule({
@@ -85,6 +87,8 @@ import { CarDetailDtoAddComponent } from './components/add/car-detail-dto-add/ca
     ColorAddComponent,
     BrandAddComponent,
     CarDetailDtoAddComponent,
+    LoginComponent,
+    RegisterComponent,
   ],
   imports: [
     BrowserModule,

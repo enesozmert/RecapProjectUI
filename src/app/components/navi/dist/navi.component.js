@@ -78,7 +78,7 @@ var NaviComponent = /** @class */ (function () {
                     },
                     {
                         label: 'Color',
-                        icon: 'pi pi-fw pi-calendar-times',
+                        icon: 'pi pi-fw pi-pencil',
                         items: [
                             {
                                 label: 'Add',
@@ -89,7 +89,7 @@ var NaviComponent = /** @class */ (function () {
                     },
                     {
                         label: 'Brand',
-                        icon: 'pi pi-fw pi-calendar-times',
+                        icon: 'pi pi-fw pi-pencil',
                         items: [
                             {
                                 label: 'Add',

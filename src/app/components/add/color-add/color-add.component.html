@@ -1,7 +1,18 @@
-<div class="p-inputgroup">
-    <span class="p-inputgroup-addon"><i class="pi pi-tags"></i></span>
-    <span class="p-inputgroup-addon"><i class="pi pi-shopping-cart"></i></span>
-    <input type="text" pInputText placeholder="Price">
-    <span class="p-inputgroup-addon">$</span>
-    <span class="p-inputgroup-addon">.00</span>
+<div class="container">
+    <div class="p-inputgroup" [formGroup]="colorAddForm">
+        <label class="p-inputgroup-addon">Brand Name</label>
+        <span class="p-inputgroup-addon"><i class="pi pi-tags"></i></span>
+        <span class="p-inputgroup-addon"><i class="pi pi-shopping-cart"></i></span>
+        <input type="text" pInputText placeholder="Name" formControlName="colorName">
+        <span class="p-inputgroup-addon">Name</span>
+        <span class="p-inputgroup-addon">String</span>
+    </div>
+    <div class="row h-50">
+        <div class="col-sm-12 h-10 d-table">
+            <div class="card card-block d-table-cell align-middle text-center border-0 p-2">
+                <p-button (click)="confirmPosition('bottom')" icon="pi pi-arrow-up" label="Upload" styleClass="p-button-success p-mr-2"></p-button>
+            </div>
+        </div>
+    </div>
 </div>
+<p-confirmDialog [style]="{width: '50vw'}" key="positionDialog" [position]="position" [baseZIndex]="10000" rejectButtonStyleClass="p-button-outlined"></p-confirmDialog>

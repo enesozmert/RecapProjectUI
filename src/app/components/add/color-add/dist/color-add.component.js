@@ -6,30 +6,30 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
 exports.__esModule = true;
-exports.BrandAddComponent = void 0;
+exports.ColorAddComponent = void 0;
 var core_1 = require("@angular/core");
-var api_1 = require("primeng/api");
 var forms_1 = require("@angular/forms");
-var BrandAddComponent = /** @class */ (function () {
-    function BrandAddComponent(toastrService, confirmationService, brandService, formBuilder) {
+var api_1 = require("primeng/api");
+var ColorAddComponent = /** @class */ (function () {
+    function ColorAddComponent(toastrService, confirmationService, colorService, formBuilder) {
         this.toastrService = toastrService;
         this.confirmationService = confirmationService;
-        this.brandService = brandService;
+        this.colorService = colorService;
         this.formBuilder = formBuilder;
     }
-    BrandAddComponent.prototype.ngOnInit = function () {
+    ColorAddComponent.prototype.ngOnInit = function () {
         this.createBrandAddForm();
     };
-    BrandAddComponent.prototype.createBrandAddForm = function () {
-        this.brandAddForm = this.formBuilder.group({
-            brandName: ["", forms_1.Validators.required]
+    ColorAddComponent.prototype.createBrandAddForm = function () {
+        this.colorAddForm = this.formBuilder.group({
+            colorName: ["", forms_1.Validators.required]
         });
     };
-    BrandAddComponent.prototype.add = function () {
+    ColorAddComponent.prototype.add = function () {
         var _this = this;
-        if (this.brandAddForm.valid) {
-            var productModel = Object.assign({}, this.brandAddForm.value);
-            this.brandService.add(productModel).subscribe(function (response) {
+        if (this.colorAddForm.valid) {
+            var productModel = Object.assign({}, this.colorAddForm.value);
+            this.colorService.add(productModel).subscribe(function (response) {
                 _this.toastrService.success(response.message, "Success");
                 //console.log(response)
             }, function (responseError) {
@@ -45,7 +45,7 @@ var BrandAddComponent = /** @class */ (function () {
             this.toastrService.error("Form Error Is Invalid!", "Error");
         }
     };
-    BrandAddComponent.prototype.confirmPosition = function (position) {
+    ColorAddComponent.prototype.confirmPosition = function (position) {
         var _this = this;
         this.position = position;
         this.confirmationService.confirm({
@@ -62,14 +62,14 @@ var BrandAddComponent = /** @class */ (function () {
             key: "positionDialog"
         });
     };
-    BrandAddComponent = __decorate([
+    ColorAddComponent = __decorate([
         core_1.Component({
-            selector: 'app-brand-add',
-            templateUrl: './brand-add.component.html',
-            styleUrls: ['./brand-add.component.css'],
+            selector: 'app-color-add',
+            templateUrl: './color-add.component.html',
+            styleUrls: ['./color-add.component.css'],
             providers: [api_1.ConfirmationService]
         })
-    ], BrandAddComponent);
-    return BrandAddComponent;
+    ], ColorAddComponent);
+    return ColorAddComponent;
 }());
-exports.BrandAddComponent = BrandAddComponent;
+exports.ColorAddComponent = ColorAddComponent;

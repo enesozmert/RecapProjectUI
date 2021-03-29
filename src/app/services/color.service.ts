@@ -4,6 +4,7 @@ import { Observable } from 'rxjs';
 import { ListResponseModel } from '../models/listResponseModel';
 import { Color } from '../models/entities/color';
 import { environment } from '../../environments/environment';
+import { ResponseModel } from '../models/responseModel/responseModel';
 
 @Injectable({
   providedIn: 'root'
@@ -15,5 +16,8 @@ export class ColorService {
   getColors():Observable<ListResponseModel<Color>> {
     let newPath = environment.appUrl + "colors/getall"
     return this.httpClient.get<ListResponseModel<Color>>(newPath);
+  }
+  add(color: Color):Observable<ResponseModel> {
+    return this.httpClient.post<ResponseModel>(environment.appUrl + "colors/add",color)
   }
 }
