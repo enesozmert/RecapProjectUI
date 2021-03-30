@@ -21,7 +21,7 @@ var LoginComponent = /** @class */ (function () {
     };
     LoginComponent.prototype.createLoginFrom = function () {
         this.loginForm = this.formBuilder.group({
-            "email": ["", forms_1.Validators.required, forms_1.Validators.email],
+            "email": ["", forms_1.Validators.required],
             "password": ["", forms_1.Validators.required]
         });
     };

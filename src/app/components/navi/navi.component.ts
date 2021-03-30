@@ -1,6 +1,8 @@
+import { AuthService } from './../../services/auth.service';
 import { AppComponent } from './../../app.component';
 import { MenuItem } from 'primeng/api';
 import { Component, OnInit } from '@angular/core';
+import { Router, RouterLink, Routes } from '@angular/router';
 
 @Component({
     selector: 'app-navi',
@@ -9,7 +11,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class NaviComponent implements OnInit {
     items: MenuItem[] = [];
-    constructor(private appComponent:AppComponent) { }
+    isUserInfoMenu: boolean = true
+    isAuth:boolean;
+    userInfoMenuClass: string = "display:none;visibility:hidden;"
+    constructor(private appComponent: AppComponent,
+        private authService: AuthService,
+        private router: Router) { }
 
     ngOnInit(): void {
         this.items = [
@@ -20,14 +27,14 @@ export class NaviComponent implements OnInit {
             },
             {
                 label: 'Car List',
-                icon:  'pi pi-fw pi-table',
+                icon: 'pi pi-fw pi-table',
                 routerLink: ['/cars']
             },
             {
                 label: 'Users',
                 icon: 'pi pi-fw pi-user',
                 escape: false,
-                styleClass:"user",
+                styleClass: "user",
                 items: [
                     {
                         label: 'New',
@@ -37,6 +44,7 @@ export class NaviComponent implements OnInit {
                     {
                         label: 'Delete',
                         icon: 'pi pi-fw pi-user-minus',
+                        visible: false
 
                     },
                     {
@@ -64,6 +72,7 @@ export class NaviComponent implements OnInit {
             {
                 label: 'Events',
                 icon: 'pi pi-fw pi-calendar',
+                visible:this.authService.isAuthenticadet(),
                 items: [
                     {
                         label: 'Car',
@@ -74,6 +83,11 @@ export class NaviComponent implements OnInit {
                                 icon: 'pi pi-fw pi-calendar-minus',
                                 routerLink: ['/add/car']
                             },
+                            {
+                                label: 'View',
+                                icon: 'pi pi-fw pi-calendar-minus',
+                                routerLink: ['/list/cardetaildto']
+                            }
                         ]
                     },
                     {
@@ -84,6 +98,11 @@ export class NaviComponent implements OnInit {
                                 label: 'Add',
                                 icon: 'pi pi-fw pi-calendar-minus',
                                 routerLink: ['/add/color']
+                            },
+                            {
+                                label: 'View',
+                                icon: 'pi pi-fw pi-calendar-minus',
+                                routerLink: ['/list/color']
                             }
                         ]
                     },
@@ -95,6 +114,11 @@ export class NaviComponent implements OnInit {
                                 label: 'Add',
                                 icon: 'pi pi-fw pi-calendar-minus',
                                 routerLink: ['/add/brand']
+                            },
+                            {
+                                label: 'View',
+                                icon: 'pi pi-fw pi-calendar-minus',
+                                routerLink: ['/list/brand']
                             }
                         ]
                     }
@@ -102,11 +126,54 @@ export class NaviComponent implements OnInit {
             },
             {
                 label: 'Quit',
-                icon: 'pi pi-fw pi-power-off'
+                icon: 'pi pi-fw pi-power-off',
+                visible: this.authService.isAuthenticadet(),
+                command: () => this.signOut(),
+                routerLink: ['/']
+
             }
         ];
     }
+    reloadUrl():boolean{
+        ///location.reload();
+        return false;
+    }
     openNavi() {
         this.appComponent.openNav();
+    }
+    isAuthenticadet(){
+        return this.authService.isAuthenticadet();
+    }
+    isAuthenticadetIconClass() {
+        if (this.authService.isAuthenticadet()) {
+            return "visibility:visible;";
+        } else {
+            return "visibility:visible;display:none;";
+        }
+    }
+    isNotAuthenticadetIconClass() {
+        if (!this.authService.isAuthenticadet()) {
+            return "visibility:visible;";
+        } else {
+            return "visibility:visible;display:none;";
+        }
+    }
+    userInfoClickEvent() {
+        if (this.isUserInfoMenu == false) {
+            this.userInfoMenuClass = "display:none;visibility:hidden;";
+            this.isUserInfoMenu = true
+        } else {
+            this.userInfoMenuClass = "visibility:visible;";
+            this.isUserInfoMenu = false
+        }
+    }
+    getFullName():string{
+        return this.authService.getCurrentFullName();
+    }
+    signOut() {
+        this.isAuthenticadet()
+        localStorage.clear();
+        location.reload();
+        this.router.navigate(['/'])
     }
 }

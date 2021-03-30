@@ -7,6 +7,12 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 };
 exports.__esModule = true;
 exports.AppRoutingModule = void 0;
+var customer_detail_dto_component_1 = require("./components/list/customer-detail-dto/customer-detail-dto.component");
+var color_component_1 = require("./components/list/color/color.component");
+var brand_component_1 = require("./components/list/brand/brand.component");
+var main_component_1 = require("./components/main/main.component");
+var notlogin_guard_1 = require("./guards/notlogin.guard");
+var login_guard_1 = require("./guards/login.guard");
 var login_component_1 = require("./components/login/login.component");
 var car_detail_dto_add_component_1 = require("./components/add/car-detail-dto-add/car-detail-dto-add.component");
 var color_add_component_1 = require("./components/add/color-add/color-add.component");
@@ -19,32 +25,40 @@ var rent_acar_component_1 = require("./components/rent-acar/rent-acar.component"
 var carimage_component_1 = require("./components/carimage/carimage.component");
 var car_detail_dto_component_1 = require("./components/list/car-detail-dto/car-detail-dto.component");
 var list_component_1 = require("./components/list/list.component");
+var rental_detail_dto_component_1 = require("./components/list/rental-detail-dto/rental-detail-dto.component");
 var core_1 = require("@angular/core");
 var router_1 = require("@angular/router");
 var register_component_1 = require("./components/register/register.component");
 var routes = [
-    { path: "", pathMatch: "full", component: list_component_1.ListComponent },
+    { path: "", pathMatch: "full", component: main_component_1.MainComponent },
+    { path: "list", component: list_component_1.ListComponent, canActivate: [login_guard_1.LoginGuard] },
+    { path: "list/brand", component: brand_component_1.BrandComponent, canActivate: [login_guard_1.LoginGuard] },
+    { path: "list/cardetaildto", component: car_detail_dto_component_1.CarDetailDtoComponent, canActivate: [login_guard_1.LoginGuard] },
+    { path: "list/color", component: color_component_1.ColorComponent, canActivate: [login_guard_1.LoginGuard] },
+    { path: "list/customerdetaildto", component: customer_detail_dto_component_1.CustomerDetailDtoComponent, canActivate: [login_guard_1.LoginGuard] },
+    { path: "list/rentaldetaildto", component: rental_detail_dto_component_1.RentalDetailDtoComponent, canActivate: [login_guard_1.LoginGuard] },
     { path: "cars/getcardetailsbycolorId/:colorId", component: car_detail_dto_component_1.CarDetailDtoComponent },
     { path: "cars/getcardetailsbybrandId/:brandId", component: car_detail_dto_component_1.CarDetailDtoComponent },
     { path: "cars/getcarimagedetails/:carId", component: carimage_component_1.CarimageComponent },
     { path: "cars/getcardetailsbycolorIdorbrandId/:colorId/:brandId", component: car_detail_dto_component_1.CarDetailDtoComponent },
-    { path: "cars/rentacar", component: rent_acar_component_1.RentACarComponent },
-    { path: "cart", component: cart_component_1.CartComponent },
-    { path: "cartdetail", component: cart_detail_component_1.CartDetailComponent },
-    { path: "payment", component: payment_component_1.PaymentComponent },
+    { path: "cars/rentacar", component: rent_acar_component_1.RentACarComponent, canActivate: [login_guard_1.LoginGuard] },
+    { path: "cart", component: cart_component_1.CartComponent, canActivate: [login_guard_1.LoginGuard] },
+    { path: "cartdetail", component: cart_detail_component_1.CartDetailComponent, canActivate: [login_guard_1.LoginGuard] },
+    { path: "payment", component: payment_component_1.PaymentComponent, canActivate: [login_guard_1.LoginGuard] },
     { path: "cars", component: cars_component_1.CarsComponent },
-    { path: "add/brand", component: brand_add_component_1.BrandAddComponent },
-    { path: "add/color", component: color_add_component_1.ColorAddComponent },
-    { path: "add/car", component: car_detail_dto_add_component_1.CarDetailDtoAddComponent },
-    { path: "login", component: login_component_1.LoginComponent },
-    { path: "register", component: register_component_1.RegisterComponent },
+    { path: "add/brand", component: brand_add_component_1.BrandAddComponent, canActivate: [login_guard_1.LoginGuard] },
+    { path: "add/color", component: color_add_component_1.ColorAddComponent, canActivate: [login_guard_1.LoginGuard] },
+    { path: "add/car", component: car_detail_dto_add_component_1.CarDetailDtoAddComponent, canActivate: [login_guard_1.LoginGuard] },
+    { path: "login", component: login_component_1.LoginComponent, canActivate: [notlogin_guard_1.NotloginGuard] },
+    { path: "register", component: register_component_1.RegisterComponent, canActivate: [notlogin_guard_1.NotloginGuard] },
 ];
 var AppRoutingModule = /** @class */ (function () {
     function AppRoutingModule() {
     }
     AppRoutingModule = __decorate([
         core_1.NgModule({
-            imports: [router_1.RouterModule.forRoot(routes)],
+            imports: [router_1.RouterModule.forRoot(routes)
+            ],
             exports: [router_1.RouterModule]
         })
     ], AppRoutingModule);

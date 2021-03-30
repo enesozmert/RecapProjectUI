@@ -1,3 +1,9 @@
+import { CustomerDetailDtoComponent } from './components/list/customer-detail-dto/customer-detail-dto.component';
+import { ColorComponent } from './components/list/color/color.component';
+import { BrandComponent } from './components/list/brand/brand.component';
+import { MainComponent } from './components/main/main.component';
+import { NotloginGuard } from './guards/notlogin.guard';
+import { LoginGuard } from './guards/login.guard';
 import { LoginComponent } from './components/login/login.component';
 import { CarDetailDtoAddComponent } from './components/add/car-detail-dto-add/car-detail-dto-add.component';
 import { ColorAddComponent } from './components/add/color-add/color-add.component';
@@ -18,25 +24,33 @@ import { RouterModule, Routes } from '@angular/router';
 import { RegisterComponent } from './components/register/register.component';
 
 const routes: Routes = [
-  {path:"",pathMatch:"full", component:ListComponent},
+  {path:"",pathMatch:"full", component:MainComponent},
+  {path:"list", component:ListComponent,canActivate:[LoginGuard]},
+  {path:"list/brand", component:BrandComponent,canActivate:[LoginGuard]},
+  {path:"list/cardetaildto", component:CarDetailDtoComponent,canActivate:[LoginGuard]},
+  {path:"list/color", component:ColorComponent,canActivate:[LoginGuard]},
+  {path:"list/customerdetaildto", component:CustomerDetailDtoComponent,canActivate:[LoginGuard]},
+  {path:"list/rentaldetaildto", component:RentalDetailDtoComponent,canActivate:[LoginGuard]},
   {path:"cars/getcardetailsbycolorId/:colorId", component:CarDetailDtoComponent},
   {path:"cars/getcardetailsbybrandId/:brandId", component:CarDetailDtoComponent},
   {path:"cars/getcarimagedetails/:carId", component:CarimageComponent},
   {path:"cars/getcardetailsbycolorIdorbrandId/:colorId/:brandId", component:CarDetailDtoComponent},
-  {path:"cars/rentacar", component:RentACarComponent},
-  {path:"cart", component:CartComponent},
-  {path:"cartdetail", component:CartDetailComponent},
-  {path:"payment", component:PaymentComponent},
+  {path:"cars/rentacar", component:RentACarComponent,canActivate:[LoginGuard]},
+  {path:"cart", component:CartComponent,canActivate:[LoginGuard]},
+  {path:"cartdetail", component:CartDetailComponent,canActivate:[LoginGuard]},
+  {path:"payment", component:PaymentComponent,canActivate:[LoginGuard]},
   {path:"cars", component:CarsComponent},
-  {path:"add/brand", component:BrandAddComponent},
-  {path:"add/color", component:ColorAddComponent},
-  {path:"add/car", component:CarDetailDtoAddComponent},
-  {path:"login", component:LoginComponent},
-  {path:"register", component:RegisterComponent},
+  {path:"add/brand", component:BrandAddComponent,canActivate:[LoginGuard]},
+  {path:"add/color", component:ColorAddComponent,canActivate:[LoginGuard]},
+  {path:"add/car", component:CarDetailDtoAddComponent,canActivate:[LoginGuard]},
+  {path:"login", component:LoginComponent,canActivate:[NotloginGuard]},
+  {path:"register", component:RegisterComponent,canActivate:[NotloginGuard]},
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
+  imports: [RouterModule.forRoot(routes)
+  ],
   exports: [RouterModule]
 })
 export class AppRoutingModule { }
+

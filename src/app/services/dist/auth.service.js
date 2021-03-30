@@ -10,8 +10,9 @@ exports.AuthService = void 0;
 var environment_1 = require("src/environments/environment");
 var core_1 = require("@angular/core");
 var AuthService = /** @class */ (function () {
-    function AuthService(httpClient) {
+    function AuthService(httpClient, jwtControllerService) {
         this.httpClient = httpClient;
+        this.jwtControllerService = jwtControllerService;
     }
     AuthService.prototype.login = function (loginModel) {
         return this.httpClient.post(environment_1.environment.appUrl + "auth/login", loginModel);
@@ -25,6 +26,21 @@ var AuthService = /** @class */ (function () {
         }
         else {
             return false;
+        }
+    };
+    AuthService.prototype.getCurrentFullName = function () {
+        var token = localStorage.getItem("token");
+        if (token) {
+            var decoded = this.jwtControllerService.decodeToken(token);
+            var userName = Object.keys(decoded).filter(function (x) { return x.endsWith("/name"); })[0];
+            return decoded[userName];
+        }
+        return null;
+    };
+    AuthService.prototype.isActive = function () {
+        var token = localStorage.getItem("token");
+        if (token) {
+            return this.jwtControllerService.isActive(token);
         }
     };
     AuthService = __decorate([

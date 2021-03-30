@@ -7,4 +7,5 @@ export interface RentalDetailDto {
     returnDate?: any;
     brandName: string;
     fullName: string;
+    isEnabled:boolean;
 }

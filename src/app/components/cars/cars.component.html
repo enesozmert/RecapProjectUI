@@ -1,3 +1,9 @@
-<div *ngFor="let carDetailDto of carDetailDtos" style="display:inline;position: relative;margin: 3px 3px 3px 3px;">
-    <app-card [carId]="carDetailDto.id"></app-card>
+<div class="row h-50">
+    <div class="col-sm-12 h-10 d-table">
+        <div class="card card-block d-table-cell align-middle text-center border-0 p-2">
+            <div *ngFor="let carDetailDto of carDetailDtos" style="display:inline;position: relative;margin: 3px 3px 3px 3px;text-align: center;">
+                <app-card [carId]="carDetailDto.id"></app-card>
+            </div>
+        </div>
+    </div>
 </div>

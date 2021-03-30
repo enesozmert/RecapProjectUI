@@ -9,11 +9,16 @@ exports.__esModule = true;
 exports.NaviComponent = void 0;
 var core_1 = require("@angular/core");
 var NaviComponent = /** @class */ (function () {
-    function NaviComponent(appComponent) {
+    function NaviComponent(appComponent, authService, router) {
         this.appComponent = appComponent;
+        this.authService = authService;
+        this.router = router;
         this.items = [];
+        this.isUserInfoMenu = true;
+        this.userInfoMenuClass = "display:none;visibility:hidden;";
     }
     NaviComponent.prototype.ngOnInit = function () {
+        var _this = this;
         this.items = [
             {
                 label: 'Home',
@@ -37,7 +42,8 @@ var NaviComponent = /** @class */ (function () {
                     },
                     {
                         label: 'Delete',
-                        icon: 'pi pi-fw pi-user-minus'
+                        icon: 'pi pi-fw pi-user-minus',
+                        visible: false
                     },
                     {
                         label: 'Search',
@@ -64,6 +70,7 @@ var NaviComponent = /** @class */ (function () {
             {
                 label: 'Events',
                 icon: 'pi pi-fw pi-calendar',
+                visible: this.authService.isAuthenticadet(),
                 items: [
                     {
                         label: 'Car',
@@ -74,6 +81,11 @@ var NaviComponent = /** @class */ (function () {
                                 icon: 'pi pi-fw pi-calendar-minus',
                                 routerLink: ['/add/car']
                             },
+                            {
+                                label: 'View',
+                                icon: 'pi pi-fw pi-calendar-minus',
+                                routerLink: ['/list/cardetaildto']
+                            }
                         ]
                     },
                     {
@@ -84,6 +96,11 @@ var NaviComponent = /** @class */ (function () {
                                 label: 'Add',
                                 icon: 'pi pi-fw pi-calendar-minus',
                                 routerLink: ['/add/color']
+                            },
+                            {
+                                label: 'View',
+                                icon: 'pi pi-fw pi-calendar-minus',
+                                routerLink: ['/list/color']
                             }
                         ]
                     },
@@ -95,6 +112,11 @@ var NaviComponent = /** @class */ (function () {
                                 label: 'Add',
                                 icon: 'pi pi-fw pi-calendar-minus',
                                 routerLink: ['/add/brand']
+                            },
+                            {
+                                label: 'View',
+                                icon: 'pi pi-fw pi-calendar-minus',
+                                routerLink: ['/list/brand']
                             }
                         ]
                     }
@@ -102,12 +124,57 @@ var NaviComponent = /** @class */ (function () {
             },
             {
                 label: 'Quit',
-                icon: 'pi pi-fw pi-power-off'
+                icon: 'pi pi-fw pi-power-off',
+                visible: this.authService.isAuthenticadet(),
+                command: function () { return _this.signOut(); },
+                routerLink: ['/']
             }
         ];
     };
+    NaviComponent.prototype.reloadUrl = function () {
+        ///location.reload();
+        return false;
+    };
     NaviComponent.prototype.openNavi = function () {
         this.appComponent.openNav();
+    };
+    NaviComponent.prototype.isAuthenticadet = function () {
+        return this.authService.isAuthenticadet();
+    };
+    NaviComponent.prototype.isAuthenticadetIconClass = function () {
+        if (this.authService.isAuthenticadet()) {
+            return "visibility:visible;";
+        }
+        else {
+            return "visibility:visible;display:none;";
+        }
+    };
+    NaviComponent.prototype.isNotAuthenticadetIconClass = function () {
+        if (!this.authService.isAuthenticadet()) {
+            return "visibility:visible;";
+        }
+        else {
+            return "visibility:visible;display:none;";
+        }
+    };
+    NaviComponent.prototype.userInfoClickEvent = function () {
+        if (this.isUserInfoMenu == false) {
+            this.userInfoMenuClass = "display:none;visibility:hidden;";
+            this.isUserInfoMenu = true;
+        }
+        else {
+            this.userInfoMenuClass = "visibility:visible;";
+            this.isUserInfoMenu = false;
+        }
+    };
+    NaviComponent.prototype.getFullName = function () {
+        return this.authService.getCurrentFullName();
+    };
+    NaviComponent.prototype.signOut = function () {
+        this.isAuthenticadet();
+        localStorage.clear();
+        location.reload();
+        this.router.navigate(['/']);
     };
     NaviComponent = __decorate([
         core_1.Component({

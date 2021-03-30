@@ -33,6 +33,11 @@ var confirmdialog_1 = require("primeng/confirmdialog");
 var calendar_1 = require("primeng/calendar");
 var inputtext_1 = require("primeng/inputtext");
 var captcha_1 = require("primeng/captcha");
+var terminal_1 = require("primeng/terminal");
+var knob_1 = require("primeng/knob");
+var avatar_1 = require("primeng/avatar");
+var avatargroup_1 = require("primeng/avatargroup");
+var angular_jwt_1 = require("@auth0/angular-jwt");
 var car_detail_dto_component_1 = require("./components/list/car-detail-dto/car-detail-dto.component");
 var navi_component_1 = require("./components/navi/navi.component");
 var rental_detail_dto_component_1 = require("./components/list/rental-detail-dto/rental-detail-dto.component");
@@ -60,6 +65,10 @@ var add_component_1 = require("./components/add/add.component");
 var color_add_component_1 = require("./components/add/color-add/color-add.component");
 var brand_add_component_1 = require("./components/add/brand-add/brand-add.component");
 var car_detail_dto_add_component_1 = require("./components/add/car-detail-dto-add/car-detail-dto-add.component");
+var login_component_1 = require("./components/login/login.component");
+var register_component_1 = require("./components/register/register.component");
+var terminal_component_1 = require("./components/terminal/terminal.component");
+var footer_component_1 = require("./components/footer/footer.component");
 var AppModule = /** @class */ (function () {
     function AppModule() {
     }
@@ -94,6 +103,10 @@ var AppModule = /** @class */ (function () {
                 color_add_component_1.ColorAddComponent,
                 brand_add_component_1.BrandAddComponent,
                 car_detail_dto_add_component_1.CarDetailDtoAddComponent,
+                login_component_1.LoginComponent,
+                register_component_1.RegisterComponent,
+                terminal_component_1.TerminalComponent,
+                footer_component_1.FooterComponent,
             ],
             imports: [
                 platform_browser_1.BrowserModule,
@@ -119,6 +132,11 @@ var AppModule = /** @class */ (function () {
                 calendar_1.CalendarModule,
                 inputtext_1.InputTextModule,
                 captcha_1.CaptchaModule,
+                terminal_1.TerminalModule,
+                knob_1.KnobModule,
+                avatargroup_1.AvatarGroupModule,
+                avatar_1.AvatarModule,
+                angular_jwt_1.JwtModule,
                 ngx_toastr_1.ToastrModule.forRoot({
                     positionClass: "toast-bottom-center"
                 })

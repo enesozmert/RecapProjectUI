@@ -24,7 +24,11 @@ import {ConfirmDialogModule} from 'primeng/confirmdialog';
 import {CalendarModule} from 'primeng/calendar';
 import {InputTextModule} from 'primeng/inputtext';
 import {CaptchaModule} from 'primeng/captcha';
-
+import {TerminalModule} from 'primeng/terminal';
+import {KnobModule} from 'primeng/knob';
+import {AvatarModule} from 'primeng/avatar';
+import {AvatarGroupModule} from 'primeng/avatargroup';
+import { JwtModule } from "@auth0/angular-jwt";
 
 import { CarDetailDtoComponent } from './components/list/car-detail-dto/car-detail-dto.component';
 import { NaviComponent } from './components/navi/navi.component';
@@ -55,6 +59,8 @@ import { BrandAddComponent } from './components/add/brand-add/brand-add.componen
 import { CarDetailDtoAddComponent } from './components/add/car-detail-dto-add/car-detail-dto-add.component';
 import { LoginComponent } from './components/login/login.component';
 import { RegisterComponent } from './components/register/register.component';
+import { TerminalComponent } from './components/terminal/terminal.component';
+import { FooterComponent } from './components/footer/footer.component';
 
 
 @NgModule({
@@ -89,6 +95,8 @@ import { RegisterComponent } from './components/register/register.component';
     CarDetailDtoAddComponent,
     LoginComponent,
     RegisterComponent,
+    TerminalComponent,
+    FooterComponent,
   ],
   imports: [
     BrowserModule,
@@ -114,6 +122,11 @@ import { RegisterComponent } from './components/register/register.component';
     CalendarModule,
     InputTextModule,
     CaptchaModule,
+    TerminalModule,
+    KnobModule,
+    AvatarGroupModule,
+    AvatarModule,
+    JwtModule,
     ToastrModule.forRoot({
       positionClass: "toast-bottom-center"
     })
@@ -122,3 +135,5 @@ import { RegisterComponent } from './components/register/register.component';
   bootstrap: [AppComponent]
 })
 export class AppModule { }
+
+ 

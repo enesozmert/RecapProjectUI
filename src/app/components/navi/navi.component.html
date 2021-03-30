@@ -2,10 +2,13 @@
     <ng-template pTemplate="start">
 
         <!-- <img src="" height="40" class="p-mr-2"> -->
-        <span style="font-size:30px;cursor:pointer;" (click)="openNavi()"><mat-icon>star_border</mat-icon></span>
+        <span style="font-size:30px;cursor:pointer;" (click)="openNavi()">
+            <mat-icon>star_border</mat-icon>
+        </span>
     </ng-template>
     <ng-template pTemplate="end">
         <!-- <input type="text" pInputText placeholder="Search"> -->
+
         <nav class="navbar navbar-expand-lg navbar-light bg-light">
             <div class="container-fluid">
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
@@ -14,15 +17,32 @@
                     </ul>
                 </div>
             </div>
-            <div class="container-fluid">
+            <div class="container-fluid" [style]="isNotAuthenticadetIconClass()">
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                        <button class="border-0 bg-transparent" routerLink="/login"><mat-icon>account_circle</mat-icon></button>
+                        <button class="border-0 bg-transparent" routerLink="/login">
+                            <mat-icon>account_circle</mat-icon>
+                        </button>
                     </ul>
                 </div>
             </div>
-
+            <div class="container-fluid" [style]="isAuthenticadetIconClass()">
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                        <button class="border-0 bg-transparent" (click)="userInfoClickEvent()">
+                            <p-avatar icon="pi pi-user" styleClass="p-mr-2"
+                                [style]="{'background-color': '#0275d8', 'color': '#ffffff'}" shape="circle"></p-avatar>
+                        </button>
+                    </ul>
+                </div>
+            </div>
         </nav>
-
     </ng-template>
 </p-menubar>
+<div style="display: flex; justify-content: flex-end;padding: 10px;{{userInfoMenuClass}}">
+    <div>
+        <div style="background-color: #F8F9FA;height: 128px;width: 128px;text-align: center;">
+            <label for="text">{{getFullName()}}</label>
+        </div>
+    </div>
+</div>

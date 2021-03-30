@@ -15,9 +15,12 @@ var RegisterComponent = /** @class */ (function () {
         this.authService = authService;
         this.toastrService = toastrService;
         this.router = router;
+        this.passwordSecurityKnobValue = 50;
+        this.passwordSecurityKnobClass = "";
     }
     RegisterComponent.prototype.ngOnInit = function () {
         this.createRegisterFrom();
+        this.passwordSecurityControl();
     };
     RegisterComponent.prototype.createRegisterFrom = function () {
         this.registerForm = this.formBuilder.group({
@@ -25,7 +28,8 @@ var RegisterComponent = /** @class */ (function () {
             "password": ["", forms_1.Validators.required],
             "nickName": ["", forms_1.Validators.required],
             "firstName": ["", forms_1.Validators.required],
-            "lastName": ["", forms_1.Validators.required]
+            "lastName": ["", forms_1.Validators.required],
+            "passwordsecurity": ["", forms_1.Validators.required]
         });
     };
     RegisterComponent.prototype.register = function () {
@@ -48,6 +52,33 @@ var RegisterComponent = /** @class */ (function () {
                 console.log(responseError);
             });
         }
+    };
+    RegisterComponent.prototype.keyupPasswordEvent = function (event) {
+        this.passwordSecurityControl();
+        console.log(event.target.value);
+    };
+    RegisterComponent.prototype.passwordSecurityControl = function () {
+        if (this.registerForm.value.password.length > 0) {
+            this.passwordSecurityKnobClass = "visibility: visible;";
+            this.passwordSecurityKnobValue = this.checkStrength(this.registerForm.value.password);
+        }
+        else {
+            this.passwordSecurityKnobClass = "visibility: hidden;display: none;";
+        }
+    };
+    RegisterComponent.prototype.checkStrength = function (password) {
+        var strength = 0;
+        if (password.length > 7)
+            strength += 1;
+        if (password.match(/([a-z].*[A-Z])|([A-Z].*[a-z])/))
+            strength += 1;
+        if (password.match(/([a-zA-Z])/) && password.match(/([0-9])/))
+            strength += 1;
+        if (password.match(/([!,%,&,@,#,$,^,*,?,_,~])/))
+            strength += 1;
+        if (password.match(/(.*[!,%,&,@,#,$,^,*,?,_,~].*[!,",%,&,@,#,$,^,*,?,_,~])/))
+            strength += 1;
+        return (strength * 2) * 10;
     };
     RegisterComponent = __decorate([
         core_1.Component({

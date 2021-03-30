@@ -11,13 +11,16 @@ import { AuthService } from 'src/app/services/auth.service';
 })
 export class RegisterComponent implements OnInit {
   registerForm: FormGroup
+  passwordSecurityKnobValue: number = 50;
+  passwordSecurityKnobClass: string = "";
   constructor(private formBuilder: FormBuilder,
     private authService: AuthService,
     private toastrService: ToastrService,
-    private router:Router) { }
+    private router: Router) { }
 
   ngOnInit(): void {
     this.createRegisterFrom();
+    this.passwordSecurityControl();
   }
   createRegisterFrom() {
     this.registerForm = this.formBuilder.group({
@@ -26,6 +29,7 @@ export class RegisterComponent implements OnInit {
       "nickName": ["", Validators.required],
       "firstName": ["", Validators.required],
       "lastName": ["", Validators.required],
+      "passwordsecurity": ["", Validators.required]
     })
   }
   register() {
@@ -39,7 +43,7 @@ export class RegisterComponent implements OnInit {
         localStorage.clear()
         localStorage.setItem("token", token)
         console.log(response)
-        if(token.length>0){
+        if (token.length > 0) {
           this.router.navigate(['/cars'])
         }
       }, responseError => {
@@ -48,4 +52,27 @@ export class RegisterComponent implements OnInit {
       });
     }
   }
+  keyupPasswordEvent(event: any) {
+    this.passwordSecurityControl();
+    console.log(event.target.value);
+
+  }
+  passwordSecurityControl() {
+    if (this.registerForm.value.password.length > 0) {
+      this.passwordSecurityKnobClass = "visibility: visible;"
+      this.passwordSecurityKnobValue =this.checkStrength(this.registerForm.value.password)
+    } else {
+      this.passwordSecurityKnobClass = "visibility: hidden;display: none;"
+    }
+  }
+  checkStrength(password: string) {
+    var strength = 0
+    if (password.length > 7) strength += 1
+    if (password.match(/([a-z].*[A-Z])|([A-Z].*[a-z])/))  strength += 1 
+    if (password.match(/([a-zA-Z])/) && password.match(/([0-9])/))  strength += 1 
+    if (password.match(/([!,%,&,@,#,$,^,*,?,_,~])/))  strength += 1
+    if (password.match(/(.*[!,%,&,@,#,$,^,*,?,_,~].*[!,",%,&,@,#,$,^,*,?,_,~])/)) strength += 1
+      return  (strength*2)*10;
+  }
+
 }
