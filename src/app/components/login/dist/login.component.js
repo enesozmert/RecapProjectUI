@@ -10,11 +10,12 @@ exports.LoginComponent = void 0;
 var core_1 = require("@angular/core");
 var forms_1 = require("@angular/forms");
 var LoginComponent = /** @class */ (function () {
-    function LoginComponent(formBuilder, authService, toastrService, router) {
+    function LoginComponent(formBuilder, authService, toastrService, router, sanitizer) {
         this.formBuilder = formBuilder;
         this.authService = authService;
         this.toastrService = toastrService;
         this.router = router;
+        this.sanitizer = sanitizer;
     }
     LoginComponent.prototype.ngOnInit = function () {
         this.createLoginFrom();
@@ -35,6 +36,7 @@ var LoginComponent = /** @class */ (function () {
                 var token = String(response.data.token);
                 localStorage.setItem("token", token);
                 if (token.length > 0) {
+                    var urlStr = "cars";
                     _this.router.navigate(['/cars']);
                 }
             }, function (responseError) {

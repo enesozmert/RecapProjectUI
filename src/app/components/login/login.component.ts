@@ -3,6 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ToastrService } from 'ngx-toastr';
 import { AuthService } from 'src/app/services/auth.service';
+import { DomSanitizer } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-login',
@@ -14,7 +15,8 @@ export class LoginComponent implements OnInit {
   constructor(private formBuilder: FormBuilder,
     private authService: AuthService,
     private toastrService: ToastrService,
-    private router: Router) { }
+    private router: Router,
+    private sanitizer: DomSanitizer) { }
 
 
   ngOnInit(): void {
@@ -35,6 +37,7 @@ export class LoginComponent implements OnInit {
         let token:string = String(response.data.token);
         localStorage.setItem("token", token);
         if(token.length>0){
+          let urlStr:string="/cars"
           this.router.navigate(['/cars'])
         }
       }, responseError => {

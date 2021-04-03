@@ -1,3 +1,4 @@
+import { RedirectComponent } from './components/redirect/redirect.component';
 import { CustomerDetailDtoComponent } from './components/list/customer-detail-dto/customer-detail-dto.component';
 import { ColorComponent } from './components/list/color/color.component';
 import { BrandComponent } from './components/list/brand/brand.component';
@@ -24,27 +25,30 @@ import { RouterModule, Routes } from '@angular/router';
 import { RegisterComponent } from './components/register/register.component';
 
 const routes: Routes = [
-  {path:"",pathMatch:"full", component:MainComponent},
-  {path:"list", component:ListComponent,canActivate:[LoginGuard]},
-  {path:"list/brand", component:BrandComponent,canActivate:[LoginGuard]},
-  {path:"list/cardetaildto", component:CarDetailDtoComponent,canActivate:[LoginGuard]},
-  {path:"list/color", component:ColorComponent,canActivate:[LoginGuard]},
-  {path:"list/customerdetaildto", component:CustomerDetailDtoComponent,canActivate:[LoginGuard]},
-  {path:"list/rentaldetaildto", component:RentalDetailDtoComponent,canActivate:[LoginGuard]},
-  {path:"cars/getcardetailsbycolorId/:colorId", component:CarDetailDtoComponent},
-  {path:"cars/getcardetailsbybrandId/:brandId", component:CarDetailDtoComponent},
-  {path:"cars/getcarimagedetails/:carId", component:CarimageComponent},
-  {path:"cars/getcardetailsbycolorIdorbrandId/:colorId/:brandId", component:CarDetailDtoComponent},
-  {path:"cars/rentacar", component:RentACarComponent,canActivate:[LoginGuard]},
-  {path:"cart", component:CartComponent,canActivate:[LoginGuard]},
-  {path:"cartdetail", component:CartDetailComponent,canActivate:[LoginGuard]},
-  {path:"payment", component:PaymentComponent,canActivate:[LoginGuard]},
-  {path:"cars", component:CarsComponent},
-  {path:"add/brand", component:BrandAddComponent,canActivate:[LoginGuard]},
-  {path:"add/color", component:ColorAddComponent,canActivate:[LoginGuard]},
-  {path:"add/car", component:CarDetailDtoAddComponent,canActivate:[LoginGuard]},
-  {path:"login", component:LoginComponent,canActivate:[NotloginGuard]},
-  {path:"register", component:RegisterComponent,canActivate:[NotloginGuard]},
+  { path: "", pathMatch: "full", component: MainComponent },
+  { path: "list", component: ListComponent, canActivate: [LoginGuard] },
+  { path: "list/brand", component: BrandComponent, canActivate: [LoginGuard] },
+  { path: "list/cardetaildto", component: CarDetailDtoComponent, canActivate: [LoginGuard] },
+  { path: "list/color", component: ColorComponent, canActivate: [LoginGuard] },
+  { path: "list/customerdetaildto", component: CustomerDetailDtoComponent, canActivate: [LoginGuard] },
+  { path: "list/rentaldetaildto", component: RentalDetailDtoComponent, canActivate: [LoginGuard] },
+  { path: "cars/getcardetailsbycolorId/:colorId", component: CarDetailDtoComponent },
+  { path: "cars/getcardetailsbybrandId/:brandId", component: CarDetailDtoComponent },
+  { path: "cars/getcarimagedetails/:carId", component: CarimageComponent },
+  { path: "cars/getcardetailsbycolorIdorbrandId/:colorId/:brandId", component: CarDetailDtoComponent },
+  { path: "cars/rentacar", component: RentACarComponent, canActivate: [LoginGuard] },
+  { path: "cart", component: CartComponent, canActivate: [LoginGuard] },
+  { path: "cartdetail", component: CartDetailComponent, canActivate: [LoginGuard] },
+  { path: "payment", component: PaymentComponent, canActivate: [LoginGuard] },
+  { path: "cars", component: CarsComponent },
+  { path: "add/brand", component: BrandAddComponent, canActivate: [LoginGuard] },
+  { path: "add/color", component: ColorAddComponent, canActivate: [LoginGuard] },
+  { path: "add/car", component: CarDetailDtoAddComponent, canActivate: [LoginGuard] },
+  { path: "login", component: LoginComponent, canActivate: [NotloginGuard] },
+  { path: "register", component: RegisterComponent, canActivate: [NotloginGuard] },
+  { path: "update/brand/:brandId", component: BrandAddComponent, canActivate: [LoginGuard]},
+  { path: "update/color/:colorId", component: ColorAddComponent, canActivate: [LoginGuard]},
+  { path: "update/car/:carId", component: CarDetailDtoAddComponent, canActivate: [LoginGuard]}
 ];
 
 @NgModule({

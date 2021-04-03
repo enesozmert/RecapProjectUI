@@ -16,10 +16,10 @@ export class RentalDetailDtoComponent implements OnInit {
   constructor(private rentalDetailDtoService: RentalDetailDtoService) { }
 
   ngOnInit(): void {
-    this.getRentalDetailDto()
+    this.getRentalDetailDtoMethod()
   }
-  getRentalDetailDto() {
-    this.rentalDetailDtoService.getCarDetailDto().subscribe(response => {
+  getRentalDetailDtoMethod() {
+    this.rentalDetailDtoService.getRentalDetailDtos().subscribe(response => {
       this.rentalDetailDtos = response.data
       this.dataLoaded = true
     })

@@ -1,3 +1,4 @@
+import { ActivatedRoute } from '@angular/router';
 import { Brand } from 'src/app/models/entities/brand';
 import { Color } from 'src/app/models/entities/color';
 import { BrandService } from './../../../services/brand.service';
@@ -7,6 +8,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ToastrService } from 'ngx-toastr';
 import { ConfirmationService } from 'primeng/api';
+import { Car } from 'src/app/models/entities/car';
 
 @Component({
   selector: 'app-car-detail-dto-add',
@@ -19,6 +21,7 @@ export class CarDetailDtoAddComponent implements OnInit {
   brandsName: string[]
   colors: Color[]
   brands: Brand[]
+  car:Car
   selectBrandId: any
   selectColorId: any
   carDetailDtoAddForm: FormGroup;
@@ -29,12 +32,31 @@ export class CarDetailDtoAddComponent implements OnInit {
     private carService: CarService,
     private colorService: ColorService,
     private brandService: BrandService,
-    private formBuilder: FormBuilder) { }
+    private formBuilder: FormBuilder,
+    private activatedRoute:ActivatedRoute) { }
 
   ngOnInit(): void {
     this.createCarDetailDtoAddForm()
     this.getBrands()
     this.getColors()
+    this.activatedRoute.params.subscribe(params => {
+      if (params["carId"]) {
+        //console.log(params["brandId"])
+        this.getCarById(Number(params["carId"]))
+      }
+    })
+  }
+  getCarById(id: number) {
+    this.carService.getCar(id).subscribe(response => {
+      this.car = response.data
+      this.carDetailDtoAddForm.setValue({
+        colorID:this.car.colorID,
+        brandID:this.car.brandID,
+        modelYear:this.car.modelYear,
+        dailyPrice:this.car.dailyPrice,
+        description:this.car.description
+      })
+    })
   }
   createCarDetailDtoAddForm() {
     this.carDetailDtoAddForm = this.formBuilder.group({
@@ -45,12 +67,43 @@ export class CarDetailDtoAddComponent implements OnInit {
       description: ["", Validators.required],
     })
   }
+  carAdded(){
+    this.activatedRoute.params.subscribe(params => {
+      if (params["carId"]) {
+        this.update(params["carId"])
+      }else{
+        this.add()
+      }
+    })
+  }
   add() {
-    console.log(this.selectColorId);
+    //console.log(this.selectColorId);
     //console.log(this.carDetailDtoAddForm.value);
     if (this.carDetailDtoAddForm.valid) {
       let productModel = Object.assign({}, this.carDetailDtoAddForm.value)
       this.carService.add(productModel).subscribe(response => {
+        this.toastrService.success(response.message, "Success")
+        //console.log(response)
+      }, responseError => {
+        //console.log(responseError)
+        if (responseError.error.Errors.length > 0) {
+          //console.log(responseError)
+          for (let i = 0; i < responseError.error.Errors.length; i++) {
+            this.toastrService.error(responseError.error.Errors[i].ErrorMessage, "Errors")
+          }
+        }
+      });
+    } else {
+      this.toastrService.error("Form Error Is Invalid!", "Error")
+    }
+  }
+  update(id:number){
+    console.log(this.selectColorId);
+    //console.log(this.carDetailDtoAddForm.value);
+    if (this.carDetailDtoAddForm.valid) {
+      let carModel = Object.assign({}, this.carDetailDtoAddForm.value)
+      carModel.id=id
+      this.carService.update(carModel).subscribe(response => {
         this.toastrService.success(response.message, "Success")
         //console.log(response)
       }, responseError => {
@@ -86,8 +139,8 @@ export class CarDetailDtoAddComponent implements OnInit {
       header: 'Delete Confirmation',
       icon: 'pi pi-info-circle',
       accept: () => {
+        this.carAdded()
         this.toastrService.success("Success", "Confirmed");
-        this.add()
       },
       reject: () => {
         this.toastrService.error("Error", "Not Confirmed");

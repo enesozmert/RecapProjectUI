@@ -1,3 +1,4 @@
+import { SingleResponseModel } from './../models/singleResponseModel';
 import { RentalDetailDto } from './../models/dtos/rentalDetailDto';
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
@@ -12,8 +13,12 @@ export class RentalDetailDtoService {
 
   constructor(private httpClient: HttpClient) { }
 
- getCarDetailDto():Observable<ListResponseModel<RentalDetailDto>> {
-   let newPath = environment.appUrl + "rentals/getallrentaldetails"
-   return this.httpClient.get<ListResponseModel<RentalDetailDto>>(newPath);
- }
+  getRentalDetailDtos(): Observable<ListResponseModel<RentalDetailDto>> {
+    let newPath = environment.appUrl + "rentals/getallrentaldetails"
+    return this.httpClient.get<ListResponseModel<RentalDetailDto>>(newPath);
+  }
+  getRentalDetailDto(carId: number): Observable<SingleResponseModel<RentalDetailDto>> {
+    let newPath = environment.appUrl + "rentals/getrentaldetailsbycarId?carId=" + carId
+    return this.httpClient.get<SingleResponseModel<RentalDetailDto>>(newPath);
+  }
 }

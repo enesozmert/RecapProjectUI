@@ -27,6 +27,7 @@
                 <th>description</th>
                 <th>modelYear</th>
                 <th>rent</th>
+                <th>edit</th>
             </tr>
         </ng-template>
         <ng-template pTemplate="body" let-carDetailDto>
@@ -38,6 +39,7 @@
                 <td>{{carDetailDto.description}}</td>
                 <td>{{carDetailDto.modelYear}}</td>
                 <td><button class="btn btn-primary" (click)="addToCart(carDetailDto)">Rent</button></td>
+                <td><button class="btn btn-primary" routerLink="/update/car/{{carDetailDto.id}}">Edit</button></td>
             </tr>
         </ng-template>
     </p-table>

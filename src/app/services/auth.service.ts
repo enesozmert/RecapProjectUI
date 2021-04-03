@@ -7,12 +7,15 @@ import { TokenModel } from '../models/model/tokenModel';
 import { SingleResponseModel } from '../models/singleResponseModel';
 import { RegisterModel } from '../models/model/registerModel';
 import { JwtHelperService } from '@auth0/angular-jwt';
+import { BehaviorSubject } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
 })
 export class AuthService {
   currentUserId: number;
+  private data = new BehaviorSubject<boolean>(false)
+  isAuth = this.data.asObservable()
   constructor(private httpClient: HttpClient, private jwtControllerService: JwtControllerService) { }
   login(loginModel: LoginModel) {
     return this.httpClient.post<SingleResponseModel<TokenModel>>(environment.appUrl + "auth/login", loginModel)
@@ -22,8 +25,10 @@ export class AuthService {
   }
   isAuthenticadet() {
     if (localStorage.getItem("token")) {
+      this.data.next(true)
       return true;
     } else {
+      this.data.next(false)
       return false;
     }
   }

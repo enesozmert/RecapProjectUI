@@ -8,6 +8,7 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 exports.__esModule = true;
 exports.NaviComponent = void 0;
 var core_1 = require("@angular/core");
+var rxjs_1 = require("rxjs");
 var NaviComponent = /** @class */ (function () {
     function NaviComponent(appComponent, authService, router) {
         this.appComponent = appComponent;
@@ -15,9 +16,20 @@ var NaviComponent = /** @class */ (function () {
         this.router = router;
         this.items = [];
         this.isUserInfoMenu = true;
+        //isAuth: boolean;
         this.userInfoMenuClass = "display:none;visibility:hidden;";
+        this.dataObsevable = new rxjs_1.BehaviorSubject(null);
     }
     NaviComponent.prototype.ngOnInit = function () {
+        var _this = this;
+        this.naviLoad();
+        this.authService.isAuth.subscribe(function (response) {
+            if (response) {
+                _this.naviLoad();
+            }
+        });
+    };
+    NaviComponent.prototype.naviLoad = function () {
         var _this = this;
         this.items = [
             {
@@ -38,7 +50,8 @@ var NaviComponent = /** @class */ (function () {
                 items: [
                     {
                         label: 'New',
-                        icon: 'pi pi-fw pi-user-plus'
+                        icon: 'pi pi-fw pi-user-plus',
+                        routerLink: ['/register']
                     },
                     {
                         label: 'Delete',
@@ -119,6 +132,11 @@ var NaviComponent = /** @class */ (function () {
                                 routerLink: ['/list/brand']
                             }
                         ]
+                    },
+                    {
+                        label: 'All Listed',
+                        icon: 'pi pi-fw pi-pencil',
+                        routerLink: ['/list']
                     }
                 ]
             },

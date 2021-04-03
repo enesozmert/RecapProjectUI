@@ -5,6 +5,7 @@ import { ListResponseModel } from '../models/listResponseModel';
 import { Color } from '../models/entities/color';
 import { environment } from '../../environments/environment';
 import { ResponseModel } from '../models/responseModel/responseModel';
+import { SingleResponseModel } from '../models/singleResponseModel';
 
 @Injectable({
   providedIn: 'root'
@@ -19,5 +20,12 @@ export class ColorService {
   }
   add(color: Color):Observable<ResponseModel> {
     return this.httpClient.post<ResponseModel>(environment.appUrl + "colors/add",color)
+  }
+  update(color: Color):Observable<ResponseModel> {
+    return this.httpClient.post<ResponseModel>(environment.appUrl + "colors/update",color)
+  }
+  getColor(id:number):Observable<SingleResponseModel<Color>>{
+    let newPath = environment.appUrl + "colors/getbyid?id="+id
+    return this.httpClient.get<SingleResponseModel<Color>>(newPath);
   }
 }

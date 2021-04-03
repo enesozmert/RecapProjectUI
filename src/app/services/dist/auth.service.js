@@ -9,10 +9,13 @@ exports.__esModule = true;
 exports.AuthService = void 0;
 var environment_1 = require("src/environments/environment");
 var core_1 = require("@angular/core");
+var rxjs_1 = require("rxjs");
 var AuthService = /** @class */ (function () {
     function AuthService(httpClient, jwtControllerService) {
         this.httpClient = httpClient;
         this.jwtControllerService = jwtControllerService;
+        this.data = new rxjs_1.BehaviorSubject(false);
+        this.isAuth = this.data.asObservable();
     }
     AuthService.prototype.login = function (loginModel) {
         return this.httpClient.post(environment_1.environment.appUrl + "auth/login", loginModel);
@@ -22,9 +25,11 @@ var AuthService = /** @class */ (function () {
     };
     AuthService.prototype.isAuthenticadet = function () {
         if (localStorage.getItem("token")) {
+            this.data.next(true);
             return true;
         }
         else {
+            this.data.next(false);
             return false;
         }
     };

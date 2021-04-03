@@ -18,14 +18,16 @@
     <p-table [value]="brands|search:searchFilter" [paginator]="true" [rows]="rows" [showCurrentPageReport]="true" [(first)]="first" currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries" [rowsPerPageOptions]="[10,25,50]">
         <ng-template pTemplate="header">
             <tr>
-                <th>Id</th>
-                <th>BrandName</th>
+                <th>ID</th>
+                <th>brandName</th>
+                <th>edit</th>
             </tr>
         </ng-template>
         <ng-template pTemplate="body" let-brand>
             <tr>
                 <td>{{brand.id}}</td>
                 <td (click)="tdOnClikEvent(brand)" routerLink="/cars/getcardetailsbybrandId/{{brand.id}}" [class]="getCurrentBrandClass(brand)">{{brand.brandName}}</td>
+                <td><button class="btn btn-primary" routerLink="/update/brand/{{brand.id}}">Edit</button></td>
             </tr>
         </ng-template>
     </p-table>

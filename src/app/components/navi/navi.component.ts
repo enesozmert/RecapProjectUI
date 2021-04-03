@@ -3,6 +3,7 @@ import { AppComponent } from './../../app.component';
 import { MenuItem } from 'primeng/api';
 import { Component, OnInit } from '@angular/core';
 import { Router, RouterLink, Routes } from '@angular/router';
+import { BehaviorSubject } from 'rxjs';
 
 @Component({
     selector: 'app-navi',
@@ -12,13 +13,24 @@ import { Router, RouterLink, Routes } from '@angular/router';
 export class NaviComponent implements OnInit {
     items: MenuItem[] = [];
     isUserInfoMenu: boolean = true
-    isAuth:boolean;
+    //isAuth: boolean;
     userInfoMenuClass: string = "display:none;visibility:hidden;"
+    public dataObsevable: BehaviorSubject<boolean> = new BehaviorSubject<boolean>(null);
     constructor(private appComponent: AppComponent,
         private authService: AuthService,
-        private router: Router) { }
+        private router: Router) {
+    }
 
     ngOnInit(): void {
+        this.naviLoad();
+        this.authService.isAuth.subscribe(response => {
+            if (response) {
+                this.naviLoad();
+            }
+        })
+    }
+
+    naviLoad(): void {
         this.items = [
             {
                 label: 'Home',
@@ -39,7 +51,7 @@ export class NaviComponent implements OnInit {
                     {
                         label: 'New',
                         icon: 'pi pi-fw pi-user-plus',
-
+                        routerLink: ['/register']
                     },
                     {
                         label: 'Delete',
@@ -72,7 +84,7 @@ export class NaviComponent implements OnInit {
             {
                 label: 'Events',
                 icon: 'pi pi-fw pi-calendar',
-                visible:this.authService.isAuthenticadet(),
+                visible: this.authService.isAuthenticadet(),
                 items: [
                     {
                         label: 'Car',
@@ -121,6 +133,11 @@ export class NaviComponent implements OnInit {
                                 routerLink: ['/list/brand']
                             }
                         ]
+                    },
+                    {
+                        label: 'All Listed',
+                        icon: 'pi pi-fw pi-pencil',
+                        routerLink: ['/list']
                     }
                 ]
             },
@@ -134,14 +151,14 @@ export class NaviComponent implements OnInit {
             }
         ];
     }
-    reloadUrl():boolean{
+    reloadUrl(): boolean {
         ///location.reload();
         return false;
     }
     openNavi() {
         this.appComponent.openNav();
     }
-    isAuthenticadet(){
+    isAuthenticadet() {
         return this.authService.isAuthenticadet();
     }
     isAuthenticadetIconClass() {
@@ -167,7 +184,7 @@ export class NaviComponent implements OnInit {
             this.isUserInfoMenu = false
         }
     }
-    getFullName():string{
+    getFullName(): string {
         return this.authService.getCurrentFullName();
     }
     signOut() {

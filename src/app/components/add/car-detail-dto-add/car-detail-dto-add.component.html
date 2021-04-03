@@ -3,20 +3,20 @@
         <div class="col-sm-12 h-10 d-table">
             <div class="card card-block d-table-cell align-middle text-center border-0 p-2">
                 <div class="p-inputgroup">
-                    <label class="p-inputgroup-addon">Brand Name</label>
+                    <label class="p-inputgroup-addon">Brand Name </label>
                     <span class="p-inputgroup-addon"><i class="pi pi-tags"></i></span>
                     <span class="p-inputgroup-addon"><i class="pi pi-shopping-cart"></i></span>
                     <!-- <input type="text" pInputText placeholder="Name"> -->
-                    <p-dropdown inputId="dropdown" [autoDisplayFirst]="false" formControlName="brandID" [options]="brands" optionValue="id" optionLabel="brandName" class="ng-invalid ng-dirty" placeholder="Name"></p-dropdown>
+                    <p-dropdown inputId="dropdown" [autoDisplayFirst]="false" style="width: 100%;" formControlName="brandID" [options]="brands" optionValue="id" optionLabel="brandName" class="ng-invalid ng-dirty" placeholder="Name"></p-dropdown>
                     <span class="p-inputgroup-addon">Name</span>
                     <span class="p-inputgroup-addon">String</span>
                 </div>
                 <div class="p-inputgroup">
-                    <label class="p-inputgroup-addon">Color Name</label>
+                    <label class="p-inputgroup-addon">Color Name </label>
                     <span class="p-inputgroup-addon"><i class="pi pi-tags"></i></span>
                     <span class="p-inputgroup-addon"><i class="pi pi-shopping-cart"></i></span>
                     <!-- <input type="text" pInputText placeholder="Name"> -->
-                    <p-dropdown inputId="dropdown" [autoDisplayFirst]="false" formControlName="colorID" [options]="colors" optionValue="id" optionLabel="colorName" class="ng-invalid ng-dirty" placeholder="Name"></p-dropdown>
+                    <p-dropdown inputId="dropdown" [autoDisplayFirst]="false" style="width: 100%;" formControlName="colorID" [options]="colors" optionValue="id" optionLabel="colorName" class="ng-invalid ng-dirty" placeholder="Name"></p-dropdown>
                     <span class="p-inputgroup-addon">Name</span>
                     <span class="p-inputgroup-addon">String</span>
                 </div>
@@ -24,15 +24,15 @@
                     <label class="p-inputgroup-addon">Description</label>
                     <span class="p-inputgroup-addon"><i class="pi pi-tags"></i></span>
                     <span class="p-inputgroup-addon"><i class="pi pi-shopping-cart"></i></span>
-                    <input type="text" pInputText placeholder="Description" formControlName="description">
+                    <input type="text" pInputText placeholder="Description" class="w-100" formControlName="description">
                     <span class="p-inputgroup-addon">Description</span>
                     <span class="p-inputgroup-addon">String</span>
                 </div>
                 <div class="p-inputgroup">
-                    <label class="p-inputgroup-addon">Model Year</label>
+                    <label class="p-inputgroup-addon">Model Year </label>
                     <span class="p-inputgroup-addon"><i class="pi pi-tags"></i></span>
                     <span class="p-inputgroup-addon"><i class="pi pi-shopping-cart"></i></span>
-                    <input type="text" pInputText placeholder="Model Year" formControlName="modelYear">
+                    <input type="text" pInputText placeholder="Model Year" class="w-100" formControlName="modelYear">
                     <span class="p-inputgroup-addon">Model Year</span>
                     <span class="p-inputgroup-addon">Integer</span>
                 </div>
@@ -40,7 +40,7 @@
                     <label class="p-inputgroup-addon">Daily Price</label>
                     <span class="p-inputgroup-addon"><i class="pi pi-tags"></i></span>
                     <span class="p-inputgroup-addon"><i class="pi pi-shopping-cart"></i></span>
-                    <input type="text" pInputText placeholder="Daily Price" formControlName="dailyPrice">
+                    <input type="text" pInputText placeholder="Daily Price" class="w-100" formControlName="dailyPrice">
                     <span class="p-inputgroup-addon">Daily Price</span>
                     <span class="p-inputgroup-addon">Integer</span>
                 </div>

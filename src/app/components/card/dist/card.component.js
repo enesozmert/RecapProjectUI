@@ -9,10 +9,11 @@ exports.__esModule = true;
 exports.CardComponent = void 0;
 var core_1 = require("@angular/core");
 var CardComponent = /** @class */ (function () {
-    function CardComponent(carDetailDtoService, toastrService, cartService) {
+    function CardComponent(carDetailDtoService, toastrService, cartService, rentalDetailDtoService) {
         this.carDetailDtoService = carDetailDtoService;
         this.toastrService = toastrService;
         this.cartService = cartService;
+        this.rentalDetailDtoService = rentalDetailDtoService;
         this.carDetailDtos = [];
         this.dataLoaded = false;
     }
@@ -32,6 +33,16 @@ var CardComponent = /** @class */ (function () {
     CardComponent.prototype.addToCart = function (carDetailDto) {
         this.toastrService.success("Sepete eklendi", carDetailDto.brandName + " " + carDetailDto.modelYear);
         this.cartService.addToCart(carDetailDto);
+    };
+    CardComponent.prototype.isEnabled = function (carDetailDto) {
+        var _this = this;
+        this.rentalDetailDtoService.getRentalDetailDto(Number(carDetailDto.id)).subscribe(function (response) {
+            _this.rentalDetailDto = response.data;
+        });
+        if (this.rentalDetailDto.isEnabled == true) {
+            return "btn btn-primary";
+        }
+        return "btn btn-primary disabled";
     };
     __decorate([
         core_1.Input()

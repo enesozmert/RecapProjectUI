@@ -2,6 +2,7 @@ import { CustomerDetailDtoComponent } from "src/app/components/list/customer-det
 
 export interface RentalDetailDto {
     id: number;
+    carID:number;
     customerID: number;
     rentDate: string;
     returnDate?: any;

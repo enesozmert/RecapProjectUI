@@ -1,3 +1,5 @@
+import { RentalDetailDto } from 'src/app/models/dtos/rentalDetailDto';
+import { RentalDetailDtoService } from './../../services/rental-detail-dto.service';
 import { CartService } from 'src/app/services/cart.service';
 import { ToastrService } from 'ngx-toastr';
 import { CarDetailDtoService } from './../../services/car-detail-dto.service';
@@ -12,12 +14,14 @@ import { CarDetailDto } from 'src/app/models/dtos/carDetailDto';
 export class CardComponent implements OnInit {
   carDetailDtos: CarDetailDto[] = []
   carDetailDto: CarDetailDto
+  rentalDetailDto: RentalDetailDto
   dataLoaded: boolean = false
-  @Input() carId:number
+  @Input() carId: number
 
-  constructor(private carDetailDtoService:CarDetailDtoService,
-    private toastrService:ToastrService,
-    private cartService:CartService) { }
+  constructor(private carDetailDtoService: CarDetailDtoService,
+    private toastrService: ToastrService,
+    private cartService: CartService,
+    private rentalDetailDtoService: RentalDetailDtoService) { }
 
   ngOnInit(): void {
     this.getCarDetailDtoById(this.carId)
@@ -34,5 +38,14 @@ export class CardComponent implements OnInit {
   addToCart(carDetailDto: CarDetailDto) {
     this.toastrService.success("Sepete eklendi", carDetailDto.brandName + " " + carDetailDto.modelYear)
     this.cartService.addToCart(carDetailDto);
+  }
+  isEnabled(carDetailDto: CarDetailDto) {
+    this.rentalDetailDtoService.getRentalDetailDto(Number(carDetailDto.id)).subscribe(response => {
+      this.rentalDetailDto = response.data;
+    })
+    if (this.rentalDetailDto.isEnabled==true) {
+      return "btn btn-primary"
+    }
+      return "btn btn-primary disabled"
   }
 }

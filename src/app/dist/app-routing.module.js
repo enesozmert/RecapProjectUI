@@ -7,6 +7,7 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 };
 exports.__esModule = true;
 exports.AppRoutingModule = void 0;
+var redirect_component_1 = require("./components/redirect/redirect.component");
 var customer_detail_dto_component_1 = require("./components/list/customer-detail-dto/customer-detail-dto.component");
 var color_component_1 = require("./components/list/color/color.component");
 var brand_component_1 = require("./components/list/brand/brand.component");
@@ -51,6 +52,7 @@ var routes = [
     { path: "add/car", component: car_detail_dto_add_component_1.CarDetailDtoAddComponent, canActivate: [login_guard_1.LoginGuard] },
     { path: "login", component: login_component_1.LoginComponent, canActivate: [notlogin_guard_1.NotloginGuard] },
     { path: "register", component: register_component_1.RegisterComponent, canActivate: [notlogin_guard_1.NotloginGuard] },
+    { path: "redirect", component: redirect_component_1.RedirectComponent }
 ];
 var AppRoutingModule = /** @class */ (function () {
     function AppRoutingModule() {

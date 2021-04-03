@@ -4,7 +4,7 @@ import { TieredMenuModule } from 'primeng/tieredmenu';
 import { ButtonModule } from 'primeng/button';
 import { TableModule } from 'primeng/table';
 import { AccordionModule } from 'primeng/accordion';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule ,HTTP_INTERCEPTORS} from '@angular/common/http';
 import { MenubarModule } from 'primeng/menubar';
 import { AppRoutingModule } from './app-routing.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -28,7 +28,7 @@ import {TerminalModule} from 'primeng/terminal';
 import {KnobModule} from 'primeng/knob';
 import {AvatarModule} from 'primeng/avatar';
 import {AvatarGroupModule} from 'primeng/avatargroup';
-import { JwtModule } from "@auth0/angular-jwt";
+import {JwtModule } from "@auth0/angular-jwt";
 
 import { CarDetailDtoComponent } from './components/list/car-detail-dto/car-detail-dto.component';
 import { NaviComponent } from './components/navi/navi.component';
@@ -61,6 +61,8 @@ import { LoginComponent } from './components/login/login.component';
 import { RegisterComponent } from './components/register/register.component';
 import { TerminalComponent } from './components/terminal/terminal.component';
 import { FooterComponent } from './components/footer/footer.component';
+import { RedirectComponent } from './components/redirect/redirect.component';
+import { AuthInterceptor } from './interceptor/auth.interceptor';
 
 
 @NgModule({
@@ -97,6 +99,7 @@ import { FooterComponent } from './components/footer/footer.component';
     RegisterComponent,
     TerminalComponent,
     FooterComponent,
+    RedirectComponent,
   ],
   imports: [
     BrowserModule,
@@ -131,7 +134,7 @@ import { FooterComponent } from './components/footer/footer.component';
       positionClass: "toast-bottom-center"
     })
   ],
-  providers: [],
+  providers: [{provide:HTTP_INTERCEPTORS, useClass:AuthInterceptor, multi:true}],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
