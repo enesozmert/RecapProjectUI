@@ -1,6 +1,6 @@
 <p-orderList [value]="cartItems" [listStyle]="{'max-height':'30rem'}" header="List of Products" filterBy="name" filterPlaceholder="Filter by name" [dragdrop]="true">
     <ng-template let-cartItem pTemplate="item">
-        <div class="product-item">
+        <div class="product-item d-flex align-items-center">
             <div class="product-list-detail">
                 <h5 class="p-mb-2">{{cartItem.carDetailDto.brandName}}</h5>
                 <i class="pi pi-tag product-category-icon"></i>
@@ -9,6 +9,17 @@
             <div class="product-list-action">
                 <h6 class="p-mb-2">${{cartItem.carDetailDto.dailyPrice}}</h6>
                 <span [class]="'product-badge'">{{cartItem.carDetailDto.description}}</span>
+            </div>
+            {{getFakeRentalById(cartItem.carDetailDto.id)}}
+            <div>
+                <div class="p-mb-2 text-right">
+                    <h6>Rent Date</h6>
+                    <h5> {{rentalItem.rental.rentDate}} </h5>
+                </div>
+                <div class="p-mb-2 text-right">
+                    <h6>Return Date</h6>
+                    <h5> {{rentalItem.rental.returnDate}} </h5>
+                </div>
             </div>
         </div>
     </ng-template>

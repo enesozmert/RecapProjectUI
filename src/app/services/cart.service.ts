@@ -2,6 +2,7 @@ import { CarDetailDto } from './../models/dtos/carDetailDto';
 import { Injectable } from '@angular/core';
 import { CartItems } from '../models/entities/cartItems';
 import { CartItem } from '../models/entities/cartitem';
+import { Rental } from '../models/entities/rental';
 
 @Injectable({
   providedIn: 'root'
@@ -21,7 +22,6 @@ export class CartService {
       CartItems.push(cartItem)
     }
   }
-
   removeFromCart(carDetailDto:CarDetailDto){
     let item:CartItem = CartItems.find(c=>c.carDetailDto.id===carDetailDto.id);
     CartItems.splice(CartItems.indexOf(item),1);

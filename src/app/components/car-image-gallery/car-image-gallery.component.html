@@ -2,7 +2,7 @@
     [showItemNavigatorsOnHover]="false" [showIndicatorsOnItem]="true">
     <ng-template pTemplate="item" let-item>
         <div style="width: 256px;height: 256px;">
-            <img [src]="getCarImages(item)" style="width: 100%; height: auto; display: block;margin: auto;" />
+            <img [src]="getCarImages(item)" style="width: 100%; height: 100%; object-fit:contain; display: block;margin: auto;" />
         </div>
 
     </ng-template>
