@@ -15,7 +15,7 @@ export class RedirectComponent implements OnInit {
     this.activatedRoute.queryParams
       .toPromise()
       .then(params => {
-        console.log(params["url"])
+        //console.log(params["url"])
         if (params["url"]) {
           this.router.navigate(['/' + params["url"]])
         }

@@ -63,6 +63,7 @@ import { TerminalComponent } from './components/terminal/terminal.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { RedirectComponent } from './components/redirect/redirect.component';
 import { AuthInterceptor } from './interceptor/auth.interceptor';
+import { RentAcarChildComponent } from './components/rent-acar-child/rent-acar-child.component';
 
 
 @NgModule({
@@ -100,6 +101,7 @@ import { AuthInterceptor } from './interceptor/auth.interceptor';
     TerminalComponent,
     FooterComponent,
     RedirectComponent,
+    RentAcarChildComponent,
   ],
   imports: [
     BrowserModule,

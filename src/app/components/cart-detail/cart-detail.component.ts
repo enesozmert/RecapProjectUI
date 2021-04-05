@@ -1,3 +1,4 @@
+import { Router } from '@angular/router';
 import { RentalFakeService } from './../../services/rental-fake.service';
 import { ToastrService } from 'ngx-toastr';
 import { CartService } from 'src/app/services/cart.service';
@@ -16,11 +17,11 @@ export class CartDetailComponent implements OnInit {
   cartItems: CartItem[] = []
   rentalItemList: RentalItem[]
   rentalItem:RentalItem
-  paymentRouteLink: string = ""
   constructor(private cartService: CartService,
     private confirmationService: ConfirmationService,
     private toastrService: ToastrService,
-    private rentalFakeService: RentalFakeService) { }
+    private rentalFakeService: RentalFakeService,
+    private router:Router) { }
 
   ngOnInit(): void {
     this.getCart()
@@ -40,20 +41,13 @@ export class CartDetailComponent implements OnInit {
       message: 'Are you sure that you want to proceed?',
       icon: 'pi pi-exclamation-triangle',
       accept: () => {
+        this.router.navigate(['/payment'])
         this.toastrService.success('I Confirm', 'Success');
-        this.paymentRouteLink = "/payment"
       },
       reject: () => {
-        this.toastrService.error('I not Confirm', 'Error');
-        this.paymentRouteLink = "/"
+        this.router.navigate(['/'])
+        this.toastrService.error('I not Confirm', 'Error');     
       }
     });
-  }
-  setPaymentRouteLink(): any {
-    if (this.paymentRouteLink === "/" || this.paymentRouteLink === "") {
-
-    } else {
-      return this.paymentRouteLink;
-    }
   }
 }

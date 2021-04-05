@@ -75,7 +75,7 @@ export class CarDetailDtoComponent implements OnInit {
     return this.carDetailDtos ? this.first === 0 : true;
   }
   selectCarDetailDto(carDetailDto:CarDetailDto){
-    console.log(carDetailDto.brandName)
+    //console.log(carDetailDto.brandName)
   }
   addToCart(carDetailDto: CarDetailDto) {
     this.toastrService.success("Sepete eklendi", carDetailDto.brandName + " " + carDetailDto.modelYear)

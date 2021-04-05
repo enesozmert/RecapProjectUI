@@ -34,27 +34,27 @@ export class RegisterComponent implements OnInit {
   }
   register() {
     if (this.registerForm.valid) {
-      console.log(this.registerForm.value)
+      //console.log(this.registerForm.value)
       let registerModel = Object.assign({}, this.registerForm.value);
       this.authService.register(registerModel).subscribe(response => {
         this.toastrService.info(response.message)
         let token: string = response.data.token;
-        console.log(token);
+        //console.log(token);
         localStorage.clear()
         localStorage.setItem("token", token)
-        console.log(response)
+        //console.log(response)
         if (token.length > 0) {
           this.router.navigate(['/cars'])
         }
       }, responseError => {
         this.toastrService.info(responseError.message)
-        console.log(responseError)
+        //console.log(responseError)
       });
     }
   }
   keyupPasswordEvent(event: any) {
     this.passwordSecurityControl();
-    console.log(event.target.value);
+    //console.log(event.target.value);
 
   }
   passwordSecurityControl() {

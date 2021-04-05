@@ -1,3 +1,4 @@
+import { SingleResponseModel } from './../models/singleResponseModel';
 import { Rental } from './../models/entities/rental';
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
@@ -17,7 +18,7 @@ export class RentalService {
   }
   isForRent(carId: number) {
     let newPath = environment.appUrl + "rentals/isforrent?carId=" + carId
-    return this.httpClient.get<ListResponseModel<Rental>>(newPath);
+    return this.httpClient.get<SingleResponseModel<Rental>>(newPath);
   }
   isRentedByCarId(carId: number) {
     let newPath = environment.appUrl + "rentals/isrentedbycarId?carId=" + carId

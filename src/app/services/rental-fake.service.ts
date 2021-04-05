@@ -10,7 +10,7 @@ export class RentalFakeService {
 
   constructor() { }
   addToCart(rental:Rental){
-    let item = RentalItemList.find(c=>c.rental.id===rental.id);
+    let item = RentalItemList.find(c=>c.rental.carID===rental.carID);
     if(item){
       item.quantity+=1;
     }else{

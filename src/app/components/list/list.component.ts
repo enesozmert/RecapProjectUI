@@ -24,6 +24,6 @@ export class ListComponent implements OnInit {
   }
   filterSend() {
     environment.searchFilterEnviroment = this.searchFilter;
-    console.log(environment.searchFilterEnviroment)
+    //console.log(environment.searchFilterEnviroment)
   }
 }

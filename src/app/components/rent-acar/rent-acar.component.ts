@@ -1,3 +1,5 @@
+import { RentalItem } from './../../models/entities/rentalItem';
+import { CarimageComponent } from './../carimage/carimage.component';
 import { CustomerService } from './../../services/customer.service';
 import { RentalFakeService } from './../../services/rental-fake.service';
 import { ToastrService } from 'ngx-toastr';
@@ -20,29 +22,18 @@ import { FormArray, Validators, FormBuilder, FormGroup } from '@angular/forms';
   providers: [ConfirmationService]
 })
 export class RentACarComponent implements OnInit {
-  rentDateNumber:number=0;
-  returnDateNumber:number=0;
-  customerIDnumber:number=0;
-  rentalFormGroup:FormGroup;
   rental: Rental;
+  rentals:Rental[];
   customerId: number;
   customers: Customer[];
   cartItems: CartItem[] = [];
+  rentalItems:RentalItem[]
   carImageDetailDtos: CarImageDetailDto[] = []
   responsiveOptions: any;
   carImageId: number;
   carImagePath: string;
   dataLoaded: boolean = false
-  dateTouch: Date;
-  dates: Date[];
-  rangeDates: Date[];
-  minDate: Date;
-  maxDate: Date;
-  es: any;
-  invalidDates: Array<Date>;
   position: string;
-
-  
   constructor(private rentalService: RentalService,
     private cartService: CartService,
     private carImageDetailDtoService: CarImageDetailDtoService,
@@ -50,8 +41,8 @@ export class RentACarComponent implements OnInit {
     private toastrService: ToastrService,
     private rentalFakeService: RentalFakeService,
     private customerService: CustomerService,
-    private confirmationService:ConfirmationService,
-    private formBuilder:FormBuilder) {
+    private confirmationService: ConfirmationService,
+    private formBuilder: FormBuilder) {
     this.responsiveOptions = [
       {
         breakpoint: '1024px',
@@ -73,25 +64,6 @@ export class RentACarComponent implements OnInit {
   ngOnInit(): void {
     this.getCart()
     this.getCustomers()
-    this.createCustomerddForm();
-    // for (let index = 0; index < this.cartItems.length-1; index++) {
-    //  this.addcustomerID();
-    //  this.addrentDate();
-    //  this.addreturnDate();  
-    // }
-  }
-  createCustomerddForm() {
-    this.rentalFormGroup = this.formBuilder.group({
-      returnDate: this.formBuilder.array([
-        this.formBuilder.control('')
-      ]),
-      rentDate: this.formBuilder.array([
-        this.formBuilder.control('')
-      ]),
-      customerID: this.formBuilder.array([
-        this.formBuilder.control('')
-      ])
-    });
   }
   getCart() {
     this.cartItems = this.cartService.list();
@@ -109,62 +81,28 @@ export class RentACarComponent implements OnInit {
       this.customers = respoonse.data;
     })
   }
-  addrentDate() {
-    this.rentDate.push(this.formBuilder.control(''));
-    this.rentDateNumber++;
-    return this.rentDate.value;
+  getFakeRentDetail(){
+   return this.rentalItems=this.rentalFakeService.list();
   }
-  get rentDate() {
-    return this.rentalFormGroup.get('rentDate') as FormArray;
+  setFakeRentDetail(fakeRental:Rental){
+    this.rentalFakeService.addToCart(fakeRental);
   }
-  ///
-  addreturnDate() {
-    this.returnDate.push(this.formBuilder.control(''));
-    this.returnDateNumber++;
-    return this.returnDate.value;
-  }
-  get returnDate() {
-    return this.rentalFormGroup.get('returnDate') as FormArray;
-  }
-  ///
-  addcustomerID() {
-    this.customerID.push(this.formBuilder.control(''));
-    this.customerIDnumber++;
-    return this.customerID.value;
-  }
-  get customerID() {
-    return this.rentalFormGroup.get('customerID') as FormArray;
-  }
-  fakerentDetail() {
-  for (let index = 0; index < this.cartItems.length-1; index++) {
-     this.addcustomerID();
-     this.addrentDate();
-     this.addreturnDate();  
-    }
-      console.log(this.rentalFormGroup.value);
-    // if (this.rentalFormGroup.valid) {
-    //   let productModel:Rental = Object.assign({}, this.rentalAddForm.value)
-    //   this.cartItems.forEach(element => {
-    //     //this.rental.carID = element.carDetailDto.id
-    //     //this.rentalFakeService.addToCart(productModel);
-    //     console.log(this.rental);
-    //   });
-    //   this.toastrService.success("Sepet Detaylarına gidiyoruz.")
-    //   //this.router.navigate(['/cartdetail'])
-    // } else {
-    //   this.toastrService.error("Form Error Is Invalid!", "Error")
-    // }
+  fakerentDetail(event:any) {
+    this.setFakeRentDetail(event)
+    //console.log(event)
   }
   confirmPosition(position: string) {
     this.position = position;
-
+    this.getFakeRentDetail();
     this.confirmationService.confirm({
       message: 'Do you want to delete this record?',
       header: 'Delete Confirmation',
       icon: 'pi pi-info-circle',
       accept: () => {
-        this.fakerentDetail()
-        this.toastrService.success("Success", "Confirmed");
+        if (this.getFakeRentDetail().length>0) {
+          this.router.navigate(['/cartdetail'])
+          this.toastrService.success("Success", "Confirmed");
+        }  
       },
       reject: () => {
         this.toastrService.error("Error", "Not Confirmed");
