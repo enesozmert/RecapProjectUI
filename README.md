@@ -6,6 +6,7 @@
 
 [![](https://lh3.googleusercontent.com/pw/ACtC-3fIWY32XlrPJjlotE1sSnkFhr8nUhsi4_2HkFWLA-4aSzPYjmslzftrnT9gb_osO9gYMZYqZyxijay3zNRK0fNcHdlPADBmHRmX8O0yae1zobrYrBwTUYytY0pdY-yQ0qI_MNstscxZqfE21yqlKvZf=w1920-h840-no?authuser=0)](https://lh3.googleusercontent.com/pw/ACtC-3fIWY32XlrPJjlotE1sSnkFhr8nUhsi4_2HkFWLA-4aSzPYjmslzftrnT9gb_osO9gYMZYqZyxijay3zNRK0fNcHdlPADBmHRmX8O0yae1zobrYrBwTUYytY0pdY-yQ0qI_MNstscxZqfE21yqlKvZf=w1920-h840-no?authuser=0)
 - ✨Rent A Car
+- Go to Rent A Car Back End => [BackEnd](https://github.com/enesozmert/ReCapProject "BackEnd")
 
 Hi! My first angular project . The project was created with architecture. C # is used as the back-end language. Angular, a javascript framework, is used in the front-end part. The project lasted four months, including the training. 
 Prepared and presented by Enes Özmert.
@@ -89,5 +90,12 @@ It is designed for users to register on the website.
 	.
 	.
 
-
+# Türkçe İlave Açıklamalar:
+Diğer yapılmış olan projelerden farklılıkları ve artıları nelerdir.
+1-Tek tuş ile Çoklu araba kiralanabilinir.
+2-Back End Kısmında Resimler ayrı bir katmanda tutulup sadece o resim istek olunca wwwroot a oluşturulur ve silinir.
+3-Ödeme 3 aşamalıdır sepete ekleme araba kiralama ön izleme ve ödeme işlemleridir.
+4-Resimler static file olarak açılmamış xhrs sorgusu ile file olarak gelmektedir.
+5-Kayıt olurken şifre güvenlğini ölcen ve gösteren yapı geliştirilmiştir.
+5-İleriye yönelik komut istemi ile işlemlerin yapılabileceği yapı hazırlanmıştır.
 
