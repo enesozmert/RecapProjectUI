@@ -62,6 +62,12 @@ It is designed for users to register on the website.
 ## All Listed Page
 
 [![](https://lh3.googleusercontent.com/pw/ACtC-3dh0vTtvKWDVeoKV3dvSJ9Jw9i3GE0BrLXzSdDH6Qjgj1YIipdyT0HF3EmZ45Y-zTeSDSuDfqHPIQjRBOATosPDAX_gM0THKENao0NoONY0YkogYQ2WBZdm_Yzj_-rkHmbXcnr4n3f81gJSDGhguYv9=w1888-h990-no?authuser=0)](https://lh3.googleusercontent.com/pw/ACtC-3dh0vTtvKWDVeoKV3dvSJ9Jw9i3GE0BrLXzSdDH6Qjgj1YIipdyT0HF3EmZ45Y-zTeSDSuDfqHPIQjRBOATosPDAX_gM0THKENao0NoONY0YkogYQ2WBZdm_Yzj_-rkHmbXcnr4n3f81gJSDGhguYv9=w1888-h990-no?authuser=0)
+## Car Detail Page
+
+[![](https://lh3.googleusercontent.com/pw/ACtC-3dz499wE-VMYF6gTaL07StYocdLLShfQ0r-EILfdsvxB-5mlwBLWQsfGCt15igY0fkko4rudNbVVmyWJ9ggWLDqxU2QbNbZ2jnRpWet6mSfh5IueO1J3mhM-OQNMMFFZ4jQ8aOHgFBn7pzic5NYUTVL=w1893-h990-no?authuser=0)](https://lh3.googleusercontent.com/pw/ACtC-3dz499wE-VMYF6gTaL07StYocdLLShfQ0r-EILfdsvxB-5mlwBLWQsfGCt15igY0fkko4rudNbVVmyWJ9ggWLDqxU2QbNbZ2jnRpWet6mSfh5IueO1J3mhM-OQNMMFFZ4jQ8aOHgFBn7pzic5NYUTVL=w1893-h990-no?authuser=0)
+
+[![](https://lh3.googleusercontent.com/pw/ACtC-3dWIYTuBVpqaPSJbz5rEHAhlhjNEQ031u2T8d6IG5d4uKJ3p_1xM2KsDwtJa5vk-vWpIfi_m4eQkkGng8vGIk4lZ8VqtXG7_dpo5-v_bgDY5ak5WdBsmVsb2IBD7fRVzcyRFSApeoBkjI6usepgY2s8=w1893-h990-no?authuser=0)](https://lh3.googleusercontent.com/pw/ACtC-3dWIYTuBVpqaPSJbz5rEHAhlhjNEQ031u2T8d6IG5d4uKJ3p_1xM2KsDwtJa5vk-vWpIfi_m4eQkkGng8vGIk4lZ8VqtXG7_dpo5-v_bgDY5ak5WdBsmVsb2IBD7fRVzcyRFSApeoBkjI6usepgY2s8=w1893-h990-no?authuser=0)
+
 ## Collective Car Rental Page
 
 [![](https://lh3.googleusercontent.com/pw/ACtC-3eSN_I81TrUZPR_zloGtrUy6KTFnEel-TVszj9GlTdlkRcoSvsyYVhV4Vy86xZRAcVboGIYV0MCzpazp11XVdC0bBvOPc8Lu88FMNT0OTTNag0XVkeU--rbgVXBhm8KxRilf5EBR2Cs4KCd9mBGiTZE=w1894-h990-no?authuser=0)](https://lh3.googleusercontent.com/pw/ACtC-3eSN_I81TrUZPR_zloGtrUy6KTFnEel-TVszj9GlTdlkRcoSvsyYVhV4Vy86xZRAcVboGIYV0MCzpazp11XVdC0bBvOPc8Lu88FMNT0OTTNag0XVkeU--rbgVXBhm8KxRilf5EBR2Cs4KCd9mBGiTZE=w1894-h990-no?authuser=0)
@@ -85,7 +91,7 @@ It is designed for users to register on the website.
 
 	> Ng Prime
 
-	>Toastr ngx
+	> Toastr ngx
 	.
 	.
 	.
