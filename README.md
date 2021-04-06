@@ -1,188 +1,93 @@
 # Welcome to My RentACar Project!
 
+[![N|Solid](https://cldup.com/dTxpPi9lDf.thumb.png)](https://nodesource.com/products/nsolid)
+
+[![Build Status](https://travis-ci.org/joemccann/dillinger.svg?branch=master)](https://travis-ci.org/joemccann/dillinger)
+
+[![](https://lh3.googleusercontent.com/pw/ACtC-3fIWY32XlrPJjlotE1sSnkFhr8nUhsi4_2HkFWLA-4aSzPYjmslzftrnT9gb_osO9gYMZYqZyxijay3zNRK0fNcHdlPADBmHRmX8O0yae1zobrYrBwTUYytY0pdY-yQ0qI_MNstscxZqfE21yqlKvZf=w1920-h840-no?authuser=0)](https://lh3.googleusercontent.com/pw/ACtC-3fIWY32XlrPJjlotE1sSnkFhr8nUhsi4_2HkFWLA-4aSzPYjmslzftrnT9gb_osO9gYMZYqZyxijay3zNRK0fNcHdlPADBmHRmX8O0yae1zobrYrBwTUYytY0pdY-yQ0qI_MNstscxZqfE21yqlKvZf=w1920-h840-no?authuser=0)
+- ✨Rent A Car
+
 Hi! My first angular project . The project was created with architecture. C # is used as the back-end language. Angular, a javascript framework, is used in the front-end part. The project lasted four months, including the training. 
 Prepared and presented by Enes Özmert.
 Instructor Engin Demiroğ
 
 # Layers
 
-![Layers](https://photos.app.goo.gl/TJzDP2znku5qCtZT6)
+[![](https://lh3.googleusercontent.com/pw/ACtC-3e7HV_KzJCqxzY44JpHSi5GFaDsIohA5P4PJz_iCt5tRH3UB7oEwmcBoAdDR7P-aVpG64ObB4qhj0aCGs5MlojOa2o5gIQS7c2p9YpYcXoYFGoFO2g6pXTvm8LP8kcTUbXlJ9nUjMPWLOndV7wmDIvb=w402-h665-no?authuser=0)](https://lh3.googleusercontent.com/pw/ACtC-3e7HV_KzJCqxzY44JpHSi5GFaDsIohA5P4PJz_iCt5tRH3UB7oEwmcBoAdDR7P-aVpG64ObB4qhj0aCGs5MlojOa2o5gIQS7c2p9YpYcXoYFGoFO2g6pXTvm8LP8kcTUbXlJ9nUjMPWLOndV7wmDIvb=w402-h665-no?authuser=0)
 
 ## Home Page
 
 This page is designed to process colors and do it with the command line.
-![HomePage](https://photos.app.goo.gl/B7xBmcEwCSnujwGM7)
+![](https://lh3.googleusercontent.com/pw/ACtC-3fo-kDLh7NEc7wstGIM6CZHY4RoLLiZZJJNH2soXpPw78VP76uRb0Nws5WypoGQOR3scOeTSfAlv9SgnUsr1DXrqEl72oG_uYTqeDt7lcknQ95zSaFPXgcsi083BhzfdP-X_kCBJK4rHBQRhyVUt7n4=w1897-h990-no?authuser=0)
 
 ## Login Page
 
 It is designed for registered users to log in to the website and benefit from the services.
-![LoginPage](https://photos.app.goo.gl/6W4PZjLJFXgw9xsi9)
+[![](https://lh3.googleusercontent.com/pw/ACtC-3e8_PvOXBVGzyjZmjdLcaH0VcoRqug9YS40yrHlk8H5UYDyGEYRs0BBUcSQJTpBjs4HiQYjJmi0gWQA4X99e60r8CySpmqh_y3HxngDrfdeNWfofnsefF0BbQ9Nes-BgtZ1TnR9YlIOMmBhuUP7zS6I=w1919-h990-no?authuser=0)](https://lh3.googleusercontent.com/pw/ACtC-3e8_PvOXBVGzyjZmjdLcaH0VcoRqug9YS40yrHlk8H5UYDyGEYRs0BBUcSQJTpBjs4HiQYjJmi0gWQA4X99e60r8CySpmqh_y3HxngDrfdeNWfofnsefF0BbQ9Nes-BgtZ1TnR9YlIOMmBhuUP7zS6I=w1919-h990-no?authuser=0)
 
 ## Register Page
 
 It is designed for users to register on the website.
-![RegisterPage](https://photos.app.goo.gl/8HQQq2wK1yVxcrii7)
+[![](https://lh3.googleusercontent.com/pw/ACtC-3fc6ItwcDenSVCxrBnWGXfdKhmgWK1kz4kmyaLHXeKyTlJInGSBe6MKVXdxGt4YkGKIMKZZJIn1lCquYM6Gfl88fV1jEOmHxY2rcXnj-n2HntfvcnTIng1SJRKzBx2-N7B_uJxHeq7JihgIkBDkjub3=w1897-h990-no?authuser=0)](https://lh3.googleusercontent.com/pw/ACtC-3fc6ItwcDenSVCxrBnWGXfdKhmgWK1kz4kmyaLHXeKyTlJInGSBe6MKVXdxGt4YkGKIMKZZJIn1lCquYM6Gfl88fV1jEOmHxY2rcXnj-n2HntfvcnTIng1SJRKzBx2-N7B_uJxHeq7JihgIkBDkjub3=w1897-h990-no?authuser=0)
 
 ## Car Added Page
 
-You can delete the current file by clicking the **Remove** button in the file explorer. The file will be moved into the **Trash** folder and automatically deleted after 7 days of inactivity.
+[![](https://lh3.googleusercontent.com/pw/ACtC-3fLZQsz4Y_5xHyBGJSskRTi7T6nSvr4MUaCzdMcSDFNvrv01l1EG1VWKtRcnOaKQSVmaqTJmMYLlQLTRwK5AKWcYA-sSZrGfIg3L9oES855uj0i-Des2bCG3mrnFBhtYUWGyVM-vlz-Tbu3w-6nb0CO=w1915-h990-no?authuser=0)](https://lh3.googleusercontent.com/pw/ACtC-3fLZQsz4Y_5xHyBGJSskRTi7T6nSvr4MUaCzdMcSDFNvrv01l1EG1VWKtRcnOaKQSVmaqTJmMYLlQLTRwK5AKWcYA-sSZrGfIg3L9oES855uj0i-Des2bCG3mrnFBhtYUWGyVM-vlz-Tbu3w-6nb0CO=w1915-h990-no?authuser=0)
 ## Brand Added Page
 
-You can delete the current file by clicking the **Remove** button in the file explorer. The file will be moved into the **Trash** folder and automatically deleted after 7 days of inactivity.
+[![](https://lh3.googleusercontent.com/pw/ACtC-3eDJPSKxORT9yH-nGLbdzReuPH0_d1KQu2_wu7aGHYqK1OgBuaPYCqe-xM-eLCjPqvh8uLBRtxl8OyDMhvEq9hrH7S9LRUSacEnzBYoyrULJLFaPIjSc919_0HxdZKWU45A9kss6y-QgvJl0au0igKs=w1919-h990-no?authuser=0)](https://lh3.googleusercontent.com/pw/ACtC-3eDJPSKxORT9yH-nGLbdzReuPH0_d1KQu2_wu7aGHYqK1OgBuaPYCqe-xM-eLCjPqvh8uLBRtxl8OyDMhvEq9hrH7S9LRUSacEnzBYoyrULJLFaPIjSc919_0HxdZKWU45A9kss6y-QgvJl0au0igKs=w1919-h990-no?authuser=0)
 ## Color Added Page
 
-You can delete the current file by clicking the **Remove** button in the file explorer. The file will be moved into the **Trash** folder and automatically deleted after 7 days of inactivity.
+[![](https://lh3.googleusercontent.com/pw/ACtC-3c94OK0Kgt05BSHKF9aKOB1SUZ2FjfoPE9DWBAck15wcF5sNA9lGSYkP2Oyv5JrOMegSfRh1bxvgsFkZwjBeykW5VKDeHYw-K90LzpeWD0QSebiWLdnFfHCSr-NZd6KxhFbvw4hENnhQ304n98EnSG7=w1920-h987-no?authuser=0)](https://lh3.googleusercontent.com/pw/ACtC-3c94OK0Kgt05BSHKF9aKOB1SUZ2FjfoPE9DWBAck15wcF5sNA9lGSYkP2Oyv5JrOMegSfRh1bxvgsFkZwjBeykW5VKDeHYw-K90LzpeWD0QSebiWLdnFfHCSr-NZd6KxhFbvw4hENnhQ304n98EnSG7=w1920-h987-no?authuser=0)
 ## Car Listed Page
 
-You can delete the current file by clicking the **Remove** button in the file explorer. The file will be moved into the **Trash** folder and automatically deleted after 7 days of inactivity.
+[![](https://lh3.googleusercontent.com/pw/ACtC-3dxvV_qUIV9JrCllhlwoYFgMxfbUuRX65uZ7gfJbj2e27NBZmQv8rR2PvHINoJW48o_1onHburc1a-jAoNK8Av2l8oHEo3g3xRxJ_nYulL5U0m6j56Y8RqJ7PFPsIHS8X2QYTVSLIHila2xHY-31eMj=w1894-h990-no?authuser=0)](https://lh3.googleusercontent.com/pw/ACtC-3dxvV_qUIV9JrCllhlwoYFgMxfbUuRX65uZ7gfJbj2e27NBZmQv8rR2PvHINoJW48o_1onHburc1a-jAoNK8Av2l8oHEo3g3xRxJ_nYulL5U0m6j56Y8RqJ7PFPsIHS8X2QYTVSLIHila2xHY-31eMj=w1894-h990-no?authuser=0)
 
 ## Color Listed Page
 
-You can export the current file by clicking **Export to disk** in the menu. You can choose to export the file as plain Markdown, as HTML using a Handlebars template or as a PDF.
+[![](https://lh3.googleusercontent.com/pw/ACtC-3cA6SwmNBdkRGR6RQD64EWW99LS6MEiv1_LhgaI6nH_5LFJisysIRf3zBJF_N8n0HJgIIioHJpyuc_M7-PtItboIHBfATeQHHZQu_qOGjRm6uBY2eCXP0oJ2BQlKTJArh22gM7hF_CMfhDzMIf9q_vA=w1900-h988-no?authuser=0)](https://lh3.googleusercontent.com/pw/ACtC-3cA6SwmNBdkRGR6RQD64EWW99LS6MEiv1_LhgaI6nH_5LFJisysIRf3zBJF_N8n0HJgIIioHJpyuc_M7-PtItboIHBfATeQHHZQu_qOGjRm6uBY2eCXP0oJ2BQlKTJArh22gM7hF_CMfhDzMIf9q_vA=w1900-h988-no?authuser=0)
 ## Barand Listed Page
 
-You can export the current file by clicking **Export to disk** in the menu. You can choose to export the file as plain Markdown, as HTML using a Handlebars template or as a PDF.
+[![](https://lh3.googleusercontent.com/pw/ACtC-3e6VJCfc_KhiPpunjV-h3FDMGUTkBGZcEw3mj8lV7P4uljh9AVyratJAikjcSdN-zYJ6I7UXJmOsqxH0mQvtysK3FNiIQRxLLFK6XMUEhA7Jq7JPJ_OVG_CsotMUlaTpGgRAzAM1iLwvSL1N2vRpUkX=w1895-h990-no?authuser=0)](https://lh3.googleusercontent.com/pw/ACtC-3e6VJCfc_KhiPpunjV-h3FDMGUTkBGZcEw3mj8lV7P4uljh9AVyratJAikjcSdN-zYJ6I7UXJmOsqxH0mQvtysK3FNiIQRxLLFK6XMUEhA7Jq7JPJ_OVG_CsotMUlaTpGgRAzAM1iLwvSL1N2vRpUkX=w1895-h990-no?authuser=0)
 ## Navbar Page
 
-You can export the current file by clicking **Export to disk** in the menu. You can choose to export the file as plain Markdown, as HTML using a Handlebars template or as a PDF.
+[![](https://lh3.googleusercontent.com/pw/ACtC-3fo-kDLh7NEc7wstGIM6CZHY4RoLLiZZJJNH2soXpPw78VP76uRb0Nws5WypoGQOR3scOeTSfAlv9SgnUsr1DXrqEl72oG_uYTqeDt7lcknQ95zSaFPXgcsi083BhzfdP-X_kCBJK4rHBQRhyVUt7n4=w1897-h990-no?authuser=0)](https://lh3.googleusercontent.com/pw/ACtC-3fo-kDLh7NEc7wstGIM6CZHY4RoLLiZZJJNH2soXpPw78VP76uRb0Nws5WypoGQOR3scOeTSfAlv9SgnUsr1DXrqEl72oG_uYTqeDt7lcknQ95zSaFPXgcsi083BhzfdP-X_kCBJK4rHBQRhyVUt7n4=w1897-h990-no?authuser=0)
 ## Sidebar Page
 
-You can export the current file by clicking **Export to disk** in the menu. You can choose to export the file as plain Markdown, as HTML using a Handlebars template or as a PDF.
+[![](https://lh3.googleusercontent.com/pw/ACtC-3dK0HUfQJEXkS2PlExDpK5HXu_zysFA5LLZyWDAfBAgueey_vfvZhkLMuFpnTUHlPNkQDlqOHzMuGcXwlzK5Kc4Kayzl1IpE3SgKzze3CF9rbPslPd2CL5bM2syzlZiAgxj0r1FGNNSjO2EXC7VTyOH=w1895-h990-no?authuser=0)](https://lh3.googleusercontent.com/pw/ACtC-3dK0HUfQJEXkS2PlExDpK5HXu_zysFA5LLZyWDAfBAgueey_vfvZhkLMuFpnTUHlPNkQDlqOHzMuGcXwlzK5Kc4Kayzl1IpE3SgKzze3CF9rbPslPd2CL5bM2syzlZiAgxj0r1FGNNSjO2EXC7VTyOH=w1895-h990-no?authuser=0)
 ## Footer Page
 
-You can export the current file by clicking **Export to disk** in the menu. You can choose to export the file as plain Markdown, as HTML using a Handlebars template or as a PDF.
+[![](https://lh3.googleusercontent.com/pw/ACtC-3fo-kDLh7NEc7wstGIM6CZHY4RoLLiZZJJNH2soXpPw78VP76uRb0Nws5WypoGQOR3scOeTSfAlv9SgnUsr1DXrqEl72oG_uYTqeDt7lcknQ95zSaFPXgcsi083BhzfdP-X_kCBJK4rHBQRhyVUt7n4=w1897-h990-no?authuser=0)](https://lh3.googleusercontent.com/pw/ACtC-3fo-kDLh7NEc7wstGIM6CZHY4RoLLiZZJJNH2soXpPw78VP76uRb0Nws5WypoGQOR3scOeTSfAlv9SgnUsr1DXrqEl72oG_uYTqeDt7lcknQ95zSaFPXgcsi083BhzfdP-X_kCBJK4rHBQRhyVUt7n4=w1897-h990-no?authuser=0)
 ## All Listed Page
 
-You can export the current file by clicking **Export to disk** in the menu. You can choose to export the file as plain Markdown, as HTML using a Handlebars template or as a PDF.
+[![](https://lh3.googleusercontent.com/pw/ACtC-3dh0vTtvKWDVeoKV3dvSJ9Jw9i3GE0BrLXzSdDH6Qjgj1YIipdyT0HF3EmZ45Y-zTeSDSuDfqHPIQjRBOATosPDAX_gM0THKENao0NoONY0YkogYQ2WBZdm_Yzj_-rkHmbXcnr4n3f81gJSDGhguYv9=w1888-h990-no?authuser=0)](https://lh3.googleusercontent.com/pw/ACtC-3dh0vTtvKWDVeoKV3dvSJ9Jw9i3GE0BrLXzSdDH6Qjgj1YIipdyT0HF3EmZ45Y-zTeSDSuDfqHPIQjRBOATosPDAX_gM0THKENao0NoONY0YkogYQ2WBZdm_Yzj_-rkHmbXcnr4n3f81gJSDGhguYv9=w1888-h990-no?authuser=0)
 ## Collective Car Rental Page
 
-You can export the current file by clicking **Export to disk** in the menu. You can choose to export the file as plain Markdown, as HTML using a Handlebars template or as a PDF.
+[![](https://lh3.googleusercontent.com/pw/ACtC-3eSN_I81TrUZPR_zloGtrUy6KTFnEel-TVszj9GlTdlkRcoSvsyYVhV4Vy86xZRAcVboGIYV0MCzpazp11XVdC0bBvOPc8Lu88FMNT0OTTNag0XVkeU--rbgVXBhm8KxRilf5EBR2Cs4KCd9mBGiTZE=w1894-h990-no?authuser=0)](https://lh3.googleusercontent.com/pw/ACtC-3eSN_I81TrUZPR_zloGtrUy6KTFnEel-TVszj9GlTdlkRcoSvsyYVhV4Vy86xZRAcVboGIYV0MCzpazp11XVdC0bBvOPc8Lu88FMNT0OTTNag0XVkeU--rbgVXBhm8KxRilf5EBR2Cs4KCd9mBGiTZE=w1894-h990-no?authuser=0)
 ## Rent Chil Page
 
-You can export the current file by clicking **Export to disk** in the menu. You can choose to export the file as plain Markdown, as HTML using a Handlebars template or as a PDF.
+[![](https://lh3.googleusercontent.com/pw/ACtC-3eSN_I81TrUZPR_zloGtrUy6KTFnEel-TVszj9GlTdlkRcoSvsyYVhV4Vy86xZRAcVboGIYV0MCzpazp11XVdC0bBvOPc8Lu88FMNT0OTTNag0XVkeU--rbgVXBhm8KxRilf5EBR2Cs4KCd9mBGiTZE=w1894-h990-no?authuser=0)](https://lh3.googleusercontent.com/pw/ACtC-3eSN_I81TrUZPR_zloGtrUy6KTFnEel-TVszj9GlTdlkRcoSvsyYVhV4Vy86xZRAcVboGIYV0MCzpazp11XVdC0bBvOPc8Lu88FMNT0OTTNag0XVkeU--rbgVXBhm8KxRilf5EBR2Cs4KCd9mBGiTZE=w1894-h990-no?authuser=0)
 
 ## Cart Detail Page
 
-You can export the current file by clicking **Export to disk** in the menu. You can choose to export the file as plain Markdown, as HTML using a Handlebars template or as a PDF.
+[![](https://lh3.googleusercontent.com/pw/ACtC-3cSIzMaYBJ8cjnRh71lk4mD7G9Zg2fs-f1qq7hpTMx4XIRXvZrPbPYBFEY4PxletQEtdZxtP75Ganti7AfPEzEm4HpoDdeIOLmvaPzVN5uX6occbrN18mXEIujI_S3LwK8iwp_mu9CaibsICgBfaLYQ=w1898-h990-no?authuser=0)](https://lh3.googleusercontent.com/pw/ACtC-3cSIzMaYBJ8cjnRh71lk4mD7G9Zg2fs-f1qq7hpTMx4XIRXvZrPbPYBFEY4PxletQEtdZxtP75Ganti7AfPEzEm4HpoDdeIOLmvaPzVN5uX6occbrN18mXEIujI_S3LwK8iwp_mu9CaibsICgBfaLYQ=w1898-h990-no?authuser=0)
 ## Cart Summary Page
 
-You can export the current file by clicking **Export to disk** in the menu. You can choose to export the file as plain Markdown, as HTML using a Handlebars template or as a PDF.
+[![](https://lh3.googleusercontent.com/pw/ACtC-3cFBAzeCTTPRTIwrxdw0_sY2shDbCJZqk3FcLUjK1HMKRUQPWPNgbOrvKSnKCLGZqb16lcHcRWmaCVGjqM9PsD2ukNTBRlnEs6-k7Si2_aLEBVGcsgIVGVm1hp2mJ-rL0z4p9qKC8MmJ2wrTrYn4XQi=w1884-h990-no?authuser=0)](https://lh3.googleusercontent.com/pw/ACtC-3cFBAzeCTTPRTIwrxdw0_sY2shDbCJZqk3FcLUjK1HMKRUQPWPNgbOrvKSnKCLGZqb16lcHcRWmaCVGjqM9PsD2ukNTBRlnEs6-k7Si2_aLEBVGcsgIVGVm1hp2mJ-rL0z4p9qKC8MmJ2wrTrYn4XQi=w1884-h990-no?authuser=0)
 ## Payment Page
 
-You can export the current file by clicking **Export to disk** in the menu. You can choose to export the file as plain Markdown, as HTML using a Handlebars template or as a PDF.
+[![](https://lh3.googleusercontent.com/pw/ACtC-3chSFM21DJWDVUnjiaQ5TJtoJjHJppxdMMWJiY9DWAZSE2adsrr6JKJKtFUWagJ87SFnRLPBOKIfGVU51jmpvuAHPXWF_rFJ4C3SsYFABp4uvaAZlmO98mAJwrHPsva8QJ0CsZk-6Ebw_0OtNtHFkoh=w1898-h990-no?authuser=0)](https://lh3.googleusercontent.com/pw/ACtC-3chSFM21DJWDVUnjiaQ5TJtoJjHJppxdMMWJiY9DWAZSE2adsrr6JKJKtFUWagJ87SFnRLPBOKIfGVU51jmpvuAHPXWF_rFJ4C3SsYFABp4uvaAZlmO98mAJwrHPsva8QJ0CsZk-6Ebw_0OtNtHFkoh=w1898-h990-no?authuser=0)
 
 
 
-# Synchronization
+# External libraries used.
 
-Synchronization is one of the biggest features of StackEdit. It enables you to synchronize any file in your workspace with other files stored in your **Google Drive**, your **Dropbox** and your **GitHub** accounts. This allows you to keep writing on other devices, collaborate with people you share the file with, integrate easily into your workflow... The synchronization mechanism takes place every minute in the background, downloading, merging, and uploading file modifications.
+	> Ng Prime
 
-There are two types of synchronization and they can complement each other:
-
-- The workspace synchronization will sync all your files, folders and settings automatically. This will allow you to fetch your workspace on any other device.
-	> To start syncing your workspace, just sign in with Google in the menu.
-
-- The file synchronization will keep one file of the workspace synced with one or multiple files in **Google Drive**, **Dropbox** or **GitHub**.
-	> Before starting to sync files, you must link an account in the **Synchronize** sub-menu.
-
-## Open a file
-
-You can open a file from **Google Drive**, **Dropbox** or **GitHub** by opening the **Synchronize** sub-menu and clicking **Open from**. Once opened in the workspace, any modification in the file will be automatically synced.
-
-## Save a file
-
-You can save any file of the workspace to **Google Drive**, **Dropbox** or **GitHub** by opening the **Synchronize** sub-menu and clicking **Save on**. Even if a file in the workspace is already synced, you can save it to another location. StackEdit can sync one file with multiple locations and accounts.
-
-## Synchronize a file
-
-Once your file is linked to a synchronized location, StackEdit will periodically synchronize it by downloading/uploading any modification. A merge will be performed if necessary and conflicts will be resolved.
-
-If you just have modified your file and you want to force syncing, click the **Synchronize now** button in the navigation bar.
-
-> **Note:** The **Synchronize now** button is disabled if you have no file to synchronize.
-
-## Manage file synchronization
-
-Since one file can be synced with multiple locations, you can list and manage synchronized locations by clicking **File synchronization** in the **Synchronize** sub-menu. This allows you to list and remove synchronized locations that are linked to your file.
+	>Toastr ngx
+	.
+	.
+	.
 
 
-# Publication
 
-Publishing in StackEdit makes it simple for you to publish online your files. Once you're happy with a file, you can publish it to different hosting platforms like **Blogger**, **Dropbox**, **Gist**, **GitHub**, **Google Drive**, **WordPress** and **Zendesk**. With [Handlebars templates](http://handlebarsjs.com/), you have full control over what you export.
-
-> Before starting to publish, you must link an account in the **Publish** sub-menu.
-
-## Publish a File
-
-You can publish your file by opening the **Publish** sub-menu and by clicking **Publish to**. For some locations, you can choose between the following formats:
-
-- Markdown: publish the Markdown text on a website that can interpret it (**GitHub** for instance),
-- HTML: publish the file converted to HTML via a Handlebars template (on a blog for example).
-
-## Update a publication
-
-After publishing, StackEdit keeps your file linked to that publication which makes it easy for you to re-publish it. Once you have modified your file and you want to update your publication, click on the **Publish now** button in the navigation bar.
-
-> **Note:** The **Publish now** button is disabled if your file has not been published yet.
-
-## Manage file publication
-
-Since one file can be published to multiple locations, you can list and manage publish locations by clicking **File publication** in the **Publish** sub-menu. This allows you to list and remove publication locations that are linked to your file.
-
-
-# Markdown extensions
-
-StackEdit extends the standard Markdown syntax by adding extra **Markdown extensions**, providing you with some nice features.
-
-> **ProTip:** You can disable any **Markdown extension** in the **File properties** dialog.
-
-
-## SmartyPants
-
-SmartyPants converts ASCII punctuation characters into "smart" typographic punctuation HTML entities. For example:
-
-|                |ASCII                          |HTML                         |
-|----------------|-------------------------------|-----------------------------|
-|Single backticks|`'Isn't this fun?'`            |'Isn't this fun?'            |
-|Quotes          |`"Isn't this fun?"`            |"Isn't this fun?"            |
-|Dashes          |`-- is en-dash, --- is em-dash`|-- is en-dash, --- is em-dash|
-
-
-## KaTeX
-
-You can render LaTeX mathematical expressions using [KaTeX](https://khan.github.io/KaTeX/):
-
-The *Gamma function* satisfying $\Gamma(n) = (n-1)!\quad\forall n\in\mathbb N$ is via the Euler integral
-
-$$
-\Gamma(z) = \int_0^\infty t^{z-1}e^{-t}dt\,.
-$$
-
-> You can find more information about **LaTeX** mathematical expressions [here](http://meta.math.stackexchange.com/questions/5020/mathjax-basic-tutorial-and-quick-reference).
-
-
-## UML diagrams
-
-You can render UML diagrams using [Mermaid](https://mermaidjs.github.io/). For example, this will produce a sequence diagram:
-
-```mermaid
-sequenceDiagram
-Alice ->> Bob: Hello Bob, how are you?
-Bob-->>John: How about you John?
-Bob--x Alice: I am good thanks!
-Bob-x John: I am good thanks!
-Note right of John: Bob thinks a long<br/>long time, so long<br/>that the text does<br/>not fit on a row.
-
-Bob-->Alice: Checking with John...
-Alice->John: Yes... John, how are you?
-```
-
-And this will produce a flow chart:
-
-```mermaid
-graph LR
-A[Square Rect] -- Link text --> B((Circle))
-A --> C(Round Rect)
-B --> D{Rhombus}
-C --> D
-```
