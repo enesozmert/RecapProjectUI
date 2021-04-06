@@ -29,7 +29,7 @@ export class CardComponent implements OnInit {
 
   ngOnInit(): void {
     this.getCarDetailDtoById(this.carId)
-    // this.isRentedByCarId(this.carId)
+    this.isForRent(this.carId)
   }
   getCarDetailDtoById(carId: number) {
     this.carDetailDtoService.getCarDetailDtoById(carId).subscribe(response => {
@@ -44,13 +44,13 @@ export class CardComponent implements OnInit {
     this.toastrService.success("Sepete eklendi", carDetailDto.brandName + " " + carDetailDto.modelYear)
     this.cartService.addToCart(carDetailDto);
   }
-  // isRentedByCarId(carId: number) {
-  //   this.rentalService.isRentedByCarId(carId).subscribe(response => {
-  //     this.addToCartClass = "btn btn-primary"
-  //     this.toastrService.success(response.message, "Başarılı")
-  //   }, responseError => {
-  //     this.addToCartClass = "btn btn-primary disabled"
-  //     this.toastrService.error(Object.assign(responseError)[1], "Başarısız")
-  //   })
-  // }
+  isForRent(carId: number) {
+    this.rentalService.isForRent(carId).subscribe(response => {
+      if (response.data==true) {
+        this.addToCartClass = "btn btn-primary"
+      }else if(response.data==false){
+        this.addToCartClass = "btn btn-primary disabled"
+      } 
+    })
+  }
 }

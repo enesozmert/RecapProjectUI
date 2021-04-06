@@ -1,3 +1,5 @@
+import { FindexService } from './../../services/findex.service';
+import { RentalService } from './../../services/rental.service';
 import { ConfirmationService } from 'primeng/api';
 import { ToastrService } from 'ngx-toastr';
 import { CustomerService } from './../../services/customer.service';
@@ -19,9 +21,11 @@ export class RentAcarChildComponent implements OnInit {
   rentACarChilForm: FormGroup;
   carDetailDto: CarDetailDto;
   customers: Customer[];
+  carFindexStr: number;
+  userFindexStr: number;
   dataLoaded: boolean = false
   outputRental: Rental
-  outputClass:string=""
+  outputClass: string = ""
   date1: Date;
   date2: Date;
   position: string;
@@ -33,11 +37,15 @@ export class RentAcarChildComponent implements OnInit {
     private formBuilder: FormBuilder,
     private toastrService: ToastrService,
     private confirmationService: ConfirmationService,
-    private fakeRentalService:RentalFakeService) { }
+    private fakeRentalService: RentalFakeService,
+    private rentalService: RentalService,
+    private findexService: FindexService) { }
   ngOnInit(): void {
     this.getCarDetailDto(this.carId);
     this.createRentACarChilFrom()
     this.getCustomers();
+    this.getCarFindex();
+    this.getUserFindex();
   }
   createRentACarChilFrom() {
     this.rentACarChilForm = this.formBuilder.group({
@@ -59,12 +67,46 @@ export class RentAcarChildComponent implements OnInit {
       this.customers = respoonse.data;
     })
   }
+  isForRentCompany(rental: Rental): boolean {
+    let result: boolean = false
+    this.rentalService.isForRentCompany(rental).subscribe(response => {
+      if (response.data) {
+        this.toastrService.success("This vehicle of this brand can be rented.", "Rent A Car")
+        result = true
+      }
+      this.toastrService.error("This vehicle of this brand can not be rented.", "Rent A Car")
+      result = false
+    })
+    return result
+  }
+  getCarFindex() {
+    this.findexService.getCarFindex().subscribe(response => {
+      this.carFindexStr = response.data
+      console.log(this.carFindexStr);
+    })
+  }
+  getUserFindex() {
+    this.findexService.getUserFindex().subscribe(response => {
+      this.userFindexStr = response.data
+      console.log(this.userFindexStr);
+    })
+  }
+  isFindexInTheRangeOf(): boolean {
+    if (Number(this.userFindexStr) > Number(this.carFindexStr) && Number(this.carFindexStr) != Number(this.userFindexStr)) {
+      this.toastrService.success("Insufficient findex score.", "Rent A Car")
+      return true
+    }
+    this.toastrService.error("Insufficient findex not score.", "Rent A Car")
+    return false
+  }
   output() {
     if (this.rentACarChilForm.valid) {
       this.outputRental = Object.assign({}, this.rentACarChilForm.value);
       this.outputRental.carID = this.carId;
-      this.valueChange.emit(this.outputRental);
-      this.outputClass=" disabled";
+      if (this.isFindexInTheRangeOf()) {
+        this.valueChange.emit(this.outputRental);
+      }
+      this.outputClass = " disabled";
     }
   }
 }

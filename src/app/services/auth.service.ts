@@ -41,6 +41,15 @@ export class AuthService {
     }
     return null
   }
+  getCurrentUserId(): number {
+    let token:string=localStorage.getItem("token")
+    if (token) {
+      let decoded = this.jwtControllerService.decodeToken(token)
+      let userId = Object.keys(decoded).filter(x => x.endsWith("/ID"))[0];
+      return decoded[userId];
+    }
+    return null
+  }
   isActive(){
     let token:string=localStorage.getItem("token")
     if (token) {

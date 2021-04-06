@@ -1,8 +1,9 @@
 export interface CreditCard {
     id: number;
     guid: string;
-    name: string;
+    userId: number;
     cardName: string;
+    carNumber:string;
     expiration: string;
     date: Date;
     cvv: number;

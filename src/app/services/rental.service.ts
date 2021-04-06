@@ -18,7 +18,11 @@ export class RentalService {
   }
   isForRent(carId: number) {
     let newPath = environment.appUrl + "rentals/isforrent?carId=" + carId
-    return this.httpClient.get<SingleResponseModel<Rental>>(newPath);
+    return this.httpClient.get<SingleResponseModel<boolean>>(newPath);
+  }
+  isForRentCompany(rental: Rental) {
+    let newPath = environment.appUrl + "rentals/isforrentcompany"
+    return this.httpClient.post<SingleResponseModel<boolean>>(newPath,rental);
   }
   isRentedByCarId(carId: number) {
     let newPath = environment.appUrl + "rentals/isrentedbycarId?carId=" + carId

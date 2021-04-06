@@ -5,11 +5,12 @@
     <div class="card-body">
         <h5 class="card-title ">{{carDetailDto?.brandName}}</h5>
         <div class="card-text">
+            <div>{{carDetailDto?.id}}</div>
             <div>Model Year: {{carDetailDto?.modelYear}}</div>
             <div>Color: {{carDetailDto?.colorName}}</div>
             <div>Daily Price: {{carDetailDto?.dailyPrice}}</div>
             <div>Description: {{carDetailDto?.description}}</div>
         </div>
-        <a (click)="addToCart(carDetailDto)" class="btn btn-primary">Rent</a>
+        <a (click)="addToCart(carDetailDto)" class="{{addToCartClass}}">Rent</a>
     </div>
 </div>

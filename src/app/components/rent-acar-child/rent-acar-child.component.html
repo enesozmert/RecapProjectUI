@@ -5,7 +5,7 @@
 <div *ngIf="setCarDetailDto()">
     <h4 class="p-mb-1">Brand Name:{{setCarDetailDto().brandName}}</h4>
     <h6 class="p-mt-0 p-mb-3">${{setCarDetailDto().dailyPrice|number}}</h6>
-    <span [class]="'product-badge status-'+setCarDetailDto().brandName.toLowerCase()">Description:{{setCarDetailDto().description|number}}</span>
+    <span [class]="'product-badge status-'+setCarDetailDto().brandName.toLowerCase()">Description:{{setCarDetailDto().description}}</span>
     <div class="car-buttons p-mt-5">
         <p-button type="button" styleClass="p-button p-button-rounded p-mr-2">
             <mat-icon>date_range</mat-icon>

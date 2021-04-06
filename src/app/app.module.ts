@@ -29,6 +29,7 @@ import {KnobModule} from 'primeng/knob';
 import {AvatarModule} from 'primeng/avatar';
 import {AvatarGroupModule} from 'primeng/avatargroup';
 import {JwtModule } from "@auth0/angular-jwt";
+import {CheckboxModule} from 'primeng/checkbox';
 
 import { CarDetailDtoComponent } from './components/list/car-detail-dto/car-detail-dto.component';
 import { NaviComponent } from './components/navi/navi.component';
@@ -132,6 +133,7 @@ import { RentAcarChildComponent } from './components/rent-acar-child/rent-acar-c
     AvatarGroupModule,
     AvatarModule,
     JwtModule,
+    CheckboxModule,
     ToastrModule.forRoot({
       positionClass: "toast-bottom-center"
     })
