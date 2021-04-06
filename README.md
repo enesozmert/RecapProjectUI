@@ -98,8 +98,6 @@ It is designed for users to register on the website.
 
 # Türkçe İlave Açıklamalar:
 Diğer yapılmış olan projelerden farklılıkları ve artıları nelerdir.
-###Lists
-####Liste (-)
 -1-Tek tuş ile Çoklu araba kiralanabilinir.
 -2-Back End Kısmında Resimler ayrı bir katmanda tutulup sadece o resim istek olunca wwwroot a oluşturulur ve silinir.
 -3-Ödeme 3 aşamalıdır sepete ekleme araba kiralama ön izleme ve ödeme işlemleridir.
